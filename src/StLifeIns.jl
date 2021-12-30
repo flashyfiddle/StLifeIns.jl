@@ -15,8 +15,7 @@ SingleLife, WholeLife, TermLife, setYEAR_MON, setMAX_AGE, YEAR_MON, MAX_AGE,
 MortalityModel, LeeCarter, Plat, MortalityForecasts, simulate_mortality,
 forecast_mortality, empty_mortality_forecast, *, getindex, vcat,
 lookup_mortality, Contingency, Definite, Indefinite, Decrement, InForce,
-OnDeath, OnTermination, create_surrender_rates, lookup_surrender,
-dependent_probabilities
+OnDeath, OnTermination, create_surrender_rates, lookup_surrender
 
 include("StLifeIns\\LifeBasis\\LifeBasis.jl")
 export Basis, ProductBasis, PolicyBasis, combine_bases, getindex
