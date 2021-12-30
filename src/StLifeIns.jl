@@ -22,7 +22,9 @@ export Basis, ProductBasis, PolicyBasis, combine_bases, getindex
 
 include("StLifeIns\\LifeCashflows\\LifeCashflows.jl")
 export Cashflow, Cashflows, CompleteCashflow, SimpleCashflow, ParallelCashflow,
-CompleteCashflows, mult_link, complete_inflate, *
+CompleteCashflows, ZeroCashflow, PointCashflow, VectorCashflow,
+ParallelPointCashflow, ParallelVectorCashflow, RecurringCashflow,
+AnyTimeCashflow, complete, mult_link, complete_inflate, *
 
 include("StLifeIns\\LifePolicies\\LifePolicies.jl")
 export Policy, StandardPolicy, factor_expenses
