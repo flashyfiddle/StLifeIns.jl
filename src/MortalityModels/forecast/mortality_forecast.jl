@@ -2,11 +2,10 @@ MortalityForecasts = OrderedDict{Int8, Matrix{Float64}}
 
 
 function empty_mortality_forecast(mortmodel::Dict{Bool, MortalityModel})::Dict{Bool, MortalityForecasts}
-    extra = ceil(Int8, YEAR_MON - last(mortmodel.t))
     low_age = first(mortmodel[true].x)
 
     uxd = OrderedDict{Int8, Matrix{Float64}}()
-    t = extra
+    t = 1
     for x in low_age:(MAX_AGE-1)
         uxd[x] = Matrix{Float64}(undef, 0, t)
         t += 1
