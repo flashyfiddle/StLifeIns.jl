@@ -1,7 +1,7 @@
-function lookup_mortality(life::SingleLife, mortmodel_forecasts_dict::Dict{Bool, MortalityForecasts}, nsims::Int64, proj_max::Int16)::Matrix{Float}
+function lookup_mortality(life::SingleLife, mortmodel_forecasts_dict::Dict{Bool, MortalityForecasts}, nsims::Int64, proj_max::Int16)::Matrix{Float64}
     mortmodel_forecasts = mortmodel_forecasts_dict[life.male]
     year_age_len = mortality_lens(life)
-    μ = Matrix{Float}(undef, nsims, Int64(proj_max))
+    μ = Matrix{Float64}(undef, nsims, Int64(proj_max))
     k=0
     for (year, age_len) in year_age_len
         for (age, len) in age_len
