@@ -1,6 +1,6 @@
 module StLifeIns
 
-using CUDA: CuArray
+using CUDA
 using DataStructures: OrderedDict
 using Setfield: @set
 
