@@ -1,3 +1,5 @@
+MortalityForecasts = OrderedDict{Int8, CuArray{Float32, 2}}
+
 function lookup_mortality(life::Life, mortmodel_forecasts_dict::Dict{Bool, MortalityForecasts}, nsims::Int64, proj_max::Int16)::CuArray{Float32, 2}
     mortmodel_forecasts = mortmodel_forecasts_dict[life.male]
     year_age_len = mortality_lens(life)
