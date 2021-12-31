@@ -19,6 +19,6 @@ function create_surrender_rates(per_len, nsims::Int64, proj::Int64)::Matrix{Floa
 end
 
 function lookup_surrender(life::SingleLife, surrender_rates::Matrix{Float64})::Matrix{Float64}
-    term = (1:proj_max) .+ life.term_if
+    term = (1:life.proj_max) .+ life.term_if
     return @view(surrender_rates[:, term])
 end
