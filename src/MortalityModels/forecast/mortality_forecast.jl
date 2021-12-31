@@ -16,10 +16,10 @@ end
 
 
 function simulate_mortality(mf_mortmodel::Dict{Bool, MortalityModel}, nsims::Int64)::Dict{Bool, MortalityForecasts}
-    return Dict(gender => simulate(mf_mortmodel[gender], nsims) for gender in [true, false])
+    return Dict(gender => simulate_mortality(mf_mortmodel[gender], nsims) for gender in [true, false])
 end
 
 
 function forecast_mortality(mf_mortmodel::Dict{Bool, MortalityModel})::Dict{Bool, MortalityForecasts}
-    return Dict(gender => forecast(mf_mortmodel[gender]) for gender in [true, false])
+    return Dict(gender => forecast_mortality(mf_mortmodel[gender]) for gender in [true, false])
 end
