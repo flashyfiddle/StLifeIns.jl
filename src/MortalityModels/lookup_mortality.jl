@@ -18,7 +18,7 @@ end
 
 MortalityLengths = OrderedDict{Int8, OrderedDict{Int8, Int8}}
 
-function mortality_lens(life::SingleLife, time_ahead::Float64)::MortalityLengths
+function mortality_lens(life::SingleLife)::MortalityLengths
     time_ahead = YEAR_MON - floor(YEAR_MON)
     first_year = 1
     last_year = ceil(Int8, time_ahead + life.proj_max/12)

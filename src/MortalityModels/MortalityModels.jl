@@ -12,7 +12,7 @@ include("set_globals.jl"); export setYEAR_MON, YEAR_MON
 export MortalityModel, LeeCarter, Plat
 export MortalityForecasts, simulate_mortality, forecast_mortality, empty_mortality_forecast
 export *, getindex, vcat
-export lookup_mortality
+export lookup_mortality, mortality_lens
 
 include("models\\mortality_model.jl")
 include("models\\LeeCarter.jl")

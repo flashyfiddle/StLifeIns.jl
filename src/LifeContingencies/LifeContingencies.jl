@@ -5,7 +5,7 @@ export Arima, FittedArima, ConstructedArima, simulate_arima, forecast_arima, Lif
 SingleLife, WholeLife, TermLife, setYEAR_MON, setMAX_AGE, YEAR_MON, MAX_AGE,
 MortalityModel, LeeCarter, Plat, MortalityForecasts, simulate_mortality,
 forecast_mortality, empty_mortality_forecast, *, getindex, vcat,
-lookup_mortality
+lookup_mortality, mortality_lens
 
 export Contingency, Definite, Indefinite, Decrement
 export InForce, OnDeath, OnTermination

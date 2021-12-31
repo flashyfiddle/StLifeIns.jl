@@ -15,14 +15,14 @@ forecast_arima, Life, SingleLife, WholeLife, TermLife, setYEAR_MON, setMAX_AGE,
 YEAR_MON, MAX_AGE, MortalityModel, LeeCarter, Plat, MortalityForecasts,
 simulate_mortality, forecast_mortality, empty_mortality_forecast, *, getindex,
 vcat, Contingency, Definite, Indefinite, Decrement, InForce, OnDeath,
-OnTermination, create_surrender_rates
+OnTermination, create_surrender_rates, mortality_lens
 
 export Arima, FittedArima, ConstructedArima, simulate_arima, forecast_arima,
 Life, SingleLife, WholeLife, TermLife, setYEAR_MON, setMAX_AGE, YEAR_MON,
 MAX_AGE, MortalityModel, LeeCarter, Plat, MortalityForecasts,
 simulate_mortality, forecast_mortality, empty_mortality_forecast, *, getindex,
 vcat, Contingency, Definite, Indefinite, Decrement, InForce, OnDeath,
-OnTermination, create_surrender_rates
+OnTermination, create_surrender_rates, mortality_lens
 
 export Basis, ProductBasis, PolicyBasis, combine_bases, getindex
 include("StLifeIns\\LifeBasis\\LifeBasis.jl")
