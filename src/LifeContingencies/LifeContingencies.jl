@@ -9,11 +9,10 @@ lookup_mortality
 
 export Contingency, Definite, Indefinite, Decrement
 export InForce, OnDeath, OnTermination
-export create_surrender_rates, lookup_surrender, dependent_probabilities
+export create_surrender_rates, lookup_surrender
 
 include("contingencies\\contingencies.jl")
 include("surrender_rates.jl")
-include("probabilities.jl")
 
 export BigProbabilityDict, BigRealisedProbDict, dependent_probabilities,
 simulate_lives
