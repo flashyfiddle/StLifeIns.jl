@@ -9,7 +9,14 @@ include("InflationModels\\InflationModels.jl"); export InflationModel
 include("InterestModels\\InterestModels.jl"); using .InterestModels
 export InterestModel, CIR, Vasicek, simulate_interest, forecast_interest
 
-include("LifeContingencies\\LifeContingencies.jl"); using .LifeContingencies
+include("LifeContingencies\\LifeContingencies.jl");
+using .LifeContingencies: Arima, FittedArima, ConstructedArima, simulate_arima, forecast_arima, Life,
+SingleLife, WholeLife, TermLife, setYEAR_MON, setMAX_AGE, YEAR_MON, MAX_AGE,
+MortalityModel, LeeCarter, Plat, MortalityForecasts, simulate_mortality,
+forecast_mortality, empty_mortality_forecast, *, getindex, vcat,
+lookup_mortality, Contingency, Definite, Indefinite, Decrement, InForce,
+OnDeath, OnTermination, create_surrender_rates, lookup_surrender
+
 export Arima, FittedArima, ConstructedArima, simulate_arima, forecast_arima, Life,
 SingleLife, WholeLife, TermLife, setYEAR_MON, setMAX_AGE, YEAR_MON, MAX_AGE,
 MortalityModel, LeeCarter, Plat, MortalityForecasts, simulate_mortality,
