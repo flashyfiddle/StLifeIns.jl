@@ -24,6 +24,11 @@ forecast_mortality, empty_mortality_forecast, *, getindex, vcat, Contingency,
 Definite, Indefinite, Decrement, InForce, OnDeath, OnTermination,
 create_surrender_rates, mortality_lens
 
+# replacements for LifeContingencies with GPU
+export MortalityForecasts, lookup_mortality, lookup_surrender
+include("StLifeIns\\replacement_functions\\lookup_mortality.jl")
+include("StLifeIns\\replacement_functions\\lookup_surrender.jl")
+
 export Basis, ProductBasis, PolicyBasis, combine_bases, getindex
 include("StLifeIns\\LifeBasis\\LifeBasis.jl")
 
@@ -37,10 +42,8 @@ export Policy, StandardPolicy, factor_expenses
 include("StLifeIns\\LifePolicies\\LifePolicies.jl")
 
 # replacements for LifeContingencies with GPU
-export MortalityForecasts, lookup_mortality, lookup_surrender, dependent_probabilities,
-simulate_lives, BigProbabilityDict, BigRealisedProbDict
-include("StLifeIns\\replacement_functions\\lookup_mortality.jl")
-include("StLifeIns\\replacement_functions\\lookup_surrender.jl")
+export dependent_probabilities, simulate_lives, BigProbabilityDict,
+BigRealisedProbDict
 include("StLifeIns\\replacement_functions\\probabilities.jl")
 include("StLifeIns\\replacement_functions\\simulate_lives.jl")
 
