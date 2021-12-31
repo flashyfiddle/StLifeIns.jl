@@ -6,7 +6,7 @@ function forecast_mortality(mortmodel::Plat)::MortalityForecasts
     γc = forecast_arima(mortmodel.γc, extra+1, true)
     m = size(γc, 2)
 
-    xbar = mean(mortmodel.x)
+    xbar = sum(mortmodel.x)/length(mortmodel.x)
     βx2 = xbar .- mortmodel.x
     βx3 = max.(xbar .- mortmodel.x, 0)
 
@@ -30,7 +30,7 @@ function simulate_mortality(mortmodel::Plat, nsims::Int64)::MortalityForecasts
     γc = simulate_arima(mortmodel.γc, extra+1, nsims, true)
     m = size(γc, 2)
 
-    xbar = mean(mortmodel.x)
+    xbar = sum(mortmodel.x)/length(mortmodel.x)
     βx2 = xbar .- mortmodel.x
     βx3 = max.(xbar .- mortmodel.x, 0)
 
