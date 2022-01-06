@@ -14,7 +14,7 @@ struct PolicyBasis <: Basis
     cum_infl::CuArray{Float32, 2}
     int_acc::CuArray{Float32, 2}
     v::CuArray{Float32, 2}
-    function PolicyBasis(life::Life, basis::ProductBasis)
+    function PolicyBasis(life::Life, basis::StProductBasis)
         proj_max = life.proj_max
         whole_life = life isa WholeLife
         μ = lookup_mortality(life, basis.mortality, basis.nsims, proj_max)
