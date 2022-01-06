@@ -85,7 +85,7 @@ See also [`FittedArima`](@ref), [`ConstructedArima`](@ref),
 fitted data. Default is `false`.
 ...
 """
-function simulate_arima(model::FittedArima, n_ahead::Integer, nsims::Integer, return_original=false::Bool)::Matrix{Float64}
+function simulate_arima(model::FittedArima, n_ahead::Integer, nsims::Integer, return_original=false::Bool)
     m = maximum([model.order[1]+model.order[2], model.order[3]])
     n = n_ahead+m
     x = zeros(Union{Float64, Missing}, nsims, n)
@@ -104,11 +104,11 @@ function simulate_arima(model::FittedArima, n_ahead::Integer, nsims::Integer, re
     if return_original
         y = hcat(Matrix{Union{Float64, Missing}}(undef, nsims, length(model.y)-m), y)
         y[:, 1:(length(model.y)-m)] .= transpose(model.y[1:(end-m)])
-        return y
     else
         y = y[:, (m+1):n]
-        return y
     end
+
+    return y
 end
 
 
@@ -131,7 +131,7 @@ See also [`simulate_arima`](@ref), [`ConstructedArima`](@ref).
 fitted data. Default is `false`.
 ...
 """
-function forecast_arima(model::FittedArima, n_ahead::Integer, return_original=false::Bool)::Matrix{Float64}
+function forecast_arima(model::FittedArima, n_ahead::Integer, return_original=false::Bool)
     m = maximum([model.order[1]+model.order[2], model.order[3]])
     n = n_ahead+m
     x = zeros(Union{Float64, Missing}, 1, n)
@@ -150,11 +150,11 @@ function forecast_arima(model::FittedArima, n_ahead::Integer, return_original=fa
     if return_original
         y = hcat(Matrix{Union{Float64, Missing}}(undef, 1, length(model.y)-m), y)
         y[:, 1:(length(model.y)-m)] .= transpose(model.y[1:(end-m)])
-        return y
     else
         y = y[:, (m+1):n]
-        return y
     end
+
+    return y
 end
 
 #=
