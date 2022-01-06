@@ -1,7 +1,7 @@
-BigRealisedProbDict = Dict{Contingency, CuArray{Bool, 2}}
+BigRealisedProbDictGPU = Dict{Contingency, CuArray{Bool, 2}}
 
 
-function simulate_life(probabilities::BigProbabilityDict, nsims::Integer, proj_max::Integer)::BigRealisedProbDict
+function simulate_life(probabilities::BigProbabilityDictGPU, nsims::Integer, proj_max::Integer)::BigRealisedProbDictGPU
     inforce_prob = convert(Matrix{Float32}, probabilities[InForce()])
     death_prob = convert(Matrix{Float32}, probabilities[OnDeath()])
 
@@ -31,10 +31,10 @@ function simulate_life(probabilities::BigProbabilityDict, nsims::Integer, proj_m
         which_inforce = which_inforce[sim_inforce] # which are still in force
     end
 
-    return BigRealisedProbDict(InForce() => inforce, OnDeath() => dead, OnTermination() => terminated)
+    return BigRealisedProbDictGPU(InForce() => inforce, OnDeath() => dead, OnTermination() => terminated)
 end
 
 
-function simulate_life(probabilities::BigProbabilityDict, pb::PolicyBasis)::BigRealisedProbDict
+function simulate_life(probabilities::BigProbabilityDictGPU, pb::PolicyBasis)::BigRealisedProbDictGPU
     return simulate_life(probabilities, pb.nsims, pb.proj_max)
 end
