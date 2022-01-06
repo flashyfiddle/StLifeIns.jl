@@ -25,7 +25,7 @@ Definite, Indefinite, Decrement, InForce, OnDeath, OnTermination,
 create_surrender_rates, mortality_lens
 
 # replacements for LifeContingencies with GPU
-export MortalityForecasts, lookup_mortality, lookup_surrender
+export MortalityForecasts, MortalityForecastsCPU, lookup_mortality, lookup_surrender
 include("StLifeIns\\replacement_functions\\lookup_mortality.jl")
 include("StLifeIns\\replacement_functions\\lookup_surrender.jl")
 
