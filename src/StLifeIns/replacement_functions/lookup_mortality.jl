@@ -1,7 +1,6 @@
-MortalityForecasts = OrderedDict{Int8, CuArray{Float32, 2}}
-MortalityForecastsCPU = OrderedDict{Int8, Matrix{Float64}}
+MortalityForecastsGPU = OrderedDict{Int8, CuArray{Float32, 2}}
 
-function lookup_mortality(life::Life, mortmodel_forecasts_dict::Dict{Bool, MortalityForecasts}, nsims::Int64, proj_max::Int16)::CuArray{Float32, 2}
+function lookup_mortality(life::Life, mortmodel_forecasts_dict::Dict{Bool, MortalityForecastsGPU}, nsims::Int64, proj_max::Int16)::CuArray{Float32, 2}
     mortmodel_forecasts = mortmodel_forecasts_dict[life.male]
     year_age_len = mortality_lens(life)
     μ = CuArray{Float32, 2}(undef, nsims, Int64(proj_max))
