@@ -32,10 +32,6 @@ function lookup_mortality(life::SingleLife, mortmodel_forecasts_dict::Dict{Bool,
         end
     end
 
-    if life isa WholeLife
-        μ[:, proj_max] .= Inf
-    end
-
     return μ
 end
 
