@@ -25,7 +25,14 @@ function Base.getindex(basis::StProductBasis, i::Union{Int64, UnitRange})::StPro
         i = i:i
     end
 
-    return StProductBasis(length(i), basis.proj, basis.mortality[i, :],
-    basis.surrender_rates[i, :], basis.cum_infl[i, :], basis.int_acc[i, :],
-    basis.v[i, :])
+    nsims = length(i)
+    proj = basis.proj
+    mortality = basis.mortality[i, :]
+    surrender_rates = basis.surrender_rates[i, :]
+    cum_infl = basis.cum_infl[i, :]
+    int_acc = basis.int_acc[i, :]
+    v = basis.v[i, :]
+
+    return StProductBasis(nsims, proj, mortality, surrender_rates, cum_infl,
+    int_acc, v)
 end
