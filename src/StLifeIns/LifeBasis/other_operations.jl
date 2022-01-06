@@ -1,4 +1,4 @@
-function combine_bases(bases::ProductBasis...)::ProductBasis
+function combine_bases(bases::StProductBasis...)::StProductBasis
     nsims = bases[1].nsims
     proj = bases[1].proj
     mortality = bases[1].mortality
@@ -9,15 +9,15 @@ function combine_bases(bases::ProductBasis...)::ProductBasis
         mortality = vcat(mortality, bases[i].mortality)
         surrender_rates = vcat(surrender_rates, bases[i].surrender_rates)
     end
-    return ProductBasis(nsims, proj, mortality, surrender_rates)
+    return StProductBasis(nsims, proj, mortality, surrender_rates)
 end
 
 
-function Base.getindex(basis::ProductBasis, i::Union{Int64, UnitRange})::ProductBasis
+function Base.getindex(basis::StProductBasis, i::Union{Int64, UnitRange})::StProductBasis
     if i isa Int64
         i= i:i
     end
 
-    return ProductBasis(length(i), basis.proj, basis.mortality[i, :],
+    return StProductBasis(length(i), basis.proj, basis.mortality[i, :],
     basis.surrender_rates[i, :])
 end
