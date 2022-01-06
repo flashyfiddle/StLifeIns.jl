@@ -1,4 +1,4 @@
-function forecast_mortality(mortmodel::Plat)::MortalityForecasts
+function forecast_mortality(mortmodel::Plat, skip_extra=false::Bool)::MortalityForecasts
     extra = ceil(Int8, YEAR_MON - last(mortmodel.t))-1
     low_age = first(mortmodel.x)
     n = MAX_AGE-low_age+1+extra
@@ -13,7 +13,7 @@ function forecast_mortality(mortmodel::Plat)::MortalityForecasts
     uxd = OrderedDict{Int8, Matrix{Float64}}()
     for x in low_age:(MAX_AGE-1)
         j = x-low_age+1
-        t = (extra+1):(x-low_age+1+extra)
+        t = ifelse(skip_extra, (extra+1):(x-low_age+1+extra), 1:(x-low_age+1+extra))
         k = (m+low_age-x):m
         @views uxd[x] = exp.(mortmodel.αx[j] .+ κt1[:, t] .+ βx2[j]*κt2[:, t] .+ βx3[j]*κt3[:, t] .+ γc[:, k])/12
     end
@@ -22,7 +22,7 @@ function forecast_mortality(mortmodel::Plat)::MortalityForecasts
 end
 
 
-function simulate_mortality(mortmodel::Plat, nsims::Int64)::MortalityForecasts
+function simulate_mortality(mortmodel::Plat, nsims::Int64, skip_extra=false::Bool)::MortalityForecasts
     extra = ceil(Int8, YEAR_MON - last(mortmodel.t))-1
     low_age = first(mortmodel.x)
     n = MAX_AGE-low_age+1+extra
@@ -37,7 +37,7 @@ function simulate_mortality(mortmodel::Plat, nsims::Int64)::MortalityForecasts
     uxd = OrderedDict{Int8, Matrix{Float64}}()
     for x in low_age:(MAX_AGE-1)
         j = x-low_age+1
-        t = (extra+1):(x-low_age+1+extra)
+        t = ifelse(skip_extra, (extra+1):(x-low_age+1+extra), 1:(x-low_age+1+extra))
         k = (m+low_age-x):m
         @views uxd[x] = exp.(mortmodel.αx[j] .+ κt1[:, t] .+ βx2[j]*κt2[:, t] .+ βx3[j]*κt3[:, t] .+ γc[:, k])/12
     end
