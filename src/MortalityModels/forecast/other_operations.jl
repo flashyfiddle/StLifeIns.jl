@@ -3,6 +3,11 @@ function Base.:*(y::Union{Float64, Int64}, x::Dict{Bool, MortalityForecasts})::D
 end
 
 
+"""
+    getindex(x::Dict{Bool, MortalityForecasts}, i::Union{Int64, UnitRange, Colon}, j::Union{Int64, UnitRange, Colon})::Dict{Bool, MortalityForecasts}
+
+Fetches values at indices provided for a `MortalityForecasts` object.
+"""
 function Base.getindex(x::Dict{Bool, MortalityForecasts}, i::Union{Int64, UnitRange, Colon}, j::Union{Int64, UnitRange, Colon})::Dict{Bool, MortalityForecasts}
     if i isa Int64
         i = i:i
@@ -16,6 +21,12 @@ function Base.getindex(x::Dict{Bool, MortalityForecasts}, i::Union{Int64, UnitRa
 end
 
 
+"""
+    vcat(x::Dict{Bool, MortalityForecasts}...)::Dict{Bool, MortalityForecasts}
+
+Concatenates several `MortalityForecasts` objects together as new simulations
+(not as projected forward).
+"""
 function Base.vcat(x::Dict{Bool, MortalityForecasts}...)::Dict{Bool, MortalityForecasts}
     vcatted = x[1]
     for i in 2:length(x)

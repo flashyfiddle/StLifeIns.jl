@@ -1,10 +1,10 @@
 """
     WholeLife(id, male, age, term_if, max_age=MAX_AGE)
 
-Returns a `SingleLife` that ends on death or termination.
+Returns a [`SingleLife`](@ref) that ends on death or termination.
 
-This type of `Life` would be used for a whole life assurance or whole life
-annuity.
+This type of [`Life`](@ref) would be used for a whole life assurance or
+whole life annuity contract.
 
 ...
 # Arguments
