@@ -1,9 +1,9 @@
 function Base.:*(y::Union{Float64, Int64}, x::Dict{Bool, MortalityForecasts})::Dict{Bool, MortalityForecasts}
-    return Dict(g => OrderedDict{Int8, Matrix{Float64}}(i => y*x[g][i] for i in keys(x[g])) for g in keys(x))
+    return Dict{Bool, MortalityForecasts}(g => MortalityForecasts(i => y*x[g][i] for i in keys(x[g])) for g in keys(x))
 end
 
 
-function Base.getindex(x::Dict{Bool, MortalityForecasts}, i::Union{Int64, UnitRange, Colon}, j::Union{Int64, UnitRange, Colon})
+function Base.getindex(x::Dict{Bool, MortalityForecasts}, i::Union{Int64, UnitRange, Colon}, j::Union{Int64, UnitRange, Colon})::Dict{Bool, MortalityForecasts}
     if i isa Int64
         i = i:i
     end
@@ -12,7 +12,7 @@ function Base.getindex(x::Dict{Bool, MortalityForecasts}, i::Union{Int64, UnitRa
         j = j:j
     end
 
-    return Dict(g => OrderedDict(age => x[g][age][i, j] for age in keys(x[g])) for g in [true, false])
+    return Dict{Bool, MortalityForecasts}(g => MortalityForecasts(age => x[g][age][i, j] for age in keys(x[g])) for g in [true, false])
 end
 
 
