@@ -51,6 +51,6 @@ function profit(policies::Vector{StandardPolicy}, rbasis::ProductBasis, pbasis::
 end
 
 
-function calc_profit(cfs::CompleteCashflows, prob::BigProbabilityDict, pb::PolicyBasis, rdf::Float64)::CuArray{Float64, 1}
+function calc_profit(cfs::CompleteCashflows, prob::BigProbabilityDictGPU, pb::PolicyBasis, rdf::Float64)::CuArray{Float64, 1}
     return calc(cfs, prob, pb.int_acc, rdf, pb.nsims, pb.proj_max)
 end

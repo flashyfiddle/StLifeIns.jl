@@ -1,7 +1,7 @@
 struct StochasticReserveCalcs
     policy::StandardPolicy
     policy_basis::PolicyBasis
-    prob::BigProbabilityDict
+    prob::BigProbabilityDictGPU
     cfs::CompleteCashflows
     reserves::CuArray{Float64, 2}
 end
@@ -61,7 +61,7 @@ function reserves(policy::StandardPolicy, basis::ProductBasis)::StochasticReserv
 end
 
 
-function iterate_reserves(cfs::CompleteCashflows, prob::BigProbabilityDict, pb::PolicyBasis)::CuArray{Float64, 2}
+function iterate_reserves(cfs::CompleteCashflows, prob::BigProbabilityDictGPU, pb::PolicyBasis)::CuArray{Float64, 2}
     reserves = -iterate_calc(cfs, prob, pb.int_acc, pb.v, pb.nsims, pb.proj_max)
     return reserves
 end

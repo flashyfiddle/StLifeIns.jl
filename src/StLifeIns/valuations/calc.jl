@@ -1,14 +1,14 @@
-function value(cfs::CompleteCashflows, prob::BigProbabilityDict, pb::PolicyBasis)::CuArray{Float64, 1}
+function value(cfs::CompleteCashflows, prob::BigProbabilityDictGPU, pb::PolicyBasis)::CuArray{Float64, 1}
     return calc(cfs, prob, pb.int_acc, pb.v, pb.nsims, pb.proj_max)
 end
 
 
-function calc(cfs::CompleteCashflows, prob::BigProbabilityDict, int_acc::CuArray{Float32, 2}, v::Union{Float64, CuArray{Float32, 2}}, nsims::Int64, proj_max::Int16)::CuArray{Float64, 1}
+function calc(cfs::CompleteCashflows, prob::BigProbabilityDictGPU, int_acc::CuArray{Float32, 2}, v::Union{Float64, CuArray{Float32, 2}}, nsims::Int64, proj_max::Int16)::CuArray{Float64, 1}
     return iterate_calc(cfs, prob, int_acc, v, nsims, proj_max)[:, 1]
 end
 
 
-function iterate_calc(cfs::CompleteCashflows, prob::BigProbabilityDict, int_acc::CuArray{Float32, 2}, v::CuArray{Float32, 2}, nsims::Int64, proj_max::Int16)::CuArray{Float64, 2}
+function iterate_calc(cfs::CompleteCashflows, prob::BigProbabilityDictGPU, int_acc::CuArray{Float32, 2}, v::CuArray{Float32, 2}, nsims::Int64, proj_max::Int16)::CuArray{Float64, 2}
     totals = get_totals(cfs, prob, int_acc, nsims, proj_max)
     inforce = prob[InForce()]
 
@@ -22,7 +22,7 @@ function iterate_calc(cfs::CompleteCashflows, prob::BigProbabilityDict, int_acc:
 end
 
 
-function iterate_calc(cfs::CompleteCashflows, prob::BigProbabilityDict, int_acc::CuArray{Float32, 2}, v::Float64, nsims::Int64, proj_max::Int16)::CuArray{Float64, 2}
+function iterate_calc(cfs::CompleteCashflows, prob::BigProbabilityDictGPU, int_acc::CuArray{Float32, 2}, v::Float64, nsims::Int64, proj_max::Int16)::CuArray{Float64, 2}
     totals = get_totals(cfs, prob, int_acc, nsims, proj_max)
     inforce = prob[InForce()]
 
@@ -36,7 +36,7 @@ function iterate_calc(cfs::CompleteCashflows, prob::BigProbabilityDict, int_acc:
 end
 
 
-function get_totals(cfs::CompleteCashflows, prob::BigProbabilityDict, int_acc::CuArray{Float32, 2}, nsims::Int64, proj_max::Int16)::CuArray{Float64, 2}
+function get_totals(cfs::CompleteCashflows, prob::BigProbabilityDictGPU, int_acc::CuArray{Float32, 2}, nsims::Int64, proj_max::Int16)::CuArray{Float64, 2}
     totals = CUDA.zeros(Float64, nsims, proj_max)
     for cf in cfs
         cf isa ZeroCashflow && break
@@ -62,11 +62,11 @@ end
 
 # CompleteCashflow
 
-function apply_probability(cf::VectorCashflow, prob::BigProbabilityDict)::CuArray{Float64, 2}
+function apply_probability(cf::VectorCashflow, prob::BigProbabilityDictGPU)::CuArray{Float64, 2}
     return transpose(cf.amount) .* prob[cf.contingency]
 end
 
-function apply_probability(cf::PointCashflow, prob::BigProbabilityDict)::CuArray{Float64, 1}
+function apply_probability(cf::PointCashflow, prob::BigProbabilityDictGPU)::CuArray{Float64, 1}
     return cf.amount .* @view(prob[cf.contingency][:, cf.time])
 end
 
@@ -80,11 +80,11 @@ end
 
 # ParallelCashflow
 
-function apply_probability(cf::ParallelVectorCashflow, prob::BigProbabilityDict)::CuArray{Float64, 2}
+function apply_probability(cf::ParallelVectorCashflow, prob::BigProbabilityDictGPU)::CuArray{Float64, 2}
     return cf.amount .* prob[cf.contingency]
 end
 
-function apply_probability(cf::ParallelPointCashflow, prob::BigProbabilityDict)::CuArray{Float64, 1}
+function apply_probability(cf::ParallelPointCashflow, prob::BigProbabilityDictGPU)::CuArray{Float64, 1}
     return cf.amount .* prob[cf.contingency][:, cf.time]
 end
 
