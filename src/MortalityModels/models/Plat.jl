@@ -1,4 +1,4 @@
-struct Plat <: MortalityModel
+struct Plat <: GAPC
     x::UnitRange{Int8} # fitted ages
     t::UnitRange{Int16} # fitted years
     c::UnitRange{Int16} # cohorts

@@ -1,4 +1,4 @@
-struct LeeCarter <: MortalityModel
+struct LeeCarter <: GAPC
     x::UnitRange{Int8} # fitted ages
     t::UnitRange{Int16} # fitted years
     αx::Vector{Float64}
