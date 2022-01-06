@@ -27,7 +27,7 @@ function Base.getindex(basis::StProductBasis, i::Union{Int64, UnitRange})::StPro
 
     nsims = length(i)
     proj = basis.proj
-    mortality = @view(basis.mortality[i, :])
+    mortality = basis.mortality[i, :]
     surrender_rates = @view(basis.surrender_rates[i, :])
     cum_infl = @view(basis.cum_infl[i, :])
     int_acc = @view(basis.int_acc[i, :])
