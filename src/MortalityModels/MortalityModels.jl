@@ -9,7 +9,7 @@ export Life, SingleLife, WholeLife, TermLife, setMAX_AGE, MAX_AGE
 
 include("set_globals.jl"); export setYEAR_MON, YEAR_MON
 
-export MortalityModel, LeeCarter, Plat
+export MortalityModel, GAPC, LeeCarter, Plat
 export MortalityForecasts, simulate_mortality, forecast_mortality, empty_mortality_forecast
 export *, getindex, vcat
 export lookup_mortality, mortality_lens

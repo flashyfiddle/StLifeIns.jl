@@ -12,14 +12,14 @@ export InterestModel, CIR, Vasicek, simulate_interest, forecast_interest
 include("LifeContingencies\\LifeContingencies.jl");
 using .LifeContingencies: Arima, FittedArima, ConstructedArima, simulate_arima,
 forecast_arima, Life, SingleLife, WholeLife, TermLife, setYEAR_MON, setMAX_AGE,
-YEAR_MON, MAX_AGE, MortalityModel, LeeCarter, Plat, simulate_mortality,
+YEAR_MON, MAX_AGE, MortalityModel, GAPC, LeeCarter, Plat, simulate_mortality,
 forecast_mortality, empty_mortality_forecast, *, getindex, vcat, Contingency,
 Definite, Indefinite, Decrement, InForce, OnDeath, OnTermination,
 create_surrender_rates, mortality_lens
 
 export Arima, FittedArima, ConstructedArima, simulate_arima, forecast_arima,
 Life, SingleLife, WholeLife, TermLife, setYEAR_MON, setMAX_AGE, YEAR_MON,
-MAX_AGE, MortalityModel, LeeCarter, Plat, simulate_mortality,
+MAX_AGE, MortalityModel, GAPC, LeeCarter, Plat, simulate_mortality,
 forecast_mortality, empty_mortality_forecast, *, getindex, vcat, Contingency,
 Definite, Indefinite, Decrement, InForce, OnDeath, OnTermination,
 create_surrender_rates, mortality_lens
@@ -29,7 +29,7 @@ export MortalityForecasts, lookup_mortality, lookup_surrender
 include("StLifeIns\\replacement_functions\\lookup_mortality.jl")
 include("StLifeIns\\replacement_functions\\lookup_surrender.jl")
 
-export Basis, ProductBasis, PolicyBasis, combine_bases, getindex
+export Basis, ProductBasis, StProductBasis, PolicyBasis, combine_bases, getindex
 include("StLifeIns\\LifeBasis\\LifeBasis.jl")
 
 export Cashflow, Cashflows, CompleteCashflow, SimpleCashflow, ParallelCashflow,
