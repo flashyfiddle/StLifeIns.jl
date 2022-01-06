@@ -25,6 +25,7 @@ vcat, Contingency, Definite, Indefinite, Decrement, InForce, OnDeath,
 OnTermination, create_surrender_rates, mortality_lens
 
 # replacements for LifeContingencies with GPU
+import .LifeContingencies: lookup_mortality, lookup_surrender
 export MortalityForecastsGPU, lookup_mortality, lookup_surrender
 include("StLifeIns\\replacement_functions\\lookup_mortality.jl")
 include("StLifeIns\\replacement_functions\\lookup_surrender.jl")
@@ -43,9 +44,10 @@ include("StLifeIns\\LifePolicies\\LifePolicies.jl")
 
 # replacements for LifeContingencies with GPU
 export dependent_probabilities, simulate_lives, BigProbabilityDict,
-BigRealisedProbDict
+BigRealisedProbDict, *, getindex, vcat
 include("StLifeIns\\replacement_functions\\probabilities.jl")
 include("StLifeIns\\replacement_functions\\simulate_lives.jl")
+include("StLifeIns\\replacement_functions\\other_operations.jl")
 
 export StochasticReserveCalcs, annuity, price, profit, reserves
 include("StLifeIns\\valuations\\calc.jl")
