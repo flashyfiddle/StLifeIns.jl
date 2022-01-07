@@ -51,6 +51,7 @@ include("StLifeIns\\replacement_functions\\simulate_lives.jl")
 include("StLifeIns\\replacement_functions\\other_operations.jl")
 
 export StochasticReserveCalcs, annuity, price, profit, reserves
+export iterate_reserves, iterate_calc
 include("StLifeIns\\valuations\\calc.jl")
 include("StLifeIns\\valuations\\price.jl")
 include("StLifeIns\\valuations\\profit.jl")
