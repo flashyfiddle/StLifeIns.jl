@@ -58,7 +58,7 @@ include("StLifeIns\\valuations\\price.jl")
 include("StLifeIns\\valuations\\profit.jl")
 include("StLifeIns\\valuations\\reserve.jl")
 
-export SimulatedLossFunding, simulate_loss, simulate_profit,
+export SimulatedLossFunding, simulate_loss, simulate_profit
 export iterate_simloss, calc_simprofit, sim_calc, iterate_sim_calc,
 get_definite_totals
 include("StLifeIns\\simvaluations\\simlife_calc.jl")
