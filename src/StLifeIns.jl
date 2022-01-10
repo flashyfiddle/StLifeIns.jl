@@ -50,6 +50,9 @@ include("StLifeIns\\replacement_functions\\probabilities.jl")
 include("StLifeIns\\replacement_functions\\simulate_lives.jl")
 include("StLifeIns\\replacement_functions\\other_operations.jl")
 
+export indices
+include("StLifeIns\\indices.jl")
+
 export StochasticReserveCalcs, annuity, price, profit, reserves
 export iterate_reserves, iterate_calc, calc, value, get_totals, annuity,
 start_end_reserves

@@ -36,8 +36,7 @@ function simulate_loss(policies::Vector{StandardPolicy}, basis::ProductBasis)::C
     for policy in policies
         res_calc = simulate_loss(policy, basis)
         x = res_calc.funding_levels
-        i, j = size(x)
-        @inbounds loss[1:i, 1:j] += x
+        @inbounds loss[indices(x)...] += x
     end
 
     return loss
