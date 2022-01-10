@@ -11,7 +11,7 @@ end
 """
     simulate_loss(policy::StandardPolicy, basis::ProductBasis)
 
-returns a `Matrix` of the collective funding levels of a loss for each month
+Returns a `Matrix` of the collective funding levels of a loss for each month
 under each simulation.
 
 Lives are simulated at the start based on their probabilities such that the loss
@@ -24,11 +24,6 @@ In contrast, `simulate_loss` simulates lives once at the start such that funding
 levels in each month depend on this single simulation. Lives that have
 terminated or died after some point will require no funding.
 
-...
-# Arguments
-- `policy::Vector{StandardPolicy}`: a vector of policies.
-- `basis::ProductBasis`: a product basis relating to the provided policicies.
-...
 """
 function simulate_loss(policies::Vector{StandardPolicy}, basis::ProductBasis)::CuArray{Float64, 2}
     nsims, mproj_max = basis.nsims, basis.proj
