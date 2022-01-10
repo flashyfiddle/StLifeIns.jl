@@ -1,3 +1,15 @@
+"""
+    start_end_reserves(reserves::CuArray{Float64, 2}, new::Bool)::CompleteCashflows
+
+Converts reserves matrix into [`ParallelVectorCashflow`](@ref)s for start of
+month and end of month reserves.
+
+...
+# Arguments
+- `reserves::CuArray{Float64, 2}`: matrix of reserves applicable at start of each month, conditional on prior survival.
+- `new::Bool`: whether or not it is a new policy with no prior reserves.
+...
+"""
 function start_end_reserves(reserves::CuArray{Float64, 2}, new::Bool)::CompleteCashflows
     nsims = size(reserves, 1)
     if new
@@ -13,6 +25,18 @@ function start_end_reserves(reserves::CuArray{Float64, 2}, new::Bool)::CompleteC
 end
 
 
+"""
+    start_end_reserves(reserves::CuArray{Float64, 1}, new::Bool)::CompleteCashflows
+
+Converts reserves vector into [`VectorCashflow`](@ref)s for start of
+month and end of month reserves.
+
+...
+# Arguments
+- `reserves::CuArray{Float64, 1}`: vector of reserves applicable at start of each month, conditional on prior survival.
+- `new::Bool`: whether or not it is a new policy with no prior reserves.
+...
+"""
 function start_end_reserves(reserves::CuArray{Float64, 1}, new::Bool)::CompleteCashflows
     if new
         @views start_res_amount = vcat(0, reserves[2:end])
@@ -27,6 +51,14 @@ function start_end_reserves(reserves::CuArray{Float64, 1}, new::Bool)::CompleteC
 end
 
 
+"""
+    profit(policy::StandardPolicy, basis::ProductBasis, reserves::Union{CuArray{Float64, 1}, CuArray{Float64, 2}, Matrix{Float64}, Vector{Float64}}, rdr::Float64)::CuArray{Float64, 1}
+
+Returns the expected remaining profit of each basis-simulation of a `policy`
+based on held `reserves`, a profit-`basis` (different from basis used for
+calculating reserves) and a risk-discount rate `rdr`.
+
+"""
 function profit(policy::StandardPolicy, basis::ProductBasis, reserves::Union{CuArray{Float64, 1}, CuArray{Float64, 2}, Matrix{Float64}, Vector{Float64}}, rdr::Float64)::CuArray{Float64, 1}
     pb = PolicyBasis(policy.life, basis)
     cfs = complete_inflate(policy.expenses, vcat(policy.premiums, policy.benefits, policy.penalties), pb.cum_infl, pb.proj_max)
@@ -37,6 +69,22 @@ function profit(policy::StandardPolicy, basis::ProductBasis, reserves::Union{CuA
 end
 
 
+"""
+    profit(policies::Vector{StandardPolicy}, rbasis::ProductBasis, pbasis::ProductBasis, rdr::Float64, exp_fact::Float64)
+
+Returns the total expected remaining profit of each basis-simulation of a group
+of `policies`.
+
+...
+# Arguments
+- `policies::Vector{StandardPolicy}`: set of policies that are valued together.
+- `rbasis::ProductBasis`: reserving basis (should typically only have 1 simulation)
+- `pbasis::ProductBasis`: profit-test basis
+- `rdr::Float64`: risk-discount rate
+- `exp_fact::Float64`: factor with which expenses need to be adjusted (from what is applicable to reserving)
+...
+
+"""
 function profit(policies::Vector{StandardPolicy}, rbasis::ProductBasis, pbasis::ProductBasis, rdr::Float64, exp_fact::Float64)
     nsims, mproj_max = pbasis.nsims, pbasis.proj
     total_profit = CUDA.zeros(Float64, nsims)

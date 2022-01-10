@@ -9,13 +9,11 @@ The lookup of mortality is based on the [`mortality_lens`](@ref) function which
 provides the number of months spent at each age in each year - sufficient
 information for [`GAPC`](@ref) (Generalised Age-Period-Cohort) models.
 
-Makes no adjustment for
-
 Note that a constant force of mortality is assumed at every unique combination
 of age and year. There is no smoothing. Hence, mortality will be seen to jump
 every time age, year or both change.
 
-See also [`MortalityForecasts`](@ref), [`MortalityLengths`](@ref),
+See also [`MortalityForecasts`](@ref), [`MortalityLengths`](@ref)
 """
 function lookup_mortality(life::SingleLife, mortmodel_forecasts_dict::Dict{Bool, MortalityForecasts}, nsims::Int64, proj_max::Int16)::Matrix{Float64}
     mortmodel_forecasts = mortmodel_forecasts_dict[life.male]

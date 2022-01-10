@@ -5,7 +5,7 @@
 """
     mult_link(cf::ZeroCashflow, x::CuArray{Float32, 2})
 
-returns the same `ZeroCashflow`.
+Returns the same `ZeroCashflow`.
 """
 function mult_link(cf::ZeroCashflow, x::CuArray{Float32, 2})::ZeroCashflow
     return cf
@@ -14,7 +14,7 @@ end
 """
     mult_link(cf::VectorCashflow, x::CuArray{Float32, 2})
 
-returns a `ParallelVectorCashflow` which has been scaled by the factors in `x`.
+Returns a `ParallelVectorCashflow` which has been scaled by the factors in `x`.
 """
 function mult_link(cf::VectorCashflow, x::CuArray{Float32, 2})::ParallelVectorCashflow
     if cf.arrears
@@ -29,7 +29,7 @@ end
 """
     mult_link(cf::PointCashflow, x::CuArray{Float32, 2})
 
-returns a `ParallelPointCashflow` which has been scaled by the factors in `x`.
+Returns a `ParallelPointCashflow` which has been scaled by the factors in `x`.
 """
 function mult_link(cf::PointCashflow, x::CuArray{Float32, 2})::ParallelPointCashflow
     if cf.arrears

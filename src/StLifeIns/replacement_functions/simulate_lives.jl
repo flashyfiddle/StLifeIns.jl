@@ -1,6 +1,15 @@
 BigRealisedProbDictGPU = Dict{Contingency, CuArray{Bool, 2}}
 
 
+"""
+    simulate_life(probabilities::BigProbabilityDictGPU, nsims::Integer, proj_max::Integer)::BigRealisedProbDictGPU
+
+Returns a [`BigRealisedProbDictGPU`](@ref) where probabilities are realised and
+replaced by simulated `Bool` values.
+
+Also see [`BigProbabilityDictGPU`](@ref), [`dependent_probabilities`](@ref).
+
+"""
 function simulate_life(probabilities::BigProbabilityDictGPU, nsims::Integer, proj_max::Integer)::BigRealisedProbDictGPU
     inforce_prob = convert(Matrix{Float32}, probabilities[InForce()])
     death_prob = convert(Matrix{Float32}, probabilities[OnDeath()])
@@ -35,6 +44,15 @@ function simulate_life(probabilities::BigProbabilityDictGPU, nsims::Integer, pro
 end
 
 
+"""
+    simulate_life(probabilities::BigProbabilityDictGPU, pb::PolicyBasis)::BigRealisedProbDictGPU
+
+Returns a [`BigRealisedProbDictGPU`](@ref) where probabilities are realised and
+replaced by simulated `Bool` values.
+
+Also see [`BigProbabilityDictGPU`](@ref), [`dependent_probabilities`](@ref).
+
+"""
 function simulate_life(probabilities::BigProbabilityDictGPU, pb::PolicyBasis)::BigRealisedProbDictGPU
     return simulate_life(probabilities, pb.nsims, pb.proj_max)
 end

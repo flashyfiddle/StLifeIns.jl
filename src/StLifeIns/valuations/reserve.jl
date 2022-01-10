@@ -9,18 +9,14 @@ end
 """
     reserves(policies::Vector{StandardPolicy}, basis::ProductBasis)
 
-returns a `CuArray{Float64, 2}` of the collective reserve to be held over the
-provided policies. Rows represent simulations and columns represent months.
+Returns a `CuArray{Float64, 2}` of the collective expected reserve to be held
+over the provided policies. Rows represent simulations and columns represent
+months.
 
 The `ProductBasis` will operate on all provided `policies`. Where different
 products require separate bases, `reserves` should be called
 separately for these products.
 
-...
-# Arguments
-- `policies::Vector{StandardPolicy}`: a vector of the policies.
-- `basis::ProductBasis`: a basis specifically related to the provided group of `policies`.
-...
 """
 function reserves(policies::Vector{StandardPolicy}, basis::ProductBasis)::CuArray{Float64, 2}
     nsims, mproj_max = basis.nsims, basis.proj
@@ -38,9 +34,9 @@ end
 """
     reserves(policy::StandardPolicy, basis::ProductBasis)
 
-returns a `StochasticReserveCalcs` which contains completed intermediary
-calculations alongside the reserves for each simulation and the start of each
-month.
+Returns a `StochasticReserveCalcs` which contains completed intermediary
+calculations alongside the expected reserves for each simulation and the start
+of each month.
 
 The `ProductBasis` will operate on all provided `policies`. Where different
 products require separate bases, `reserves` should be called
@@ -58,8 +54,8 @@ end
 """
     iterate_reserves(cfs::CompleteCashflows, prob::BigProbabilityDictGPU, pb::PolicyBasis)::CuArray{Float64, 2}
 
-Returns a matrix of reserves for each simulation at each month. The reserve
-at each month assumes that the policy is still in force.
+Returns a matrix of expected reserves for each simulation at each month. The
+reserve at each month assumes that the policy is still in force.
 """
 function iterate_reserves(cfs::CompleteCashflows, prob::BigProbabilityDictGPU, pb::PolicyBasis)::CuArray{Float64, 2}
     reserves = -iterate_calc(cfs, prob, pb.int_acc, pb.v, pb.nsims, pb.proj_max)

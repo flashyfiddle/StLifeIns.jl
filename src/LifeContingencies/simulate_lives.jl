@@ -2,18 +2,13 @@ BigRealisedProbabilityDict = Dict{Contingency, Matrix{Bool}}
 
 
 """
-    simulate_life(probabilities::BigProbabilityDict, pb::PolicyBasis)::BigRealisedProbabilityDict
+    simulate_life(probabilities::BigProbabilityDict, nsims::Integer, proj_max::Integer)::BigRealisedProbabilityDict
 
 Returns a [`BigRealisedProbDict`](@ref), where probabilities are realised and
 replaced by simulated `Bool` values.
 
 Also see [`BigProbabilityDict`](@ref), [`dependent_probabilities`](@ref).
 
-...
-# Arguments
-- `probabilities::BigProbabilityDict`: dependent probabilities of remaining inforce, dying and terminating.
-- `pb::PolicyBasis`: a policy basis relating to the provided `policy`.
-...
 """
 function simulate_life(probabilities::BigProbabilityDict, nsims::Integer, proj_max::Integer)::BigRealisedProbabilityDict
     inforce_prob = probabilities[InForce()]

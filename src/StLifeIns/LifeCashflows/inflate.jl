@@ -1,7 +1,7 @@
 """
     complete_inflate(expenses::Cashflows, prem_ben_pen::Cashflows, cuminfl::CuArray{Float32}, proj_max::Int16)::CompleteCashflows
 
-returns `CompleteCashflows` of which `expenses` have also been inflated.
+Returns `CompleteCashflows` of which `expenses` have also been inflated.
 
 ...
 # Arguments
