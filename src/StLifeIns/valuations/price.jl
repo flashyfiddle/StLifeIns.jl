@@ -1,4 +1,4 @@
-function annuity(cf::Vector{Cashflow}, pb::PolicyBasis, prob::BigProbDictGPU)::CuArray{Float64, 1}
+function annuity(cf::Vector{Cashflow}, pb::PolicyBasis, prob::BigProbabilityDictGPU)::CuArray{Float64, 1}
     completecfs = convert(CompleteCashflows, complete.(cf, pb.proj_max))
     val = value(completecfs, prob, pb)
     return val
