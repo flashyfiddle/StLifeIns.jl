@@ -12,6 +12,7 @@ function start_end_reserves(reserves::CuArray{Float64, 2}, new::Bool)::CompleteC
     return [start_res, end_res]
 end
 
+
 function start_end_reserves(reserves::CuArray{Float64, 1}, new::Bool)::CompleteCashflows
     if new
         @views start_res_amount = vcat(0, reserves[2:end])

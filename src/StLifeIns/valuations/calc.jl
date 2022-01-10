@@ -1,13 +1,29 @@
+"""
+    value(cfs::CompleteCashflows, prob::BigProbabilityDictGPU, pb::PolicyBasis)::CuArray{Float64, 1}
+
+Returns time 0 valuations of a set of cashflows for each simulation.
+"""
 function value(cfs::CompleteCashflows, prob::BigProbabilityDictGPU, pb::PolicyBasis)::CuArray{Float64, 1}
     return calc(cfs, prob, pb.int_acc, pb.v, pb.nsims, pb.proj_max)
 end
 
 
+"""
+    calc(cfs::CompleteCashflows, prob::BigProbabilityDictGPU, int_acc::CuArray{Float32, 2}, v::Union{Float64, CuArray{Float32, 2}}, nsims::Int64, proj_max::Int16)::CuArray{Float64, 1}
+
+Returns time 0 valuations of a set of cashflows for each simulation.
+"""
 function calc(cfs::CompleteCashflows, prob::BigProbabilityDictGPU, int_acc::CuArray{Float32, 2}, v::Union{Float64, CuArray{Float32, 2}}, nsims::Int64, proj_max::Int16)::CuArray{Float64, 1}
     return iterate_calc(cfs, prob, int_acc, v, nsims, proj_max)[:, 1]
 end
 
 
+"""
+    iterate_calc(cfs::CompleteCashflows, prob::BigProbabilityDictGPU, int_acc::CuArray{Float32, 2}, v::CuArray{Float32, 2}, nsims::Int64, proj_max::Int16)::CuArray{Float64, 2}
+
+Returns a matrix of valuations for each simulation at each month. The valuation
+at each month assumes that the policy is still in force.
+"""
 function iterate_calc(cfs::CompleteCashflows, prob::BigProbabilityDictGPU, int_acc::CuArray{Float32, 2}, v::CuArray{Float32, 2}, nsims::Int64, proj_max::Int16)::CuArray{Float64, 2}
     totals = get_totals(cfs, prob, int_acc, nsims, proj_max)
     inforce = prob[InForce()]
@@ -22,6 +38,15 @@ function iterate_calc(cfs::CompleteCashflows, prob::BigProbabilityDictGPU, int_a
 end
 
 
+"""
+    iterate_calc(cfs::CompleteCashflows, prob::BigProbabilityDictGPU, int_acc::CuArray{Float32, 2}, v::Float64, nsims::Int64, proj_max::Int16)::CuArray{Float64, 2}
+
+Returns a matrix of valuations for each simulation at each month. The valuation
+at each month assumes that the policy is still in force.
+
+This version of the function is specifically intended for profit-testing with a
+fixed risk-dicount rate.
+"""
 function iterate_calc(cfs::CompleteCashflows, prob::BigProbabilityDictGPU, int_acc::CuArray{Float32, 2}, v::Float64, nsims::Int64, proj_max::Int16)::CuArray{Float64, 2}
     totals = get_totals(cfs, prob, int_acc, nsims, proj_max)
     inforce = prob[InForce()]
@@ -36,6 +61,14 @@ function iterate_calc(cfs::CompleteCashflows, prob::BigProbabilityDictGPU, int_a
 end
 
 
+"""
+    get_totals(cfs::CompleteCashflows, prob::BigProbabilityDictGPU, int_acc::CuArray{Float32, 2}, nsims::Int64, proj_max::Int16)::CuArray{Float64, 2}
+
+Returns a `Matrix` containing the net expected cashflows for each month in each
+simulation. Each cashflow is adjusted for by its probability and interest
+applicable for that month only, i.e. conditional on survival to start of month.
+
+"""
 function get_totals(cfs::CompleteCashflows, prob::BigProbabilityDictGPU, int_acc::CuArray{Float32, 2}, nsims::Int64, proj_max::Int16)::CuArray{Float64, 2}
     totals = CUDA.zeros(Float64, nsims, proj_max)
     for cf in cfs

@@ -1,3 +1,9 @@
+"""
+    combine_bases(bases::StProductBasis...)::StProductBasis
+
+Combines several [`StProductBasis`](@ref) objects into a single
+[`StProductBasis`](@ref).
+"""
 function combine_bases(bases::StProductBasis...)::StProductBasis
     nsims = bases[1].nsims
     proj = bases[1].proj

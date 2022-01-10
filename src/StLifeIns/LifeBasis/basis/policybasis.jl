@@ -1,7 +1,8 @@
 """
     PolicyBasis(life::life, basis::ProductBasis)
 
-All the basis information relating to a specific `Life` derived from the `ProductBasis`.
+All the basis information relating to a specific [`Life`](@ref) derived from the
+[`StProductBasis`](@ref).
 
 Includes mortality, surrender, interest and inflation rates.
 """

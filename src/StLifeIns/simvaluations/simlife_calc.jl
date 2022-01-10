@@ -2,6 +2,7 @@ function sim_calc(cfs::CompleteCashflows, prob::BigRealisedProbDictGPU, int_acc:
     return iterate_sim_calc(cfs, prob, int_acc, v, nsims, proj_max)[:, 1]
 end
 
+
 function iterate_sim_calc(cfs::CompleteCashflows, prob::BigRealisedProbDictGPU, int_acc::CuArray{Float32, 2}, v::CuArray{Float32, 2}, nsims::Int64, proj_max::Int16)::CuArray{Float64, 2}
     nsims, proj_max = nsims, proj_max
     totals = get_definite_totals(cfs, prob, int_acc, nsims, proj_max)
@@ -14,6 +15,7 @@ function iterate_sim_calc(cfs::CompleteCashflows, prob::BigRealisedProbDictGPU, 
     @views val[:, 1] = (val[:, 2] + totals[:, 1]) .* v[:, 1]
     return val
 end
+
 
 function iterate_sim_calc(cfs::CompleteCashflows, prob::BigRealisedProbDictGPU, int_acc::CuArray{Float32, 2}, v::Float64, nsims::Int64, proj_max::Int16)::CuArray{Float64, 2}
     nsims, proj_max = nsims, proj_max
