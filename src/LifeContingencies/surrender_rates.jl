@@ -50,6 +50,5 @@ Provided surrender rates should contain rates from the start of the product to
 when `life` would end.
 """
 function lookup_surrender(life::SingleLife, surrender_rates::Matrix{Float64})::Matrix{Float64}
-    term = (1:life.proj_max) .+ life.term_if
-    return @view(surrender_rates[:, term])
+    return @view(surrender_rates[:, (1:life.proj_max) .+ life.term_if])
 end
