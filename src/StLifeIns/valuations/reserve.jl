@@ -10,8 +10,8 @@ end
     reserves(policies::Vector{StandardPolicy}, basis::ProductBasis)
 
 Returns a `CuArray{Float64, 2}` of the collective expected reserve to be held
-over the provided policies. Rows represent simulations and columns represent
-months.
+over the provided policies for each basis simulation at the start of each month.
+Rows represent simulations and columns represent months.
 
 The `ProductBasis` will operate on all provided `policies`. Where different
 products require separate bases, `reserves` should be called
@@ -35,12 +35,8 @@ end
     reserves(policy::StandardPolicy, basis::ProductBasis)
 
 Returns a `StochasticReserveCalcs` which contains completed intermediary
-calculations alongside the expected reserves for each simulation and the start
-of each month.
-
-The `ProductBasis` will operate on all provided `policies`. Where different
-products require separate bases, `reserves` should be called
-separately for these products.
+calculations alongside the expected reserves for each basis simulation at the
+start of each month. Rows represent simulations and columns represent months.
 
 """
 function reserves(policy::StandardPolicy, basis::ProductBasis)::StochasticReserveCalcs
