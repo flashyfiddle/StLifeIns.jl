@@ -10,8 +10,8 @@ assurance contract.
 ...
 # Arguments
 - `id::Int64`: an identifier of the life.
-- 'male::Bool': gender indicator (`true` = male, `false` = female).
-- 'age::Float64': exact age to month, e.g. 40 and 2 months = 40+2/12.
+- `male::Bool`: gender indicator (`true` = male, `false` = female).
+- `age::Float64`: exact age to month, e.g. 40 and 2 months = 40+2/12.
 - `term::Int16`: the term lifetime in months defined at inception before which
 or at which the life must end.
 - `term_if::Int16`: number of months that have already passed sinced initial
