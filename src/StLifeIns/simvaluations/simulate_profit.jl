@@ -1,3 +1,15 @@
+"""
+    simulate_profit(policy::StandardPolicy, basis::ProductBasis, reserves::Union{CuArray{Float64, 1}, CuArray{Float64, 2}, Matrix{Float64}, Vector{Float64}}, rdr::Float64)::CuArray{Float64, 1}
+
+Returns the simulated remaining profit of each basis-simulation of a `policy`
+based on held `reserves`, a profit-`basis` (different from basis used for
+calculating reserves) and a risk-discount rate `rdr`.
+
+Expenses need to be adjusted manually before using this function.
+
+Lives are simulated and the emerging profit is given.
+
+"""
 function simulate_profit(policy::StandardPolicy, basis::ProductBasis, reserves::Union{CuArray{Float64, 1}, CuArray{Float64, 2}, Matrix{Float64}, Vector{Float64}}, rdr::Float64)::CuArray{Float64, 1}
     pb = PolicyBasis(policy.life, basis)
     cfs = complete_inflate(policy.expenses, vcat(policy.premiums, policy.benefits, policy.penalties), pb.cum_infl, pb.proj_max)
@@ -9,7 +21,19 @@ function simulate_profit(policy::StandardPolicy, basis::ProductBasis, reserves::
 end
 
 
-function simulate_profit(policies::Vector{StandardPolicy}, rbasis::ProductBasis, pbasis::ProductBasis, rdr::Float64, exp_fact::Float64)
+"""
+    simulate_profit(policies::Vector{StandardPolicy}, rbasis::ProductBasis, pbasis::ProductBasis, rdr::Float64, exp_fact::Float64)
+
+Returns the simulated remaining profit of each basis-simulation of a set of
+`policies` based on a reserving-`rbasis`, a profit-`pbasis` (different from basis used for
+calculating reserves) and a risk-discount rate `rdr`.
+
+`exp_fact` is used to factor all the expenses of the policies provided.
+
+Lives are simulated and the emerging profit is given.
+
+"""
+function simulate_profit(policies::Vector{StandardPolicy}, rbasis::ProductBasis, pbasis::ProductBasis, rdr::Float64, exp_fact::Float64)::CuArray{Float64, 1}
     nsims, mproj_max = pbasis.nsims, pbasis.proj
     total_profit = CUDA.zeros(Float64, nsims)
     for policy in policies
