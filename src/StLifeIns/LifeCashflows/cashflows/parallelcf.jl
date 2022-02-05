@@ -16,7 +16,7 @@ struct ParallelPointCashflow <: ParallelCashflow
         if all(amount .== 0)
             return ZeroCashflow(name)
         else
-            useGPU && amount = CuArray{Float64, 1}(amount)
+            useGPU && (amount = CuArray{Float64, 1}(amount))
             return new(name, amount, time, arrears, contingency)
         end
     end
@@ -40,7 +40,7 @@ struct ParallelVectorCashflow <: ParallelCashflow
         if all(amount .== 0)
             return ZeroCashflow(name)
         else
-            useGPU && amount = CuArray{Float64, 2}(amount)
+            useGPU && (amount = CuArray{Float64, 2}(amount))
             return new(name, amount, arrears, contingency)
         end
     end

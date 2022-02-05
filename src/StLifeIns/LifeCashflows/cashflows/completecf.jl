@@ -78,7 +78,7 @@ struct VectorCashflow <: CompleteCashflow
         if all(amount .== 0)
             return ZeroCashflow(name)
         else
-            useGPU && amount = CuArray{Float64, 1}(amount)
+            useGPU && (amount = CuArray{Float64, 1}(amount))
             return new(name, amount, arrears, contingency)
         end
     end
