@@ -48,6 +48,6 @@ function simulate_profit(policies::Vector{StandardPolicy}, rbasis::ProductBasis,
 end
 
 
-function calc_simprofit(cfs::CompleteCashflows, prob::Union{BigRealisedProbDict, BigRealisedProbDictGPU}, pb::PolicyBasis, rdf::Float64)::Union{Vector{Float64}, CuArray{Float64, 1}}
+function calc_simprofit(cfs::CompleteCashflows, prob::Union{BigRealisedProbabilityDict, BigRealisedProbDictGPU}, pb::PolicyBasis, rdf::Float64)::Union{Vector{Float64}, CuArray{Float64, 1}}
     return sim_calc(cfs, prob, pb.int_acc, rdf, pb.nsims, pb.proj_max)
 end

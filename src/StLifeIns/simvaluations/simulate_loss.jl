@@ -2,7 +2,7 @@ struct SimulatedLossFunding
     policy::StandardPolicy
     policy_basis::PolicyBasis
     prob::Union{BigProbabilityDict, BigProbabilityDictGPU}
-    realised_probs::Union{BigRealisedProbDict, BigRealisedProbDictGPU}
+    realised_probs::Union{BigRealisedProbabilityDict, BigRealisedProbDictGPU}
     cfs::CompleteCashflows
     funding_levels::Union{Matrix{Foat64}, CuArray{Float64, 2}}
 end
@@ -69,6 +69,6 @@ function simulate_loss(policy::StandardPolicy, basis::ProductBasis)
 end
 
 
-function iterate_simloss(cfs::CompleteCashflows, prob::BigRealisedProbDictGPU, pb::PolicyBasis)::Union{Matrix{Float64}, CuArray{Float64, 2}}
+function iterate_simloss(cfs::CompleteCashflows, prob::Union{BigRealisedProbabilityDict, BigRealisedProbDictGPU}, pb::PolicyBasis)::Union{Matrix{Float64}, CuArray{Float64, 2}}
     return -iterate_sim_calc(cfs, prob, pb.int_acc, pb.v, pb.nsims, pb.proj_max)
 end
