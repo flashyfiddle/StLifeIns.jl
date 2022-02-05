@@ -12,7 +12,7 @@ Returns `CompleteCashflows` of which `expenses` have also been inflated.
 ...
 
 """
-function complete_inflate(expenses::Cashflows, prem_ben_pen::Cashflows, cuminfl::Union{Matrix{Float64,} CuArray{Float32, 2}}, proj_max::Int16)::CompleteCashflows
+function complete_inflate(expenses::Cashflows, prem_ben_pen::Cashflows, cuminfl::Union{Matrix{Float64}, CuArray{Float32, 2}}, proj_max::Int16)::CompleteCashflows
     new_cfs = CompleteCashflows(undef, length(expenses) + length(prem_ben_pen))
     k = 1
     for i in eachindex(expenses)
