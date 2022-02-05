@@ -20,9 +20,9 @@ struct PolicyBasis <: Basis
         whole_life = life isa WholeLife
         μ = lookup_mortality(life, basis.mortality, basis.nsims, proj_max)
         σ = lookup_surrender(life, basis.surrender_rates)
-        cum_infl = basis.cum_infl[:, 1:proj_max]
-        int_acc = basis.int_acc[:, 1:proj_max]
-        v = basis.v[:, 1:proj_max]
+        @views cum_infl, int_acc, v = basis.cum_infl[:, 1:proj_max],
+                                      int_acc = basis.int_acc[:, 1:proj_max],
+                                      v = basis.v[:, 1:proj_max]
         return new(basis.nsims, proj_max, whole_life, μ, σ, cum_infl, int_acc, v)
     end
 end
