@@ -29,7 +29,7 @@ export setGPU, setCPU
 include("StLifeIns\\setProcessor.jl")
 
 # replacements for LifeContingencies with GPU
-import .LifeContingencies: lookup_mortality, lookup_surrender, dependent_probabilities, simulate_lives
+import .LifeContingencies: lookup_mortality, lookup_surrender, dependent_probabilities, simulate_life
 export MortalityForecastsGPU, lookup_mortality, lookup_surrender
 include("StLifeIns\\replacement_functions\\lookup_mortality.jl")
 include("StLifeIns\\replacement_functions\\lookup_surrender.jl")
@@ -47,7 +47,7 @@ export Policy, StandardPolicy, factor_expenses
 include("StLifeIns\\LifePolicies\\LifePolicies.jl")
 
 # replacements for LifeContingencies with GPU
-export dependent_probabilities, simulate_lives, BigProbabilityDictGPU,
+export dependent_probabilities, simulate_life, BigProbabilityDictGPU,
 BigRealisedProbDictGPU, *, getindex, vcat
 include("StLifeIns\\replacement_functions\\probabilities.jl")
 include("StLifeIns\\replacement_functions\\simulate_lives.jl")
