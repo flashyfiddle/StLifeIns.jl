@@ -4,7 +4,7 @@ struct SimulatedLossFunding
     prob::Union{BigProbabilityDict, BigProbabilityDictGPU}
     realised_probs::Union{BigRealisedProbabilityDict, BigRealisedProbDictGPU}
     cfs::CompleteCashflows
-    funding_levels::Union{Matrix{Foat64}, CuArray{Float64, 2}}
+    funding_levels::Union{Matrix{Float64}, CuArray{Float64, 2}}
 end
 
 
