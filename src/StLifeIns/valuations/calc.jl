@@ -96,7 +96,7 @@ end
 
 # CompleteCashflow
 
-function apply_probability(cf::VectorCashflow, prob::Union{BigProbabilityDict, BigProbabilityDictGPU})::Union{Vector{Float64}, CuArray{Float64, 2}}
+function apply_probability(cf::VectorCashflow, prob::Union{BigProbabilityDict, BigProbabilityDictGPU})::Union{Matrix{Float64}, CuArray{Float64, 2}}
     return transpose(cf.amount) .* prob[cf.contingency]
 end
 
@@ -104,7 +104,7 @@ function apply_probability(cf::PointCashflow, prob::Union{BigProbabilityDict, Bi
     return cf.amount .* @view(prob[cf.contingency][:, cf.time])
 end
 
-function bring_to_end(cf::VectorCashflow, int_acc::Union{Matrix{Float64}, CuArray{Float32, 2}})::Union{Vector{Float64}, CuArray{Float64, 2}}
+function bring_to_end(cf::VectorCashflow, int_acc::Union{Matrix{Float64}, CuArray{Float32, 2}})::Union{Matrix{Float64}, CuArray{Float64, 2}}
     return transpose(cf.amount) .* int_acc
 end
 
@@ -114,7 +114,7 @@ end
 
 # ParallelCashflow
 
-function apply_probability(cf::ParallelVectorCashflow, prob::Union{BigProbabilityDict, BigProbabilityDictGPU})::Union{Vector{Float64}, CuArray{Float64, 2}}
+function apply_probability(cf::ParallelVectorCashflow, prob::Union{BigProbabilityDict, BigProbabilityDictGPU})::Union{Matrix{Float64}, CuArray{Float64, 2}}
     return cf.amount .* prob[cf.contingency]
 end
 
@@ -122,7 +122,7 @@ function apply_probability(cf::ParallelPointCashflow, prob::Union{BigProbability
     return cf.amount .* prob[cf.contingency][:, cf.time]
 end
 
-function bring_to_end(cf::ParallelVectorCashflow, int_acc::Union{Matrix{Float64}, CuArray{Float32, 2}})::Union{Vector{Float64}, CuArray{Float64, 2}}
+function bring_to_end(cf::ParallelVectorCashflow, int_acc::Union{Matrix{Float64}, CuArray{Float32, 2}})::Union{Matrix{Float64}, CuArray{Float64, 2}}
     return cf.amount .* int_acc
 end
 
