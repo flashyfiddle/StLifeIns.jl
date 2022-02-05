@@ -29,7 +29,7 @@ export setGPU, setCPU
 include("StLifeIns\\setProcessor.jl")
 
 # replacements for LifeContingencies with GPU
-import .LifeContingencies: lookup_mortality, lookup_surrender
+import .LifeContingencies: lookup_mortality, lookup_surrender, dependent_probabilities
 export MortalityForecastsGPU, lookup_mortality, lookup_surrender
 include("StLifeIns\\replacement_functions\\lookup_mortality.jl")
 include("StLifeIns\\replacement_functions\\lookup_surrender.jl")
