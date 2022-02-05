@@ -25,6 +25,9 @@ simulate_mortality, forecast_mortality, empty_mortality_forecast, *, getindex,
 vcat, Contingency, Definite, Indefinite, Decrement, InForce, OnDeath,
 OnTermination, create_surrender_rates, mortality_lens
 
+export setGPU, setCPU
+include("StLifeIns\\setProcessor.jl")
+
 # replacements for LifeContingencies with GPU
 import .LifeContingencies: lookup_mortality, lookup_surrender
 export MortalityForecastsGPU, lookup_mortality, lookup_surrender

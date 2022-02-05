@@ -71,14 +71,14 @@ VectorCashflow("premiums", [100, 100, 100], false, InForce())
 """
 struct VectorCashflow <: CompleteCashflow
     name::String
-    amount::CuArray{Float64, 1}
+    amount::Union{Vector{Float64}, CuArray{Float64, 1}}
     arrears::Bool
     contingency::Contingency
     function VectorCashflow(name, amount, arrears, contingency)
         if all(amount .== 0)
             return ZeroCashflow(name)
         else
-            amount = CuArray{Float64, 1}(amount)
+            useGPU && amount = CuArray{Float64, 1}(amount)
             return new(name, amount, arrears, contingency)
         end
     end

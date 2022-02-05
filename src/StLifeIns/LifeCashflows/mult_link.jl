@@ -3,20 +3,20 @@
 # potentially, however, in the case of unit-linked policies, we may wish to link a cashflow after determining the unit fund value
 
 """
-    mult_link(cf::ZeroCashflow, x::CuArray{Float32, 2})
+    mult_link(cf::ZeroCashflow, x::Union{Matrix{Float64}, CuArray{Float32, 2}})
 
 Returns the same `ZeroCashflow`.
 """
-function mult_link(cf::ZeroCashflow, x::CuArray{Float32, 2})::ZeroCashflow
+function mult_link(cf::ZeroCashflow, x::Union{Matrix{Float64}, CuArray{Float32, 2}})::ZeroCashflow
     return cf
 end
 
 """
-    mult_link(cf::VectorCashflow, x::CuArray{Float32, 2})
+    mult_link(cf::VectorCashflow, x::Union{Matrix{Float64}, CuArray{Float32, 2}})
 
 Returns a `ParallelVectorCashflow` which has been scaled by the factors in `x`.
 """
-function mult_link(cf::VectorCashflow, x::CuArray{Float32, 2})::ParallelVectorCashflow
+function mult_link(cf::VectorCashflow, x::Union{Matrix{Float64}, CuArray{Float32, 2}})::ParallelVectorCashflow
     if cf.arrears
         amount = transpose(cf.amount) .* x
     else
@@ -27,11 +27,11 @@ function mult_link(cf::VectorCashflow, x::CuArray{Float32, 2})::ParallelVectorCa
 end
 
 """
-    mult_link(cf::PointCashflow, x::CuArray{Float32, 2})
+    mult_link(cf::PointCashflow, x::Union{Matrix{Float64}, CuArray{Float32, 2}})
 
 Returns a `ParallelPointCashflow` which has been scaled by the factors in `x`.
 """
-function mult_link(cf::PointCashflow, x::CuArray{Float32, 2})::ParallelPointCashflow
+function mult_link(cf::PointCashflow, x::Union{Matrix{Float64}, CuArray{Float32, 2}})::ParallelPointCashflow
     if cf.arrears
         amount = cf.amount .* @view(x[:, cf.time])
     else
@@ -42,11 +42,11 @@ function mult_link(cf::PointCashflow, x::CuArray{Float32, 2})::ParallelPointCash
 end
 
 """
-    mult_link(cfs::CompleteCashflows, x::CuArray{Float32, 2})
+    mult_link(cfs::CompleteCashflows, x::Union{Matrix{Float64}, CuArray{Float32, 2}})
 
 returns `CompleteCashflows` where each `CompleteCashflow` has been scaled by factors in `x`.
 """
-function mult_link(cfs::CompleteCashflows, x::CuArray{Float32, 2})::CompleteCashflows
+function mult_link(cfs::CompleteCashflows, x::Union{Matrix{Float64}, CuArray{Float32, 2}})::CompleteCashflows
     n = length(cfs)
     linked_cfs = CompleteCashflows(undef, n)
     for i in 1:n

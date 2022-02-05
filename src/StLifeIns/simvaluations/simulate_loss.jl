@@ -1,10 +1,10 @@
 struct SimulatedLossFunding
     policy::StandardPolicy
     policy_basis::PolicyBasis
-    prob::BigProbabilityDict
-    realised_probs::BigRealisedProbDictGPU
+    prob::Union{BigProbabilityDict, BigProbabilityDictGPU}
+    realised_probs::Union{BigRealisedProbDict, BigRealisedProbDictGPU}
     cfs::CompleteCashflows
-    funding_levels::CuArray{Float64, 2}
+    funding_levels::Union{Matrix{Foat64}, CuArray{Float64, 2}}
 end
 
 
@@ -25,9 +25,9 @@ levels in each month depend on this single simulation. Lives that have
 terminated or died after some point will require no funding.
 
 """
-function simulate_loss(policies::Vector{StandardPolicy}, basis::ProductBasis)::CuArray{Float64, 2}
+function simulate_loss(policies::Vector{StandardPolicy}, basis::ProductBasis)::Union{Matrix{Float64}, CuArray{Float64, 2}}
     nsims, mproj_max = basis.nsims, basis.proj
-    loss = CUDA.zeros(Float64, nsims, mproj_max)
+    loss = ifelse(useGPU, CUDA.zeros(Float64, nsims, mproj_max), zeros(Float64, nsims, mproj_max))
     for policy in policies
         res_calc = simulate_loss(policy, basis)
         x = res_calc.funding_levels
@@ -69,6 +69,6 @@ function simulate_loss(policy::StandardPolicy, basis::ProductBasis)
 end
 
 
-function iterate_simloss(cfs::CompleteCashflows, prob::BigRealisedProbDictGPU, pb::PolicyBasis)::CuArray{Float64, 2}
+function iterate_simloss(cfs::CompleteCashflows, prob::BigRealisedProbDictGPU, pb::PolicyBasis)::Union{Matrix{Float64}, CuArray{Float64, 2}}
     return -iterate_sim_calc(cfs, prob, pb.int_acc, pb.v, pb.nsims, pb.proj_max)
 end
