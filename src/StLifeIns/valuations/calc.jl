@@ -19,12 +19,12 @@ end
 
 
 """
-    iterate_calc(cfs::CompleteCashflows, prob::Union{BigProbabilityDict, BigProbabilityDictGPU}, int_acc::Union{Matrix{Float64}, CuArray{Float32, 2}}, v::Union{Matrix{Float64}, CuArray{Float32, 2}}, nsims::Int64, proj_max::Int16)::Union{Matrix{Foat64}, CuArray{Float64, 2}}
+    iterate_calc(cfs::CompleteCashflows, prob::Union{BigProbabilityDict, BigProbabilityDictGPU}, int_acc::Union{Matrix{Float64}, CuArray{Float32, 2}}, v::Union{Matrix{Float64}, CuArray{Float32, 2}}, nsims::Int64, proj_max::Int16)::Union{Matrix{Float64}, CuArray{Float64, 2}}
 
 Returns a matrix of valuations for each simulation at each month. The valuation
 at each month assumes that the policy is still in force.
 """
-function iterate_calc(cfs::CompleteCashflows, prob::Union{BigProbabilityDict, BigProbabilityDictGPU}, int_acc::Union{Matrix{Float64}, CuArray{Float32, 2}}, v::Union{Matrix{Float64}, CuArray{Float32, 2}}, nsims::Int64, proj_max::Int16)::Union{Matrix{Foat64}, CuArray{Float64, 2}}
+function iterate_calc(cfs::CompleteCashflows, prob::Union{BigProbabilityDict, BigProbabilityDictGPU}, int_acc::Union{Matrix{Float64}, CuArray{Float32, 2}}, v::Union{Matrix{Float64}, CuArray{Float32, 2}}, nsims::Int64, proj_max::Int16)::Union{Matrix{Float64}, CuArray{Float64, 2}}
     totals = get_totals(cfs, prob, int_acc, nsims, proj_max)
     inforce = prob[InForce()]
 
