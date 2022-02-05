@@ -21,10 +21,21 @@ separately for these products.
 function reserves(policies::Vector{StandardPolicy}, basis::ProductBasis)::Union{Matrix{Float64}, CuArray{Float64, 2}}
     nsims, mproj_max = basis.nsims, basis.proj
     res = ifelse(useGPU, CUDA.zeros(Float64, nsims, mproj_max), zeros(Float64, nsims, mproj_max))
-    for policy in policies
-        res_calc = reserves(policy, basis)
-        x = res_calc.reserves
-        @inbounds res[indices(x)...] += x
+
+    if useGPU
+        res = CUDA.zeros(Float64, nsims, mproj_max)
+        for policy in policies
+            res_calc = reserves(policy, basis)
+            x = res_calc.reserves
+            @inbounds res[indices(x)...] += x
+        end
+    else
+        res = zeros(Float64, nsims, mproj_max)
+        Threads.@threads for policy in policies
+            res_calc = reserves(policy, basis)
+            x = res_calc.reserves
+            @inbounds res[indices(x)...] += x
+        end
     end
 
     return res

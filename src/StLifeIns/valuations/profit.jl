@@ -89,15 +89,26 @@ of `policies`.
 """
 function profit(policies::Vector{StandardPolicy}, rbasis::ProductBasis, pbasis::ProductBasis, rdr::Float64, exp_fact::Float64)::Union{Vector{Float64}, CuArray{Float64, 1}}
     nsims, mproj_max = pbasis.nsims, pbasis.proj
-    total_profit = CUDA.zeros(Float64, nsims)
-    for policy in policies
-        res_calc = reserves(policy, rbasis)
-        res = res_calc.reserves[:] # converts to 1 dimensional array
-        red_exp_policy = factor_expenses(policy, exp_fact)
-        pol_profit = profit(red_exp_policy, pbasis, res, rdr)
-        total_profit += pol_profit
-    end
 
+    if useGPU
+        total_profit = CUDA.zeros(Float64, nsims)
+        for policy in policies
+            res_calc = reserves(policy, rbasis)
+            res = res_calc.reserves[:] # converts to 1 dimensional array
+            red_exp_policy = factor_expenses(policy, exp_fact)
+            pol_profit = profit(red_exp_policy, pbasis, res, rdr)
+            total_profit += pol_profit
+        end
+    else
+        total_profit = zeros(Float64, nsims)
+        Threads.@threads for policy in policies
+            res_calc = reserves(policy, rbasis)
+            res = res_calc.reserves[:] # converts to 1 dimensional array
+            red_exp_policy = factor_expenses(policy, exp_fact)
+            pol_profit = profit(red_exp_policy, pbasis, res, rdr)
+            total_profit += pol_profit
+        end
+    end
     return total_profit
 end
 

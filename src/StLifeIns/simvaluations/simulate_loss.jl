@@ -27,13 +27,22 @@ terminated or died after some point will require no funding.
 """
 function simulate_loss(policies::Vector{StandardPolicy}, basis::ProductBasis)::Union{Matrix{Float64}, CuArray{Float64, 2}}
     nsims, mproj_max = basis.nsims, basis.proj
-    loss = ifelse(useGPU, CUDA.zeros(Float64, nsims, mproj_max), zeros(Float64, nsims, mproj_max))
-    for policy in policies
-        res_calc = simulate_loss(policy, basis)
-        x = res_calc.funding_levels
-        @inbounds loss[indices(x)...] += x
-    end
 
+    if useGPU
+        loss = CUDA.zeros(Float64, nsims, mproj_max)
+        for policy in policies
+            res_calc = simulate_loss(policy, basis)
+            x = res_calc.funding_levels
+            @inbounds loss[indices(x)...] += x
+        end
+    else
+        loss = zeros(Float64, nsims, mproj_max)
+        Threads.@threads for policy in policies
+            res_calc = simulate_loss(policy, basis)
+            x = res_calc.funding_levels
+            @inbounds loss[indices(x)...] += x
+        end
+    end
     return loss
 end
 
