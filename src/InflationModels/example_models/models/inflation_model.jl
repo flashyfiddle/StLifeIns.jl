@@ -1,4 +1,4 @@
-using Distributions: Normal
+using Distributions
 
 struct RegWithArimaErrors1 <: InflationModel
     # regression parameters
