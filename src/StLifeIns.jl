@@ -71,4 +71,18 @@ include("StLifeIns\\simvaluations\\simlife_calc.jl")
 include("StLifeIns\\simvaluations\\simulate_loss.jl")
 include("StLifeIns\\simvaluations\\simulate_profit.jl")
 
+export RegWithArimaErrors1, simulate_inflation, forecast_inflation,
+simulate_int_infl, forecast_int_infl
+include("example_models\\interest_inflation\\inflation.jl")
+include("example_models\\interest_inflation\\inflation_model.jl")
+include("example_models\\interest_inflation\\int_infl_simulate.jl")
+
+export mortmodel_dict, intmodel_dict, inflmodel_dict
+include("example_models\\load_models.jl")
+
+export simulate_model_combinations, forecast_model_combinations,
+simulate_model_combinations_adj, forecast_model_combinations_adj,
+mean_model_forecast, mean_model_forecast_adj
+include("example_models\\model_combo.jl")
+
 end
