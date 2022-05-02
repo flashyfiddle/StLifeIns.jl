@@ -12,7 +12,12 @@ month and end of month reserves.
 """
 function start_end_reserves(reserves::Union{Matrix{Float64}, CuArray{Float64, 2}}, new::Bool)::CompleteCashflows
     nsims = size(reserves, 1)
-    buffer = ifelse(useGPU, CUDA.zeros(nsims), zeros(nsims))
+
+    if useGPU
+        buffer = CUDA.zeros(nsims)
+    else
+        buffer = zeros(nsims)
+    end
 
     if new
         @views start_res_amount = hcat(buffer, reserves[:, 2:end]) # new contracts need to set up reserves

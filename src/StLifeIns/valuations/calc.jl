@@ -28,7 +28,12 @@ function iterate_calc(cfs::CompleteCashflows, prob::Union{BigProbabilityDict, Bi
     totals = get_totals(cfs, prob, int_acc, nsims, proj_max)
     inforce = prob[InForce()]
 
-    val = ifelse(useGPU, CuArray{Float64, 2}(undef, nsims, Int64(proj_max)), Matrix{Float64}(undef, nsims, Int64(proj_max)))
+    if useGPU
+        val = CuArray{Float64, 2}(undef, nsims, Int64(proj_max))
+    else
+        val = Matrix{Float64}(undef, nsims, Int64(proj_max))
+    end
+
     @views val[:, proj_max] = totals[:, proj_max] .* v[:, proj_max]
     for i in reverse(2:(proj_max-1))
         @inbounds @views val[:, i] = (val[:, i+1] .* inforce[:, i] .+ totals[:, i]) .* v[:, i]
@@ -51,7 +56,12 @@ function iterate_calc(cfs::CompleteCashflows, prob::Union{BigProbabilityDict, Bi
     totals = get_totals(cfs, prob, int_acc, nsims, proj_max)
     inforce = prob[InForce()]
 
-    val = ifelse(useGPU, CuArray{Float64, 2}(undef, nsims, Int64(proj_max)), Matrix{Float64}(undef, nsims, Int64(proj_max)))
+    if useGPU
+        val = CuArray{Float64, 2}(undef, nsims, Int64(proj_max))
+    else
+        val = Matrix{Float64}(undef, nsims, Int64(proj_max))
+    end
+
     @views val[:, proj_max] = totals[:, proj_max] .* v
     for i in reverse(2:(proj_max-1))
         @inbounds @views val[:, i] = (val[:, i+1] .* inforce[:, i] .+ totals[:, i]) .* v
@@ -70,7 +80,11 @@ applicable for that month only, i.e. conditional on survival to start of month.
 
 """
 function get_totals(cfs::CompleteCashflows, prob::Union{BigProbabilityDict, BigProbabilityDictGPU}, int_acc::Union{Matrix{Float64}, CuArray{Float32, 2}}, nsims::Int64, proj_max::Int16)::Union{Matrix{Float64}, CuArray{Float64, 2}}
-    totals = ifelse(useGPU, CUDA.zeros(Float64, nsims, proj_max), zeros(Float64, nsims, proj_max))
+    if useGPU
+        totals = CUDA.zeros(Float64, nsims, proj_max)
+    else
+        totals = zeros(Float64, nsims, proj_max)
+    end
 
     for cf in cfs
         cf isa ZeroCashflow && break
