@@ -2,9 +2,14 @@ module InflationModels
 
 abstract type InflationModel end
 
-export InflationModel#=, inflmodel_dict, infl_start, RegWithArimaErrors1,
-simulate_inflation, forecast_inflation, inflmodel_dict, infl_start
+export InflationModel, RegWithArimaErrors1, simulate_inflation,
+forecast_inflation
+include(example_model_dir*"inflation_model.jl")
 
-include(pwd()*"\\src\\InflationModels\\example_models\\ReadInflationModels.jl")=#
+#=using JLD2
+example_model_dir = pwd()*"\\src\\InflationModels\\example_models\\inflmodel_dict.jld2"
+inflmodel_dict = load(example_model_dir)["inflmodel_dict"]
+infl_start = load(example_model_dir)["infl_start"]
+export inflmodel_dict, infl_start=#
 
 end
