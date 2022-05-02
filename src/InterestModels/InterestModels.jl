@@ -13,8 +13,8 @@ include("forecast\\Vasicek.jl")
 
 using JLD2
 intmodeldict_dir = joinpath(@__DIR__, "example_models\\intmodel_dict.jld2")
-intmodel_dict = load(intmodeldict_dir)["intmodel_dict"]
-int_start = load(intmodeldict_dir)["int_start"]
+global intmodel_dict = load(intmodeldict_dir)["intmodel_dict"]
+global int_start = load(intmodeldict_dir)["int_start"]
 
 export intmodel_dict, int_start
 

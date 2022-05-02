@@ -6,7 +6,7 @@ using Setfield: @set
 
 include("InflationModels\\InflationModels.jl"); using .InflationModels
 export InflationModel, RegWithArimaErrors1, simulate_inflation,
-forecast_inflation#=, inflmodel_dict, infl_start=#
+forecast_inflation, inflmodel_dict, infl_start
 
 include("InterestModels\\InterestModels.jl"); using .InterestModels
 export InterestModel, CIR, Vasicek, simulate_interest, forecast_interest,
