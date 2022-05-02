@@ -4,7 +4,7 @@ abstract type InflationModel end
 
 export InflationModel, RegWithArimaErrors1, simulate_inflation,
 forecast_inflation
-include(example_model_dir*"inflation_model.jl")
+include("inflation_model.jl")
 
 #=using JLD2
 example_model_dir = pwd()*"\\src\\InflationModels\\example_models\\inflmodel_dict.jld2"
