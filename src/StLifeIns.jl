@@ -76,7 +76,8 @@ include("StLifeIns\\simvaluations\\simulate_profit.jl")
 
 export simulate_model_combinations, forecast_model_combinations,
 simulate_model_combinations_adj, forecast_model_combinations_adj,
-mean_model_forecast, mean_model_forecast_adj
+mean_model_forecast, mean_model_forecast_adj, simulate_int_infl,
+forecast_int_infl
 include("model_combo.jl")
 
 end
