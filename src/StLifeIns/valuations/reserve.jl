@@ -23,12 +23,6 @@ function reserves(policies::Vector{StandardPolicy}, basis::ProductBasis)::Union{
 
     if useGPU
         res = CUDA.zeros(Float64, nsims, mproj_max)
-    else
-        res = zeros(Float64, nsims, mproj_max)
-    end
-
-    if useGPU
-        res = CUDA.zeros(Float64, nsims, mproj_max)
         for policy in policies
             res_calc = reserves(policy, basis)
             x = res_calc.reserves
