@@ -7,7 +7,12 @@ function iterate_sim_calc(cfs::CompleteCashflows, prob::Union{BigRealisedProbabi
     nsims, proj_max = nsims, proj_max
     totals = get_definite_totals(cfs, prob, int_acc, nsims, proj_max)
 
-    val = ifelse(useGPU, CuArray{Float64, 2}(undef, nsims, Int64(proj_max)), Matrix{Float64}(undef, nsims, Int64(proj_max)))
+    if useGPU
+        val = CuArray{Float64, 2}(undef, nsims, Int64(proj_max))
+    else
+        val = Matrix{Float64}(undef, nsims, Int64(proj_max))
+    end
+
     @views val[:, proj_max] = totals[:, proj_max] .* v[:, proj_max]
     for i in reverse(2:(proj_max-1))
         @inbounds @views val[:, i] = (val[:, i+1] .+ totals[:, i]) .* v[:, i]
@@ -21,7 +26,12 @@ function iterate_sim_calc(cfs::CompleteCashflows, prob::Union{BigRealisedProbabi
     nsims, proj_max = nsims, proj_max
     totals = get_definite_totals(cfs, prob, int_acc, nsims, proj_max)
 
-    val = ifelse(useGPU, CuArray{Float64, 2}(undef, nsims, Int64(proj_max)), Matrix{Float64}(undef, nsims, Int64(proj_max)))
+    if useGPU
+        val = CuArray{Float64, 2}(undef, nsims, Int64(proj_max))
+    else
+        val = Matrix{Float64}(undef, nsims, Int64(proj_max))
+    end
+
     @views val[:, proj_max] = totals[:, proj_max] .* v
     for i in reverse(2:(proj_max-1))
         @inbounds @views val[:, i] = (val[:, i+1] .+ totals[:, i]) .* v
@@ -32,7 +42,12 @@ end
 
 
 function get_definite_totals(cfs::CompleteCashflows, prob::Union{BigRealisedProbabilityDict, BigRealisedProbDictGPU}, int_acc::Union{Matrix{Float64}, CuArray{Float32, 2}}, nsims::Int64, proj_max::Int16)::Union{Matrix{Float64}, CuArray{Float64, 2}}
-    totals = ifelse(useGPU, CUDA.zeros(Float64, nsims, proj_max), zeros(Float64, nsims, proj_max))
+    if useGPU
+        totals = CUDA.zeros(Float64, nsims, proj_max)
+    else
+        totals = zeros(Float64, nsims, proj_max)
+    end
+
     for cf in cfs
         cf isa ZeroCashflow && break
         if cf.arrears
