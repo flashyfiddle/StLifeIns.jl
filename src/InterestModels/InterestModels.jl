@@ -11,4 +11,7 @@ export simulate_interest, forecast_interest
 include("forecast\\CIR.jl")
 include("forecast\\Vasicek.jl")
 
+export intmodel_dict, int_start
+include("example_models\\ReadInterestModels.jl")
+
 end
