@@ -19,7 +19,7 @@ YEAR_MON, MAX_AGE, MortalityModel, GAPC, LeeCarter, Plat, MortalityForecasts,
 simulate_mortality, forecast_mortality, empty_mortality_forecast, *, getindex,
 vcat, Contingency, Definite, Indefinite, Decrement, InForce, OnDeath,
 OnTermination, create_surrender_rates, mortality_lens, BigProbabilityDict,
-BigRealisedProbabilityDict, MortalityLengths, mortmodel_dict
+BigRealisedProbabilityDict, MortalityLengths#=, mortmodel_dict=#
 
 export Arima, FittedArima, ConstructedArima, simulate_arima,
 forecast_arima, Life, SingleLife, WholeLife, TermLife, setYEAR_MON, setMAX_AGE,

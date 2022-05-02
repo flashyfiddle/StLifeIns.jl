@@ -25,7 +25,7 @@ include("forecast\\models\\Plat.jl")
 
 include("lookup_mortality.jl")
 
-using Suppressor: @suppress_err
+#=using Suppressor: @suppress_err
 using RData: load
 
 mortmodel_dict = Dict{String, Dict{Bool, GAPC}}()
@@ -33,6 +33,6 @@ mortmodel_dict = Dict{String, Dict{Bool, GAPC}}()
 include(pwd()*"\\src\\MortalityModels\\example_models\\LeeCarter\\readLCfromR.jl")
 include(pwd()*"\\src\\MortalityModels\\example_models\\Plat\\readPLATfromR.jl")
 
-export mortmodel_dict
+export mortmodel_dict=#
 
 end
