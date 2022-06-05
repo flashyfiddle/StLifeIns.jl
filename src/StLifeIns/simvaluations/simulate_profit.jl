@@ -1,5 +1,5 @@
 """
-    simulate_profit(policy::StandardPolicy, basis::ProductBasis, reserves::Union{CuArray{Float64, 1}, CuArray{Float64, 2}, Matrix{Float64}, Vector{Float64}}, rdr::Float64)::Union{Vector{Float64}, CuArray{Float64, 1}}
+    simulate_profit(policy::StandardPolicy, basis::ProductBasis, reserves::Union{CuArray{Float64, 1}, CuArray{Float64, 2}, Matrix{Float64}, Vector{Float64}}, rdr::Float64)::Union{Matrix{Float64}, CuArray{Float64, 2}}
 
 Returns the simulated remaining profit of each basis-simulation of a `policy`
 based on held `reserves`, a profit-`basis` (different from basis used for
