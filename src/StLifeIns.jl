@@ -1,7 +1,7 @@
 module StLifeIns
 
 using CUDA
-# using DataStructures: OrderedDict
+using DataStructures: OrderedDict
 using Setfield: @set
 
 include("InflationModels\\InflationModels.jl"); using .InflationModels
