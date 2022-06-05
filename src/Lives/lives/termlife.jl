@@ -1,18 +1,23 @@
 """
     TermLife(id, male, age, term, term_if, max_age=MAX_AGE)
 
-Returns a `SingleLife` that ends at the end of a term or earlier death or termination.
+Returns a [`SingleLife`](@ref) that ends at the end of a term or the earlier
+death or termination of the life.
 
-This type of `Life` would be used for a term assurance or endowment assurance.
+This type of [`Life`](@ref) would be used for a term assurance or endowment
+assurance contract.
 
 ...
 # Arguments
 - `id::Int64`: an identifier of the life.
-- 'male::Bool': gender indicator (`true` = male, `false` = female).
-- 'age::Float64': exact age to month, e.g. 40 and 2 months = 40+2/12.
-- `term::Int16`: the term lifetime in months defined at inception before which or at which the life must end.
-- `term_if::Int16`: number of months that have already passed sinced initial inception.
-- `max_age::Int8`: the age before which the life must die.
+- `male::Bool`: gender indicator (`true` = male, `false` = female).
+- `age::Float64`: exact age to month, e.g. 40 and 2 months = 40+2/12.
+- `term::Int16`: the term lifetime in months defined at inception before which
+or at which the life must end.
+- `term_if::Int16`: number of months that have already passed sinced initial
+inception.
+- `max_age::Int8`: the age before which the life must die (else guaranteed to
+die).
 ...
 """
 struct TermLife <: SingleLife

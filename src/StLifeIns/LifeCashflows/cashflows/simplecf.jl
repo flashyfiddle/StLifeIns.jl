@@ -89,7 +89,7 @@ struct AnyTimeCashflow <: SimpleCashflow
     arrears::Bool # must be true for AnyTimeCashflow
     contingency::Contingency
     function AnyTimeCashflow(name, amount, esc, arrears, contingency)
-        contingency isa InForce && @error("AnyTimeCsahflow not defined for contingency: InForce()")
+        contingency isa InForce && @error("AnyTimeCashflow not defined for contingency: InForce()")
         arrears == false && @error("AnyTimeCashflow not defined for arrears = false")
         if amount == 0
             return ZeroCashflow(name)
