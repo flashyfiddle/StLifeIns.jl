@@ -19,7 +19,7 @@ separately for these products.
 
 """
 function reserves(policies::Vector{StandardPolicy}, basis::ProductBasis)::Union{Matrix{Float64}, CuArray{Float64, 2}}
-    nsims = basis.nsims
+    nsims= basis.nsims
     mproj_max = maximum([policy.life.proj_max for policy in policies])
 
     if useGPU
