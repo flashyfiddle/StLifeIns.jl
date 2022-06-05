@@ -1,5 +1,15 @@
 BigRealisedProbabilityDict = Dict{Contingency, Matrix{Bool}}
 
+
+"""
+    simulate_life(probabilities::BigProbabilityDict, nsims::Integer, proj_max::Integer)::BigRealisedProbabilityDict
+
+Returns a [`BigRealisedProbDict`](@ref), where probabilities are realised and
+replaced by simulated `Bool` values.
+
+Also see [`BigProbabilityDict`](@ref), [`dependent_probabilities`](@ref).
+
+"""
 function simulate_life(probabilities::BigProbabilityDict, nsims::Integer, proj_max::Integer)::BigRealisedProbabilityDict
     inforce_prob = probabilities[InForce()]
     death_prob = probabilities[OnDeath()]
