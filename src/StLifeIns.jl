@@ -6,11 +6,11 @@ using Setfield: @set
 
 include("InflationModels\\InflationModels.jl"); using .InflationModels
 export InflationModel, RegWithArimaErrors1, simulate_inflation,
-forecast_inflation, inflmodel_dict, infl_start
+forecast_inflation#, inflmodel_dict, infl_start
 
 include("InterestModels\\InterestModels.jl"); using .InterestModels
-export InterestModel, CIR, Vasicek, simulate_interest, forecast_interest,
-intmodel_dict, int_start
+export InterestModel, CIR, Vasicek, simulate_interest, forecast_interest#,
+# intmodel_dict, int_start
 
 include("LifeContingencies\\LifeContingencies.jl");
 using .LifeContingencies: Arima, FittedArima, ConstructedArima, simulate_arima,
@@ -19,7 +19,7 @@ YEAR_MON, MAX_AGE, MortalityModel, GAPC, LeeCarter, Plat, MortalityForecasts,
 simulate_mortality, forecast_mortality, empty_mortality_forecast, *, getindex,
 vcat, Contingency, Definite, Indefinite, Decrement, InForce, OnDeath,
 OnTermination, create_surrender_rates, mortality_lens, BigProbabilityDict,
-BigRealisedProbabilityDict, MortalityLengths, mortmodel_dict
+BigRealisedProbabilityDict, MortalityLengths#, mortmodel_dict
 
 export Arima, FittedArima, ConstructedArima, simulate_arima,
 forecast_arima, Life, SingleLife, WholeLife, TermLife, setYEAR_MON, setMAX_AGE,
@@ -74,10 +74,10 @@ include("StLifeIns\\simvaluations\\simlife_calc.jl")
 include("StLifeIns\\simvaluations\\simulate_loss.jl")
 include("StLifeIns\\simvaluations\\simulate_profit.jl")
 
-export simulate_model_combinations, forecast_model_combinations,
-simulate_model_combinations_adj, forecast_model_combinations_adj,
-mean_model_forecast, mean_model_forecast_adj, simulate_int_infl,
-forecast_int_infl
-include("model_combo.jl")
+# export simulate_model_combinations, forecast_model_combinations,
+# simulate_model_combinations_adj, forecast_model_combinations_adj,
+# mean_model_forecast, mean_model_forecast_adj, simulate_int_infl,
+# forecast_int_infl
+# include("model_combo.jl")
 
 end
