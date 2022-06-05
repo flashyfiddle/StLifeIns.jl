@@ -4,4 +4,4 @@ abstract type SimpleCashflow <: Cashflow end # a simplified means to specify som
 abstract type ParallelCashflow <: Cashflow end # contains cashflows from a single source under several scenarios (e.g. under different inflation rates)
 
 Cashflows = Vector{Cashflow}
-CompleteCashflows = Vector{Union{CompleteCashflow, ParallelCashflow}}
+CompleteCashflows = Vector{Union{(CompleteCashflow, ParallelCashflow)}}

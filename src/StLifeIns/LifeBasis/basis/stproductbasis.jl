@@ -1,11 +1,11 @@
 struct StProductBasis <: ProductBasis
     nsims::Int64
     proj::Int16
-    mortality::Union{Dict{Bool, MortalityForecasts}, Dict{Bool, MortalityForecastsGPU}}
-    surrender_rates::Union{Matrix{Float64}, CuArray{Float32, 2}}
-    cum_infl::Union{Matrix{Float64}, CuArray{Float32, 2}}
-    int_acc::Union{Matrix{Float64}, CuArray{Float32, 2}}
-    v::Union{Matrix{Float64}, CuArray{Float32, 2}}
+    mortality::Union{(Dict{Bool, MortalityForecasts}, Dict{Bool, MortalityForecastsGPU})}
+    surrender_rates::Union{(Matrix{Float64}, CuArray{Float32, 2})}
+    cum_infl::Union{(Matrix{Float64}, CuArray{Float32, 2})}
+    int_acc::Union{(Matrix{Float64}, CuArray{Float32, 2})}
+    v::Union{(Matrix{Float64}, CuArray{Float32, 2})}
     """
         StProductBasis(nsims::Int64, proj::Int16, mortality::Dict{Bool, MortalityForecasts}, surrender_rates::Matrix{Float64}, int::Matrix{Float64}, infl::Matrix{Float64})
 

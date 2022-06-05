@@ -10,11 +10,11 @@ struct PolicyBasis <: Basis
     nsims::Int64
     proj_max::Int16
     whole_life::Bool
-    μ::Union{Matrix{Float64}, CuArray{Float32, 2}}
-    σ::Union{Matrix{Float64}, CuArray{Float32, 2}}
-    cum_infl::Union{Matrix{Float64}, CuArray{Float32, 2}}
-    int_acc::Union{Matrix{Float64}, CuArray{Float32, 2}}
-    v::Union{Matrix{Float64}, CuArray{Float32, 2}}
+    μ::Union{(Matrix{Float64}, CuArray{Float32, 2})}
+    σ::Union{(Matrix{Float64}, CuArray{Float32, 2})}
+    cum_infl::Union{(Matrix{Float64}, CuArray{Float32, 2})}
+    int_acc::Union{(Matrix{Float64}, CuArray{Float32, 2})}
+    v::Union{(Matrix{Float64}, CuArray{Float32, 2})}
     function PolicyBasis(life::SingleLife, basis::StProductBasis)
         proj_max = life.proj_max
         whole_life = life isa WholeLife

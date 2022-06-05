@@ -26,7 +26,7 @@ function combine_bases(bases::StProductBasis...)::StProductBasis
 end
 
 
-function Base.getindex(basis::StProductBasis, i::Union{Int64, UnitRange})::StProductBasis
+function Base.getindex(basis::StProductBasis, i::Union{(Int64, UnitRange)})::StProductBasis
     if i isa Int64
         i = i:i
     end

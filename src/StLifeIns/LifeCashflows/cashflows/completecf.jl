@@ -71,7 +71,7 @@ VectorCashflow("premiums", [100, 100, 100], false, InForce())
 """
 struct VectorCashflow <: CompleteCashflow
     name::String
-    amount::Union{Vector{Float64}, CuArray{Float64, 1}}
+    amount::Union{(Vector{Float64}, CuArray{Float64, 1})}
     arrears::Bool
     contingency::Contingency
     function VectorCashflow(name, amount, arrears, contingency)

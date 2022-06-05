@@ -1,13 +1,13 @@
 struct StochasticReserveCalcs
     policy::StandardPolicy
     policy_basis::PolicyBasis
-    prob::Union{BigProbabilityDict, BigProbabilityDictGPU}
+    prob::Union{(BigProbabilityDict, BigProbabilityDictGPU)}
     cfs::CompleteCashflows
-    reserves::Union{Matrix{Float64}, CuArray{Float64, 2}}
+    reserves::Union{(Matrix{Float64}, CuArray{Float64, 2})}
 end
 
 """
-    reserves(policies::Vector{StandardPolicy}, basis::ProductBasis)::Union{Matrix{Float64}, CuArray{Float64, 2}}
+    reserves(policies::Vector{StandardPolicy}, basis::ProductBasis)::Union{(Matrix{Float64}, CuArray{Float64, 2})}
 
 Returns a `CuArray{Float64, 2}` of the collective expected reserve to be held
 over the provided policies for each basis simulation at the start of each month.
@@ -18,7 +18,7 @@ products require separate bases, `reserves` should be called
 separately for these products.
 
 """
-function reserves(policies::Vector{StandardPolicy}, basis::ProductBasis)::Union{Matrix{Float64}, CuArray{Float64, 2}}
+function reserves(policies::Vector{StandardPolicy}, basis::ProductBasis)::Union{(Matrix{Float64}, CuArray{Float64, 2})}
     nsims = basis.nsims
     mproj_max = maximum([policy.life.proj_max for policy in policies])
 
@@ -59,12 +59,12 @@ function reserves(policy::StandardPolicy, basis::ProductBasis)::StochasticReserv
 end
 
 """
-    iterate_reserves(cfs::CompleteCashflows, prob::Union{BigProbabilityDict, BigProbabilityDictGPU}, pb::PolicyBasis)::Union{Matrix{Float64}, CuArray{Float64, 2}}
+    iterate_reserves(cfs::CompleteCashflows, prob::Union{(BigProbabilityDict, BigProbabilityDictGPU)}, pb::PolicyBasis)::Union{(Matrix{Float64}, CuArray{Float64, 2})}
 
 Returns a matrix of expected reserves for each simulation at each month. The
 reserve at each month assumes that the policy is still in force.
 """
-function iterate_reserves(cfs::CompleteCashflows, prob::Union{BigProbabilityDict, BigProbabilityDictGPU}, pb::PolicyBasis)::Union{Matrix{Float64}, CuArray{Float64, 2}}
+function iterate_reserves(cfs::CompleteCashflows, prob::Union{(BigProbabilityDict, BigProbabilityDictGPU)}, pb::PolicyBasis)::Union{(Matrix{Float64}, CuArray{Float64, 2})}
     reserves = -iterate_calc(cfs, prob, pb.int_acc, pb.v, pb.nsims, pb.proj_max)
     return reserves
 end

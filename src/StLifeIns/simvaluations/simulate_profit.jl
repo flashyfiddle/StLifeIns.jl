@@ -1,5 +1,5 @@
 """
-    simulate_profit(policy::StandardPolicy, basis::ProductBasis, reserves::Union{CuArray{Float64, 1}, CuArray{Float64, 2}, Matrix{Float64}, Vector{Float64}}, rdr::Float64)::Union{Matrix{Float64}, CuArray{Float64, 2}}
+    simulate_profit(policy::StandardPolicy, basis::ProductBasis, reserves::Union{(CuArray{Float64, 1}, CuArray{Float64, 2}, Matrix{Float64}, Vector{Float64})}, rdr::Float64)::Union{(Vector{Float64}, CuArray{Float64, 1})}
 
 Returns the simulated remaining profit of each basis-simulation of a `policy`
 based on held `reserves`, a profit-`basis` (different from basis used for
@@ -10,7 +10,7 @@ Expenses need to be adjusted manually before using this function.
 Lives are simulated and the emerging profit is given.
 
 """
-function simulate_profit(policy::StandardPolicy, basis::ProductBasis, reserves::Union{CuArray{Float64, 1}, CuArray{Float64, 2}, Matrix{Float64}, Vector{Float64}}, rdr::Float64)::Union{Vector{Float64}, CuArray{Float64, 1}}
+function simulate_profit(policy::StandardPolicy, basis::ProductBasis, reserves::Union{(CuArray{Float64, 1}, CuArray{Float64, 2}, Matrix{Float64}, Vector{Float64})}, rdr::Float64)::Union{(Vector{Float64}, CuArray{Float64, 1})}
     pb = PolicyBasis(policy.life, basis)
     cfs = complete_inflate(policy.expenses, vcat(policy.premiums, policy.benefits, policy.penalties), pb.cum_infl, pb.proj_max)
     cfs = vcat(cfs, start_end_reserves(reserves, policy.life.term_if==0))
@@ -33,7 +33,7 @@ calculating reserves) and a risk-discount rate `rdr`.
 Lives are simulated and the emerging profit is given.
 
 """
-function simulate_profit(policies::Vector{StandardPolicy}, rbasis::ProductBasis, pbasis::ProductBasis, rdr::Float64, exp_fact::Float64)::Union{Vector{Float64}, CuArray{Float64, 1}}
+function simulate_profit(policies::Vector{StandardPolicy}, rbasis::ProductBasis, pbasis::ProductBasis, rdr::Float64, exp_fact::Float64)::Union{(Vector{Float64}, CuArray{Float64, 1})}
     nsims= pbasis.nsims
     mproj_max = maximum([policy.life.proj_max for policy in policies])
 
@@ -61,6 +61,6 @@ function simulate_profit(policies::Vector{StandardPolicy}, rbasis::ProductBasis,
 end
 
 
-function calc_simprofit(cfs::CompleteCashflows, prob::Union{BigRealisedProbabilityDict, BigRealisedProbDictGPU}, pb::PolicyBasis, rdf::Float64)::Union{Vector{Float64}, CuArray{Float64, 1}}
+function calc_simprofit(cfs::CompleteCashflows, prob::Union{(BigRealisedProbabilityDict, BigRealisedProbDictGPU)}, pb::PolicyBasis, rdf::Float64)::Union{(Vector{Float64}, CuArray{Float64, 1})}
     return sim_calc(cfs, prob, pb.int_acc, rdf, pb.nsims, pb.proj_max)
 end
