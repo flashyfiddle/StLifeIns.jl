@@ -8,7 +8,7 @@ Each payment in `amount` is the amount payable in a separate simulation.
 """
 struct ParallelPointCashflow <: ParallelCashflow
     name::String
-    amount::Union{(Vector{Float64}, CuArray{Float64, 1})}
+    amount::Union{Vector{Float64}, CuArray{Float64, 1}}
     time::Int16
     arrears::Bool
     contingency::Contingency
@@ -33,7 +33,7 @@ Each row in `amount` represents the amounts payable in a separate simulation.
 """
 struct ParallelVectorCashflow <: ParallelCashflow
     name::String
-    amount::Union{(Matrix{Float64}, CuArray{Float64, 2})}
+    amount::Union{Matrix{Float64}, CuArray{Float64, 2}}
     arrears::Bool
     contingency::Contingency
     function ParallelVectorCashflow(name, amount, arrears, contingency)

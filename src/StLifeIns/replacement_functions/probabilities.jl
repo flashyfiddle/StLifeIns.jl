@@ -39,7 +39,7 @@ end
 
 
 """
-    dependent_probabilities(pb::PolicyBasis)::Union{(BigProbabilityDict, BigProbabilityDictGPU)}
+    dependent_probabilities(pb::PolicyBasis)::Union{BigProbabilityDict, BigProbabilityDictGPU}
 
 Returns the dependent probabilities relating to each [`Contingency`](@ref).
 
@@ -52,6 +52,6 @@ tables don't tend to have more than 7 decimals, so this shouldn't be reducing
 accuracy.
 
 """
-function dependent_probabilities(pb::PolicyBasis)::Union{(BigProbabilityDict, BigProbabilityDictGPU)}
+function dependent_probabilities(pb::PolicyBasis)::Union{BigProbabilityDict, BigProbabilityDictGPU}
     return dependent_probabilities(pb.μ, pb.σ, pb.proj_max, pb.whole_life)
 end

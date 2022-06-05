@@ -53,6 +53,6 @@ replaced by simulated `Bool` values.
 Also see [`BigProbabilityDictGPU`](@ref), [`dependent_probabilities`](@ref).
 
 """
-function simulate_life(probabilities::Union{(BigProbabilityDict, BigProbabilityDictGPU)}, pb::PolicyBasis)::Union{(BigRealisedProbabilityDict, BigRealisedProbDictGPU)}
+function simulate_life(probabilities::Union{BigProbabilityDict, BigProbabilityDictGPU}, pb::PolicyBasis)::Union{BigRealisedProbabilityDict, BigRealisedProbDictGPU}
     return simulate_life(probabilities, pb.nsims, pb.proj_max)
 end

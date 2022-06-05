@@ -1,4 +1,4 @@
-function Base.:*(y::Union{(Float64, Int64)}, x::Union{(Dict{Bool, MortalityForecasts}, Dict{Bool, MortalityForecastsGPU})})::Union{(Dict{Bool, MortalityForecasts}, Dict{Bool, MortalityForecastsGPU})}
+function Base.:*(y::Union{Float64, Int64}, x::Union{Dict{Bool, MortalityForecasts}, Dict{Bool, MortalityForecastsGPU}})::Union{Dict{Bool, MortalityForecasts}, Dict{Bool, MortalityForecastsGPU}}
     if useGPU
         return Dict{Bool, MortalityForecastsGPU}(g => MortalityForecastsGPU(i => y*x[g][i] for i in keys(x[g])) for g in keys(x))
     else
@@ -7,7 +7,7 @@ function Base.:*(y::Union{(Float64, Int64)}, x::Union{(Dict{Bool, MortalityForec
 end
 
 
-function Base.getindex(x::Union{(Dict{Bool, MortalityForecasts}, Dict{Bool, MortalityForecastsGPU})}, i::Union{(Int64, UnitRange, Colon)}, j::Union{(Int64, UnitRange, Colon)})::Union{(Dict{Bool, MortalityForecasts}, Dict{Bool, MortalityForecastsGPU})}
+function Base.getindex(x::Union{Dict{Bool, MortalityForecasts}, Dict{Bool, MortalityForecastsGPU}}, i::Union{Int64, UnitRange, Colon}, j::Union{Int64, UnitRange, Colon})::Union{Dict{Bool, MortalityForecasts}, Dict{Bool, MortalityForecastsGPU}}
     if i isa Int64
         i = i:i
     end
@@ -24,7 +24,7 @@ function Base.getindex(x::Union{(Dict{Bool, MortalityForecasts}, Dict{Bool, Mort
 end
 
 
-function Base.vcat(x::Union{(Dict{Bool, MortalityForecasts}, Dict{Bool, MortalityForecastsGPU})}...)::Union{(Dict{Bool, MortalityForecasts}, Dict{Bool, MortalityForecastsGPU})}
+function Base.vcat(x::Union{Dict{Bool, MortalityForecasts}, Dict{Bool, MortalityForecastsGPU}}...)::Union{Dict{Bool, MortalityForecasts}, Dict{Bool, MortalityForecastsGPU}}
     vcatted = x[1]
 
     if useGPU
