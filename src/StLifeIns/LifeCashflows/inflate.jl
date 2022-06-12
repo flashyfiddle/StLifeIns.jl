@@ -1,5 +1,5 @@
 """
-    complete_inflate(expenses::Cashflows, prem_ben_pen::Cashflows, cuminfl::Union{Matrix{Float64,} CuArray{Float32, 2}}, proj_max::Int16)::CompleteCashflows
+    complete_inflate(expenses::Cashflows, prem_ben_pen::Cashflows, cuminfl::Union{Matrix{Float64}, CuArray{Float32, 2}}, proj_max::Int16)::CompleteCashflows
 
 Returns `CompleteCashflows` of which `expenses` have also been inflated.
 
@@ -7,7 +7,7 @@ Returns `CompleteCashflows` of which `expenses` have also been inflated.
 # Arguments
 - `expenses::Cashflows`: cashflows to be inflated (typically policy expenses)
 - `prem_ben_pen::Cashflows`: all cashflows that do not need to be inflated (typically everything except expenses)
-- `cuminfl::Union{Matrix{Float64,} CuArray{Float32, 2}}`: factors to adjust expenses with at each month and simulation
+- `cuminfl::Union{Matrix{Float64}, CuArray{Float32, 2}}`: factors to adjust expenses with at each month and simulation
 - `proj_max::Int16`: the maximum remaining term of cashflows
 ...
 
