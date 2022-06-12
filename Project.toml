@@ -11,7 +11,6 @@ Setfield = "efcf1570-3423-57d1-acb7-fd33fddbac46"
 
 [compat]
 Distributions = "0.25"
-CUDA = "3"
 DataStructures = "0.18"
 Setfield = "1"
 julia = "1"
