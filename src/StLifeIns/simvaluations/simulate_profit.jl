@@ -34,7 +34,9 @@ Lives are simulated and the emerging profit is given.
 
 """
 function simulate_profit(policies::Vector{StandardPolicy}, rbasis::ProductBasis, pbasis::ProductBasis, rdr::Float64, exp_fact::Float64)::Union{Vector{Float64}, CuArray{Float64, 1}}
-    nsims, mproj_max = pbasis.nsims, pbasis.proj
+    nsims= pbasis.nsims
+    mproj_max = maximum([policy.life.proj_max for policy in policies])
+
     if useGPU
         total_profit = CUDA.zeros(Float64, nsims)
         for policy in policies
