@@ -1,4 +1,7 @@
-*.jl.*.cov
-*.jl.cov
-*.jl.mem
-/Manifest.toml
+# Ignore everything:
+*
+
+# Except for the themes directories:
+
+!_build/
+!.gitignore
