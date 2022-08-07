@@ -1,0 +1,784 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>1.1.2. PLAT &#8212; StLifeIns</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../_static/copybutton.js"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="1.2. Interest Models" href="../../2/InterestModels.html" />
+    <link rel="prev" title="1.1.1. Lee Carter" href="../LeeCarter/LeeCarter.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">StLifeIns</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../../StochasticModels.html">
+   1. Stochastic Models
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active has-children">
+    <a class="reference internal" href="../MortalityModels.html">
+     1.1. Mortality Models
+    </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul class="current">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../LeeCarter/LeeCarter.html">
+       1.1.1. LC
+      </a>
+     </li>
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       1.1.2. Plat
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../2/InterestModels.html">
+     1.2. Interest
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../3/InflationModelsIntro.html">
+     1.3. Inflation
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../3/InflationModels.html">
+       1.3.1. RegressionWithArima
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../02/Basics.html">
+   2. Basics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../02/1/Initialise.html">
+     2.1. Packages
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/flashyfiddle/StLifeIns/master?urlpath=tree/docs/chapters/01/1/PLAT/PLAT.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/flashyfiddle/StLifeIns"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/flashyfiddle/StLifeIns/issues/new?title=Issue%20on%20page%20%2Fchapters/01/1/PLAT/PLAT.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../../_sources/chapters/01/1/PLAT/PLAT.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#packages">
+   1.1.2.1. Packages
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data">
+   1.1.2.2. Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#model">
+   1.1.2.3. Model
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#defining-the-model">
+     1.1.2.3.1. Defining the Model
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fitting-model">
+     1.1.2.3.2. Fitting Model
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#quality-of-fit">
+     1.1.2.3.3. Quality of Fit
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fitting-arima-models-for-kt1-kt2-kt3">
+     1.1.2.3.4. Fitting Arima Models for kt1, kt2, kt3
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#save-model">
+   1.1.2.4. Save Model
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>PLAT</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#packages">
+   1.1.2.1. Packages
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data">
+   1.1.2.2. Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#model">
+   1.1.2.3. Model
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#defining-the-model">
+     1.1.2.3.1. Defining the Model
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fitting-model">
+     1.1.2.3.2. Fitting Model
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#quality-of-fit">
+     1.1.2.3.3. Quality of Fit
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fitting-arima-models-for-kt1-kt2-kt3">
+     1.1.2.3.4. Fitting Arima Models for kt1, kt2, kt3
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#save-model">
+   1.1.2.4. Save Model
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="plat">
+<h1><span class="section-number">1.1.2. </span>PLAT<a class="headerlink" href="#plat" title="Permalink to this headline">#</a></h1>
+<section id="packages">
+<h2><span class="section-number">1.1.2.1. </span>Packages<a class="headerlink" href="#packages" title="Permalink to this headline">#</a></h2>
+<p>The demography package allows you to access data from directly from the <a class="reference external" href="https://www.mortality.org/">Human Mortality Database</a>. The StMoMo package allows one to fit a variety of mortality models.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">StMoMo</span><span class="p">)</span> <span class="c1"># used to fit models</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">demography</span><span class="p">)</span> <span class="c1"># used to access data from the mortality database</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">TSA</span><span class="p">)</span> <span class="c1"># time series analysis</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">forecast</span><span class="p">)</span> <span class="c1"># time series forecast package</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">rjson</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="data">
+<h2><span class="section-number">1.1.2.2. </span>Data<a class="headerlink" href="#data" title="Permalink to this headline">#</a></h2>
+<p>We import the data for <em>England and Whales</em>. Since we’re aiming to fit the Poisson and Negative Binomial versions of the Lee-Carter model, we’ll be using the central mortality data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">cred</span> <span class="o">&lt;-</span> <span class="nf">fromJSON</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s">&quot;../hmd_credentials.json&quot;</span><span class="p">)</span>
+<span class="n">username</span> <span class="o">&lt;-</span> <span class="n">cred</span><span class="o">$</span><span class="n">username</span>
+<span class="n">password</span> <span class="o">&lt;-</span> <span class="n">cred</span><span class="o">$</span><span class="n">password</span>
+
+<span class="n">country_code</span> <span class="o">=</span> <span class="s">&quot;GBRTENW&quot;</span>
+
+<span class="n">EWdata</span> <span class="o">&lt;-</span> <span class="nf">hmd.mx</span><span class="p">(</span><span class="n">country</span> <span class="o">=</span> <span class="n">country_code</span><span class="p">,</span> <span class="n">username</span> <span class="o">=</span> <span class="n">username</span><span class="p">,</span> 
+                 <span class="n">password</span> <span class="o">=</span> <span class="n">password</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="n">country_code</span><span class="p">)</span>
+
+<span class="c1"># central exposure data</span>
+<span class="n">EWMaleCenData</span> <span class="o">&lt;-</span> <span class="nf">StMoMoData</span><span class="p">(</span><span class="n">EWdata</span><span class="p">,</span> <span class="n">series</span> <span class="o">=</span> <span class="s">&quot;male&quot;</span><span class="p">)</span>
+<span class="n">EWFemaleCenData</span> <span class="o">&lt;-</span> <span class="nf">StMoMoData</span><span class="p">(</span><span class="n">EWdata</span><span class="p">,</span> <span class="n">series</span> <span class="o">=</span> <span class="s">&quot;female&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="model">
+<h2><span class="section-number">1.1.2.3. </span>Model<a class="headerlink" href="#model" title="Permalink to this headline">#</a></h2>
+<section id="defining-the-model">
+<h3><span class="section-number">1.1.2.3.1. </span>Defining the Model<a class="headerlink" href="#defining-the-model" title="Permalink to this headline">#</a></h3>
+<p>Ages, years and cohorts to be fitted</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">ages</span> <span class="o">&lt;-</span> <span class="m">19</span><span class="o">:</span><span class="m">103</span>
+<span class="n">years</span> <span class="o">&lt;-</span> <span class="m">1950</span><span class="o">:</span><span class="m">2018</span>
+<span class="n">cohorts</span> <span class="o">&lt;-</span> <span class="p">(</span><span class="n">years</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">ages</span><span class="p">[</span><span class="nf">length</span><span class="p">(</span><span class="n">ages</span><span class="p">)])</span><span class="o">:</span><span class="p">(</span><span class="n">years</span><span class="p">[</span><span class="nf">length</span><span class="p">(</span><span class="n">years</span><span class="p">)]</span> <span class="o">-</span> <span class="n">ages</span><span class="p">[</span><span class="m">1</span><span class="p">])</span>
+<span class="n">zero.cohorts</span> <span class="o">&lt;-</span> <span class="n">cohorts</span><span class="p">[</span><span class="n">cohorts</span> <span class="o">&lt;</span> <span class="m">1855</span><span class="p">]</span>
+<span class="n">wxt</span> <span class="o">&lt;-</span> <span class="nf">genWeightMat</span><span class="p">(</span><span class="n">ages</span> <span class="o">=</span> <span class="n">ages</span><span class="p">,</span> <span class="n">years</span> <span class="o">=</span> <span class="n">years</span><span class="p">,</span> <span class="n">zeroCohorts</span> <span class="o">=</span> <span class="n">zero.cohorts</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">f2</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ages</span><span class="p">)</span> <span class="nf">mean</span><span class="p">(</span><span class="n">ages</span><span class="p">)</span> <span class="o">-</span> <span class="n">x</span>
+<span class="n">f3</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ages</span><span class="p">)</span> <span class="nf">pmax</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="n">ages</span><span class="p">)</span><span class="o">-</span><span class="n">x</span><span class="p">,</span><span class="m">0</span><span class="p">)</span>
+
+<span class="n">constPlat</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">bx</span><span class="p">,</span> <span class="n">kt</span><span class="p">,</span> <span class="n">b0x</span><span class="p">,</span> <span class="n">gc</span><span class="p">,</span> <span class="n">wxt</span><span class="p">,</span> <span class="n">ages</span><span class="p">){</span>
+  <span class="n">nYears</span> <span class="o">&lt;-</span> <span class="nf">dim</span><span class="p">(</span><span class="n">wxt</span><span class="p">)[</span><span class="m">2</span><span class="p">]</span>
+  <span class="n">x</span> <span class="o">&lt;-</span> <span class="n">ages</span>
+  <span class="n">t</span> <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="n">nYears</span>
+  <span class="n">c</span> <span class="o">&lt;-</span> <span class="p">(</span><span class="m">1</span> <span class="o">-</span> <span class="nf">tail</span><span class="p">(</span><span class="n">ages</span><span class="p">,</span> <span class="m">1</span><span class="p">))</span><span class="o">:</span><span class="p">(</span><span class="n">nYears</span> <span class="o">-</span> <span class="n">ages</span><span class="p">[</span><span class="m">1</span><span class="p">])</span>
+  <span class="n">xbar</span> <span class="o">&lt;-</span> <span class="nf">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+  <span class="c1">#\sum g(c)=0, \sum cg(c)=0, \sum c^2g(c)=0</span>
+  <span class="n">phiReg</span> <span class="o">&lt;-</span> <span class="nf">lm</span><span class="p">(</span><span class="n">gc</span> <span class="o">~</span> <span class="m">1</span> <span class="o">+</span> <span class="n">c</span> <span class="o">+</span> <span class="nf">I</span><span class="p">(</span><span class="n">c</span><span class="o">^</span><span class="m">2</span><span class="p">),</span> <span class="n">na.action</span> <span class="o">=</span> <span class="n">na.omit</span><span class="p">)</span>
+  <span class="n">phi</span> <span class="o">&lt;-</span> <span class="nf">coef</span><span class="p">(</span><span class="n">phiReg</span><span class="p">)</span>
+  <span class="n">gc</span> <span class="o">&lt;-</span> <span class="n">gc</span> <span class="o">-</span> <span class="n">phi</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">phi</span><span class="p">[</span><span class="m">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">c</span> <span class="o">-</span> <span class="n">phi</span><span class="p">[</span><span class="m">3</span><span class="p">]</span> <span class="o">*</span> <span class="n">c</span><span class="o">^</span><span class="m">2</span>
+  <span class="n">kt</span><span class="p">[</span><span class="m">2</span><span class="p">,</span> <span class="p">]</span> <span class="o">&lt;-</span> <span class="n">kt</span><span class="p">[</span><span class="m">2</span><span class="p">,</span> <span class="p">]</span> <span class="o">+</span> <span class="m">2</span> <span class="o">*</span> <span class="n">phi</span><span class="p">[</span><span class="m">3</span><span class="p">]</span> <span class="o">*</span> <span class="n">t</span>
+  <span class="n">kt</span><span class="p">[</span><span class="m">1</span><span class="p">,</span> <span class="p">]</span> <span class="o">&lt;-</span> <span class="n">kt</span><span class="p">[</span><span class="m">1</span><span class="p">,</span> <span class="p">]</span> <span class="o">+</span> <span class="n">phi</span><span class="p">[</span><span class="m">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">t</span> <span class="o">+</span> <span class="n">phi</span><span class="p">[</span><span class="m">3</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">t</span><span class="o">^</span><span class="m">2</span> <span class="o">-</span> <span class="m">2</span> <span class="o">*</span> <span class="n">xbar</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span>
+  <span class="n">ax</span> <span class="o">&lt;-</span> <span class="n">ax</span> <span class="o">+</span> <span class="n">phi</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">phi</span><span class="p">[</span><span class="m">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">phi</span><span class="p">[</span><span class="m">3</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span><span class="o">^</span><span class="m">2</span>
+  <span class="c1">#\sum kt[i, ] = 0</span>
+  <span class="n">ci</span> <span class="o">&lt;-</span> <span class="nf">rowMeans</span><span class="p">(</span><span class="n">kt</span><span class="p">,</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+  <span class="n">ax</span> <span class="o">&lt;-</span> <span class="n">ax</span> <span class="o">+</span> <span class="n">ci</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">ci</span><span class="p">[</span><span class="m">2</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">xbar</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">ci</span><span class="p">[</span><span class="m">3</span><span class="p">]</span> <span class="o">*</span> <span class="nf">pmax</span><span class="p">(</span><span class="n">xbar</span> <span class="o">-</span> <span class="n">x</span><span class="p">,</span> <span class="m">0</span><span class="p">)</span>
+  <span class="n">kt</span><span class="p">[</span><span class="m">1</span><span class="p">,</span> <span class="p">]</span> <span class="o">&lt;-</span> <span class="n">kt</span><span class="p">[</span><span class="m">1</span><span class="p">,</span> <span class="p">]</span> <span class="o">-</span> <span class="n">ci</span><span class="p">[</span><span class="m">1</span><span class="p">]</span>
+  <span class="n">kt</span><span class="p">[</span><span class="m">2</span><span class="p">,</span> <span class="p">]</span> <span class="o">&lt;-</span> <span class="n">kt</span><span class="p">[</span><span class="m">2</span><span class="p">,</span> <span class="p">]</span> <span class="o">-</span> <span class="n">ci</span><span class="p">[</span><span class="m">2</span><span class="p">]</span>
+  <span class="n">kt</span><span class="p">[</span><span class="m">3</span><span class="p">,</span> <span class="p">]</span> <span class="o">&lt;-</span> <span class="n">kt</span><span class="p">[</span><span class="m">3</span><span class="p">,</span> <span class="p">]</span> <span class="o">-</span> <span class="n">ci</span><span class="p">[</span><span class="m">3</span><span class="p">]</span>
+  <span class="nf">list</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">,</span> <span class="n">bx</span> <span class="o">=</span> <span class="n">bx</span><span class="p">,</span> <span class="n">kt</span> <span class="o">=</span> <span class="n">kt</span><span class="p">,</span> <span class="n">b0x</span> <span class="o">=</span> <span class="n">b0x</span><span class="p">,</span> <span class="n">gc</span> <span class="o">=</span> <span class="n">gc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">PLAT</span> <span class="o">&lt;-</span> <span class="nf">StMoMo</span><span class="p">(</span><span class="n">link</span> <span class="o">=</span> <span class="s">&quot;log&quot;</span><span class="p">,</span> <span class="n">staticAgeFun</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span> <span class="n">periodAgeFun</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;1&quot;</span><span class="p">,</span> <span class="n">f2</span><span class="p">,</span> <span class="n">f3</span><span class="p">),</span> 
+               <span class="n">cohortAgeFun</span> <span class="o">=</span> <span class="s">&quot;1&quot;</span><span class="p">,</span> <span class="n">constFun</span> <span class="o">=</span> <span class="n">constPlat</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="fitting-model">
+<h3><span class="section-number">1.1.2.3.2. </span>Fitting Model<a class="headerlink" href="#fitting-model" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">PLATM</span> <span class="o">&lt;-</span> <span class="nf">fit</span><span class="p">(</span><span class="n">PLAT</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">EWMaleCenData</span><span class="p">,</span> <span class="n">ages.fit</span> <span class="o">=</span> <span class="n">ages</span><span class="p">,</span> <span class="n">years.fit</span> <span class="o">=</span> <span class="n">years</span><span class="p">,</span> <span class="n">wxt</span> <span class="o">=</span> <span class="n">wxt</span><span class="p">)</span>
+<span class="n">PLATF</span> <span class="o">&lt;-</span> <span class="nf">fit</span><span class="p">(</span><span class="n">PLAT</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">EWFemaleCenData</span><span class="p">,</span> <span class="n">ages.fit</span> <span class="o">=</span> <span class="n">ages</span><span class="p">,</span> <span class="n">years.fit</span> <span class="o">=</span> <span class="n">years</span><span class="p">,</span> <span class="n">wxt</span> <span class="o">=</span> <span class="n">wxt</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="quality-of-fit">
+<h3><span class="section-number">1.1.2.3.3. </span>Quality of Fit<a class="headerlink" href="#quality-of-fit" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">BIC</span><span class="p">(</span><span class="n">PLATM</span><span class="p">)</span>
+<span class="nf">BIC</span><span class="p">(</span><span class="n">PLATF</span><span class="p">)</span>
+
+<span class="n">PLATM</span><span class="o">$</span><span class="n">deviance</span>
+<span class="n">PLATF</span><span class="o">$</span><span class="n">deviance</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="fitting-arima-models-for-kt1-kt2-kt3">
+<h3><span class="section-number">1.1.2.3.4. </span>Fitting Arima Models for kt1, kt2, kt3<a class="headerlink" href="#fitting-arima-models-for-kt1-kt2-kt3" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">PLATM_list</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">PLATM</span><span class="o">$</span><span class="n">ax</span><span class="p">,</span> <span class="n">kt</span> <span class="o">=</span> <span class="n">PLATM</span><span class="o">$</span><span class="n">kt</span><span class="p">,</span> <span class="n">gc</span> <span class="o">=</span> <span class="n">PLATM</span><span class="o">$</span><span class="n">gc</span><span class="p">)</span>
+<span class="n">PLATF_list</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">PLATF</span><span class="o">$</span><span class="n">ax</span><span class="p">,</span> <span class="n">kt</span> <span class="o">=</span> <span class="n">PLATF</span><span class="o">$</span><span class="n">kt</span><span class="p">,</span> <span class="n">gc</span> <span class="o">=</span> <span class="n">PLATF</span><span class="o">$</span><span class="n">gc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">kt1M</span> <span class="o">&lt;-</span> <span class="nf">arima</span><span class="p">(</span><span class="nf">diff</span><span class="p">(</span><span class="n">PLATM</span><span class="o">$</span><span class="n">kt</span><span class="p">[</span><span class="m">1</span><span class="p">,</span> <span class="p">]),</span> <span class="n">order</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">),</span> <span class="n">include.mean</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s">&quot;ML&quot;</span><span class="p">))</span>
+<span class="p">(</span><span class="n">kt1F</span> <span class="o">&lt;-</span> <span class="nf">arima</span><span class="p">(</span><span class="nf">diff</span><span class="p">(</span><span class="n">PLATF</span><span class="o">$</span><span class="n">kt</span><span class="p">[</span><span class="m">1</span><span class="p">,</span> <span class="p">]),</span> <span class="n">order</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">),</span> <span class="n">include.mean</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s">&quot;ML&quot;</span><span class="p">))</span>
+
+<span class="p">(</span><span class="n">kt2M</span> <span class="o">&lt;-</span> <span class="nf">arima</span><span class="p">(</span><span class="n">PLATM</span><span class="o">$</span><span class="n">kt</span><span class="p">[</span><span class="m">2</span><span class="p">,</span> <span class="p">],</span> <span class="n">order</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">),</span> <span class="n">include.mean</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s">&quot;ML&quot;</span><span class="p">))</span>
+<span class="p">(</span><span class="n">kt2F</span> <span class="o">&lt;-</span> <span class="nf">arima</span><span class="p">(</span><span class="n">PLATF</span><span class="o">$</span><span class="n">kt</span><span class="p">[</span><span class="m">2</span><span class="p">,</span> <span class="p">],</span> <span class="n">order</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">),</span> <span class="n">include.mean</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s">&quot;ML&quot;</span><span class="p">))</span>
+
+<span class="p">(</span><span class="n">kt3M</span> <span class="o">&lt;-</span> <span class="nf">arima</span><span class="p">(</span><span class="n">PLATM</span><span class="o">$</span><span class="n">kt</span><span class="p">[</span><span class="m">3</span><span class="p">,</span> <span class="p">],</span> <span class="n">order</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">),</span> <span class="n">include.mean</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s">&quot;ML&quot;</span><span class="p">))</span>
+<span class="p">(</span><span class="n">kt3F</span> <span class="o">&lt;-</span> <span class="nf">arima</span><span class="p">(</span><span class="n">PLATF</span><span class="o">$</span><span class="n">kt</span><span class="p">[</span><span class="m">3</span><span class="p">,</span> <span class="p">],</span> <span class="n">order</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">),</span> <span class="n">include.mean</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s">&quot;ML&quot;</span><span class="p">))</span>
+
+<span class="p">(</span><span class="n">gcM</span> <span class="o">&lt;-</span> <span class="nf">arima</span><span class="p">(</span><span class="n">PLATM</span><span class="o">$</span><span class="n">gc</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">),</span> <span class="n">include.mean</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s">&quot;ML&quot;</span><span class="p">))</span>
+<span class="p">(</span><span class="n">gcF</span> <span class="o">&lt;-</span> <span class="nf">arima</span><span class="p">(</span><span class="n">PLATF</span><span class="o">$</span><span class="n">gc</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">),</span> <span class="n">include.mean</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s">&quot;ML&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="save-model">
+<h2><span class="section-number">1.1.2.4. </span>Save Model<a class="headerlink" href="#save-model" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">collect_arima_info</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">manual_diff_order</span><span class="o">=</span><span class="m">0</span><span class="p">){</span>
+  <span class="n">order</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="n">model</span><span class="o">$</span><span class="n">call</span><span class="o">$</span><span class="n">order</span><span class="p">[[</span><span class="m">2</span><span class="p">]],</span> <span class="n">model</span><span class="o">$</span><span class="n">call</span><span class="o">$</span><span class="n">order</span><span class="p">[[</span><span class="m">3</span><span class="p">]],</span> <span class="n">model</span><span class="o">$</span><span class="n">call</span><span class="o">$</span><span class="n">order</span><span class="p">[[</span><span class="m">4</span><span class="p">]])</span>
+  <span class="n">order</span><span class="p">[</span><span class="m">2</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="n">order</span><span class="p">[</span><span class="m">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">manual_diff_order</span>
+  <span class="n">collected</span> <span class="o">&lt;-</span> <span class="nf">list</span><span class="p">(</span><span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">e</span><span class="o">=</span><span class="nf">append</span><span class="p">(</span><span class="nf">rep</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="n">manual_diff_order</span><span class="p">),</span> <span class="nf">as.vector</span><span class="p">(</span><span class="n">model</span><span class="o">$</span><span class="n">residuals</span><span class="p">)))</span>
+  <span class="nf">if </span><span class="p">(</span><span class="n">order</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="m">1</span><span class="p">){</span>
+    <span class="n">collected</span><span class="p">[[</span><span class="s">&quot;phi&quot;</span><span class="p">]]</span> <span class="o">&lt;-</span> <span class="nf">as.vector</span><span class="p">(</span><span class="n">model</span><span class="o">$</span><span class="n">coef</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="n">order</span><span class="p">[</span><span class="m">1</span><span class="p">]])</span>
+  <span class="p">}</span> <span class="n">else</span><span class="p">{</span>
+    <span class="n">collected</span><span class="p">[[</span><span class="s">&quot;phi&quot;</span><span class="p">]]</span> <span class="o">&lt;-</span> <span class="m">0</span>
+  <span class="p">}</span>
+  
+  <span class="nf">if </span><span class="p">(</span><span class="n">order</span><span class="p">[</span><span class="m">3</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="m">1</span><span class="p">){</span>
+    <span class="n">collected</span><span class="p">[[</span><span class="s">&quot;theta&quot;</span><span class="p">]]</span> <span class="o">&lt;-</span> <span class="nf">as.vector</span><span class="p">(</span><span class="n">model</span><span class="o">$</span><span class="n">coef</span><span class="p">[(</span><span class="n">order</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="m">+1</span><span class="p">)</span><span class="o">:</span><span class="p">(</span><span class="n">order</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="o">+</span><span class="n">order</span><span class="p">[</span><span class="m">3</span><span class="p">])])</span>
+  <span class="p">}</span> <span class="n">else</span><span class="p">{</span>
+    <span class="n">collected</span><span class="p">[[</span><span class="s">&quot;theta&quot;</span><span class="p">]]</span> <span class="o">&lt;-</span> <span class="m">0</span>
+  <span class="p">}</span>
+  
+  <span class="n">collected</span><span class="p">[[</span><span class="s">&quot;mu&quot;</span><span class="p">]]</span> <span class="o">&lt;-</span> <span class="nf">ifelse</span><span class="p">(</span><span class="nf">any</span><span class="p">(</span><span class="s">&quot;intercept&quot;</span> <span class="o">%in%</span> <span class="nf">names</span><span class="p">(</span><span class="n">model</span><span class="o">$</span><span class="n">coef</span><span class="p">)),</span> <span class="n">model</span><span class="o">$</span><span class="n">coef</span><span class="p">[[</span><span class="s">&quot;intercept&quot;</span><span class="p">]],</span> <span class="m">0</span><span class="p">)</span>
+  <span class="n">collected</span><span class="p">[[</span><span class="s">&quot;sigma&quot;</span><span class="p">]]</span> <span class="o">&lt;-</span> <span class="n">model</span><span class="o">$</span><span class="n">sigma</span>
+  
+  <span class="c1"># intercept and mean are not the same (https://www.stat.pitt.edu/stoffer/tsa2/Rissues.htm)</span>
+  <span class="c1"># only for ar1 </span>
+  <span class="c1"># if (collected[[&quot;mu&quot;]]!=0 &amp; order[1]==1){</span>
+  <span class="c1">#   collected[[&quot;mu&quot;]] &lt;- collected[[&quot;mu&quot;]]*(1-collected[[&quot;phi&quot;]][1])</span>
+  <span class="c1"># }</span>
+  
+  <span class="nf">return</span><span class="p">(</span><span class="n">collected</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">PLATM_list</span><span class="p">[[</span><span class="s">&quot;kt&quot;</span><span class="p">]]</span> <span class="o">&lt;-</span> <span class="nf">list</span><span class="p">(</span><span class="nf">collect_arima_info</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">PLATM_list</span><span class="p">[[</span><span class="s">&quot;kt&quot;</span><span class="p">]][</span><span class="m">1</span><span class="p">,</span> <span class="p">],</span> <span class="n">model</span><span class="o">=</span><span class="n">kt1M</span><span class="p">,</span> <span class="n">manual_diff_order</span> <span class="o">=</span> <span class="m">1</span><span class="p">),</span>
+                      <span class="nf">collect_arima_info</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">PLATM_list</span><span class="p">[[</span><span class="s">&quot;kt&quot;</span><span class="p">]][</span><span class="m">2</span><span class="p">,</span> <span class="p">],</span> <span class="n">model</span><span class="o">=</span><span class="n">kt2M</span><span class="p">),</span>
+                      <span class="nf">collect_arima_info</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">PLATM_list</span><span class="p">[[</span><span class="s">&quot;kt&quot;</span><span class="p">]][</span><span class="m">3</span><span class="p">,</span> <span class="p">],</span> <span class="n">model</span><span class="o">=</span><span class="n">kt3M</span><span class="p">))</span>
+
+<span class="n">PLATM_list</span><span class="p">[[</span><span class="s">&quot;gc&quot;</span><span class="p">]]</span> <span class="o">&lt;-</span> <span class="nf">collect_arima_info</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">PLATM_list</span><span class="p">[[</span><span class="s">&quot;gc&quot;</span><span class="p">]],</span> <span class="n">model</span><span class="o">=</span><span class="n">gcM</span><span class="p">)</span>
+
+<span class="n">PLATF</span><span class="p">[[</span><span class="s">&quot;kt&quot;</span><span class="p">]]</span> <span class="o">&lt;-</span> <span class="nf">list</span><span class="p">(</span><span class="nf">collect_arima_info</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">PLATF</span><span class="p">[[</span><span class="s">&quot;kt&quot;</span><span class="p">]][</span><span class="m">1</span><span class="p">,</span> <span class="p">],</span> <span class="n">model</span><span class="o">=</span><span class="n">kt1F</span><span class="p">,</span> <span class="n">manual_diff_order</span> <span class="o">=</span> <span class="m">1</span><span class="p">),</span>
+                      <span class="nf">collect_arima_info</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">PLATF</span><span class="p">[[</span><span class="s">&quot;kt&quot;</span><span class="p">]][</span><span class="m">2</span><span class="p">,</span> <span class="p">],</span> <span class="n">model</span><span class="o">=</span><span class="n">kt2F</span><span class="p">),</span>
+                      <span class="nf">collect_arima_info</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">PLATF</span><span class="p">[[</span><span class="s">&quot;kt&quot;</span><span class="p">]][</span><span class="m">3</span><span class="p">,</span> <span class="p">],</span> <span class="n">model</span><span class="o">=</span><span class="n">kt3F</span><span class="p">))</span>
+
+<span class="n">PLATF</span><span class="p">[[</span><span class="s">&quot;gc&quot;</span><span class="p">]]</span> <span class="o">&lt;-</span> <span class="nf">collect_arima_info</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">PLATF</span><span class="p">[[</span><span class="s">&quot;gc&quot;</span><span class="p">]],</span> <span class="n">model</span><span class="o">=</span><span class="n">gcM</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">save</span><span class="p">(</span><span class="n">PLATM</span><span class="p">,</span> <span class="n">PLATF</span><span class="p">,</span> <span class="n">file</span> <span class="o">=</span> <span class="s">&quot;PLAT.RData&quot;</span><span class="p">,</span> <span class="n">compress</span> <span class="o">=</span> <span class="s">&quot;gzip&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "r"
+        },
+        kernelOptions: {
+            kernelName: "ir",
+            path: "./chapters\01\1\PLAT"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ir'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../LeeCarter/LeeCarter.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">1.1.1. </span>Lee Carter</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../../2/InterestModels.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">1.2. </span>Interest Models</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Franco Marais<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

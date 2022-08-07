@@ -1,0 +1,783 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>3.1. Inflation Model &#8212; StLifeIns</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="3. Inflation Models" href="InflationModelsIntro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">StLifeIns</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01/MortalityModels.html">
+   1. Mortality Models
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/LeeCarter/LeeCarter.html">
+     1.1. LC
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/PLAT/PLAT.html">
+     1.2. Plat
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02/InterestModels.html">
+   2. Interest
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="InflationModelsIntro.html">
+   3. Inflation
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     3.1. RegressionWithArima
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/flashyfiddle/StLifeIns/master?urlpath=tree/docs/chapters/03/InflationModels.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/flashyfiddle/StLifeIns"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/flashyfiddle/StLifeIns/issues/new?title=Issue%20on%20page%20%2Fchapters/03/InflationModels.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/chapters/03/InflationModels.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#packages">
+   3.1.1. Packages
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data">
+   3.1.2. Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#model">
+   3.1.3. Model
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fit-linear-regression">
+     3.1.3.1. Fit Linear Regression
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fit-arima-model-on-regression-errors">
+     3.1.3.2. Fit ARIMA model on regression errors
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#residual-analysis">
+     3.1.3.3. Residual Analysis
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#save-model">
+   3.1.4. Save Model
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Inflation Model</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#packages">
+   3.1.1. Packages
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data">
+   3.1.2. Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#model">
+   3.1.3. Model
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fit-linear-regression">
+     3.1.3.1. Fit Linear Regression
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fit-arima-model-on-regression-errors">
+     3.1.3.2. Fit ARIMA model on regression errors
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#residual-analysis">
+     3.1.3.3. Residual Analysis
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#save-model">
+   3.1.4. Save Model
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="inflation-model">
+<h1><span class="section-number">3.1. </span>Inflation Model<a class="headerlink" href="#inflation-model" title="Permalink to this headline">#</a></h1>
+<section id="packages">
+<h2><span class="section-number">3.1.1. </span>Packages<a class="headerlink" href="#packages" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># install.packages(&#39;ggplot2&#39;)</span>
+<span class="c1"># install.packages(&#39;scales&#39;)</span>
+<span class="c1"># install.packages(&#39;ggfortify&#39;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">TSA</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">ggfortify</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">scales</span><span class="p">)</span>
+
+<span class="nf">theme_set</span><span class="p">(</span><span class="nf">theme_bw</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attaching package: &#39;TSA&#39;
+
+
+The following objects are masked from &#39;package:stats&#39;:
+
+    acf, arima
+
+
+The following object is masked from &#39;package:utils&#39;:
+
+    tar
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="data">
+<h2><span class="section-number">3.1.2. </span>Data<a class="headerlink" href="#data" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># function to convert string date to year month vector</span>
+<span class="n">year_mon</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">string_date</span><span class="p">){</span>
+  <span class="n">year</span> <span class="o">&lt;-</span> <span class="nf">as.integer</span><span class="p">(</span><span class="nf">substr</span><span class="p">(</span><span class="n">string_date</span><span class="p">,</span> <span class="n">start</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">stop</span> <span class="o">=</span> <span class="m">4</span><span class="p">))</span>
+  <span class="n">mon</span> <span class="o">&lt;-</span> <span class="nf">as.integer</span><span class="p">(</span><span class="nf">substr</span><span class="p">(</span><span class="n">string_date</span><span class="p">,</span> <span class="n">start</span> <span class="o">=</span> <span class="m">6</span><span class="p">,</span> <span class="n">stop</span> <span class="o">=</span> <span class="m">7</span><span class="p">))</span>
+  <span class="nf">return</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">mon</span><span class="p">))</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">raw.intdata</span> <span class="o">&lt;-</span> <span class="nf">read.csv</span><span class="p">(</span><span class="s">&quot;IRLTLT01ZAM156N.csv&quot;</span><span class="p">)</span>
+<span class="n">raw.infldata</span> <span class="o">&lt;-</span> <span class="nf">read.csv</span><span class="p">(</span><span class="s">&quot;ZAFCPIALLMINMEI.csv&quot;</span><span class="p">)</span>
+<span class="n">bond_term</span> <span class="o">&lt;-</span> <span class="m">10</span>
+
+<span class="n">start_date</span> <span class="o">&lt;-</span> <span class="s">&quot;2010-01-01&quot;</span>
+<span class="n">end_date</span> <span class="o">&lt;-</span> <span class="s">&quot;2019-12-01&quot;</span>
+<span class="n">start_index_int</span> <span class="o">&lt;-</span> <span class="nf">which</span><span class="p">(</span><span class="n">raw.intdata</span><span class="o">$</span><span class="n">DATE</span><span class="o">==</span><span class="n">start_date</span><span class="p">)</span>
+<span class="n">end_index_int</span> <span class="o">&lt;-</span> <span class="nf">which</span><span class="p">(</span><span class="n">raw.intdata</span><span class="o">$</span><span class="n">DATE</span><span class="o">==</span><span class="n">end_date</span><span class="p">)</span>
+<span class="n">start_index_infl</span> <span class="o">&lt;-</span> <span class="nf">which</span><span class="p">(</span><span class="n">raw.infldata</span><span class="o">$</span><span class="n">DATE</span><span class="o">==</span><span class="n">start_date</span><span class="p">)</span>
+<span class="n">end_index_infl</span> <span class="o">&lt;-</span> <span class="nf">which</span><span class="p">(</span><span class="n">raw.infldata</span><span class="o">$</span><span class="n">DATE</span><span class="o">==</span><span class="n">end_date</span><span class="p">)</span>
+
+<span class="n">int_data</span> <span class="o">&lt;-</span> <span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="n">raw.intdata</span><span class="p">[</span><span class="n">start_index_int</span><span class="o">:</span><span class="n">end_index_int</span><span class="p">,</span> <span class="s">&quot;IRLTLT01ZAM156N&quot;</span><span class="p">],</span> 
+                     <span class="nf">rep</span><span class="p">(</span><span class="n">bond_term</span><span class="p">,</span> <span class="nf">length</span><span class="p">(</span><span class="n">start_index_int</span><span class="o">:</span><span class="n">end_index_int</span><span class="p">))),</span> <span class="n">ncol</span><span class="o">=</span><span class="m">2</span><span class="p">)</span>
+
+<span class="c1"># monthly effective interest rates</span>
+<span class="n">int_series</span> <span class="o">&lt;-</span> <span class="nf">ts</span><span class="p">((</span><span class="m">1</span><span class="o">+</span><span class="n">int_data</span><span class="p">[,</span> <span class="m">1</span><span class="p">]</span><span class="o">/</span><span class="m">100</span><span class="p">)</span><span class="o">^</span><span class="p">(</span><span class="m">1</span><span class="o">/</span><span class="m">12</span><span class="p">)</span><span class="m">-1</span><span class="p">,</span> 
+                 <span class="n">start</span> <span class="o">=</span> <span class="nf">year_mon</span><span class="p">(</span><span class="n">start_date</span><span class="p">),</span> <span class="n">frequency</span><span class="o">=</span><span class="m">12</span><span class="p">)</span>
+
+<span class="c1"># monthly effective inflation</span>
+<span class="n">infl_data</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="n">raw.infldata</span><span class="o">$</span><span class="n">ZAFCPIALLMINMEI</span><span class="p">[</span><span class="m">-1</span><span class="p">]</span><span class="o">/</span>
+                 <span class="n">raw.infldata</span><span class="o">$</span><span class="n">ZAFCPIALLMINMEI</span><span class="p">[</span><span class="o">-</span><span class="nf">nrow</span><span class="p">(</span><span class="n">raw.infldata</span><span class="p">)])</span><span class="m">-1</span>
+
+<span class="n">infl_series</span> <span class="o">&lt;-</span> <span class="nf">ts</span><span class="p">(</span><span class="n">infl_data</span><span class="p">[</span><span class="n">start_index_infl</span><span class="o">:</span><span class="n">end_index_infl</span><span class="p">],</span> 
+                  <span class="n">start</span> <span class="o">=</span> <span class="nf">year_mon</span><span class="p">(</span><span class="n">start_date</span><span class="p">),</span> <span class="n">frequency</span><span class="o">=</span><span class="m">12</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">options</span><span class="p">(</span><span class="n">repr.plot.width</span><span class="o">=</span><span class="m">20</span><span class="p">,</span> <span class="n">repr.plot.height</span><span class="o">=</span><span class="m">5</span><span class="p">)</span>
+
+<span class="p">(</span><span class="n">infl_plot</span> <span class="o">&lt;-</span> <span class="nf">autoplot</span><span class="p">(</span><span class="n">infl_series</span><span class="p">)</span><span class="o">+</span>
+  <span class="nf">ggtitle</span><span class="p">(</span><span class="s">&quot;Monthly effective inflation rates (January 2010 to December 2019)&quot;</span><span class="p">)</span> <span class="o">+</span>
+  <span class="nf">ylab</span><span class="p">(</span><span class="s">&quot;monthly effective inflation rate&quot;</span><span class="p">)</span> <span class="o">+</span>
+  <span class="nf">xlab</span><span class="p">(</span><span class="s">&quot;Time&quot;</span><span class="p">)</span> <span class="o">+</span>
+  <span class="nf">scale_x_date</span><span class="p">(</span><span class="n">breaks</span> <span class="o">=</span> <span class="nf">breaks_pretty</span><span class="p">(</span><span class="m">10</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/InflationModels_7_0.png" src="../../_images/InflationModels_7_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">create_lagged_dataframe</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">int_series</span><span class="p">,</span> <span class="n">infl_series</span><span class="p">,</span> <span class="n">int_lags</span><span class="p">,</span> <span class="n">infl_lags</span><span class="p">){</span>
+  <span class="n">n</span> <span class="o">&lt;-</span> <span class="nf">length</span><span class="p">(</span><span class="n">int_series</span><span class="p">)</span>
+  <span class="n">max_lag</span> <span class="o">&lt;-</span> <span class="nf">max</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="n">int_lags</span><span class="p">,</span> <span class="n">infl_lags</span><span class="p">))</span>
+  <span class="n">ncols</span> <span class="o">&lt;-</span> <span class="nf">length</span><span class="p">(</span><span class="n">int_lags</span><span class="p">)</span> <span class="o">+</span> <span class="nf">length</span><span class="p">(</span><span class="n">infl_lags</span><span class="p">)</span>
+  <span class="n">nrows</span> <span class="o">&lt;-</span> <span class="nf">length</span><span class="p">(</span><span class="n">int_series</span><span class="p">)</span> <span class="o">-</span> <span class="n">max_lag</span>
+  <span class="n">datfram</span> <span class="o">&lt;-</span> <span class="nf">as.data.frame</span><span class="p">(</span><span class="nf">matrix</span><span class="p">(</span><span class="n">nrow</span><span class="o">=</span><span class="n">nrows</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="n">ncols</span><span class="p">))</span>
+  
+  <span class="n">k</span> <span class="o">=</span> <span class="m">0</span>
+  <span class="nf">for </span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="n">infl_lags</span><span class="p">){</span>
+    <span class="n">datfram</span><span class="p">[,</span> <span class="n">k</span><span class="m">+1</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="n">infl_series</span><span class="p">[(</span><span class="n">max_lag</span><span class="o">-</span><span class="n">i</span><span class="m">+1</span><span class="p">)</span><span class="o">:</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">i</span><span class="p">)]</span>
+    <span class="nf">colnames</span><span class="p">(</span><span class="n">datfram</span><span class="p">)[</span><span class="n">k</span><span class="m">+1</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="nf">paste0</span><span class="p">(</span><span class="s">&quot;infl.l&quot;</span><span class="p">,</span> <span class="nf">as.character</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+    <span class="n">k</span> <span class="o">&lt;-</span> <span class="n">k</span> <span class="o">+</span> <span class="m">1</span>
+  <span class="p">}</span>
+  
+  <span class="nf">for </span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="n">int_lags</span><span class="p">){</span>
+    <span class="n">datfram</span><span class="p">[,</span> <span class="n">k</span><span class="m">+1</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="n">int_series</span><span class="p">[(</span><span class="n">max_lag</span><span class="o">-</span><span class="n">i</span><span class="m">+1</span><span class="p">)</span><span class="o">:</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">i</span><span class="p">)]</span>
+    <span class="nf">colnames</span><span class="p">(</span><span class="n">datfram</span><span class="p">)[</span><span class="n">k</span><span class="m">+1</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="nf">paste0</span><span class="p">(</span><span class="s">&quot;int.l&quot;</span><span class="p">,</span> <span class="nf">as.character</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+    <span class="n">k</span> <span class="o">&lt;-</span> <span class="n">k</span> <span class="o">+</span> <span class="m">1</span>
+  <span class="p">}</span>
+  
+  <span class="nf">return</span><span class="p">(</span><span class="n">datfram</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="model">
+<h2><span class="section-number">3.1.3. </span>Model<a class="headerlink" href="#model" title="Permalink to this headline">#</a></h2>
+<section id="fit-linear-regression">
+<h3><span class="section-number">3.1.3.1. </span>Fit Linear Regression<a class="headerlink" href="#fit-linear-regression" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">lagged_datfram</span> <span class="o">&lt;-</span> <span class="nf">create_lagged_dataframe</span><span class="p">(</span><span class="n">int_series</span><span class="p">,</span> <span class="n">infl_series</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="o">:</span><span class="m">1</span><span class="p">),</span> <span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="o">:</span><span class="m">1</span><span class="p">))</span>
+<span class="n">lagged_datfram_interact</span> <span class="o">&lt;-</span> <span class="nf">as.data.frame</span><span class="p">(</span><span class="nf">model.matrix</span><span class="p">(</span><span class="o">~</span><span class="m">-1</span> <span class="o">+</span> <span class="n">.</span><span class="p">,</span> <span class="n">lagged_datfram</span><span class="p">))</span>
+
+<span class="n">reg_model</span> <span class="o">&lt;-</span> <span class="nf">lm</span><span class="p">(</span><span class="n">infl.l0</span> <span class="o">~</span> <span class="m">-1</span> <span class="o">+</span> <span class="n">.</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">lagged_datfram_interact</span><span class="p">)</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">reg_model</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Call:
+lm(formula = infl.l0 ~ -1 + ., data = lagged_datfram_interact)
+
+Residuals:
+       Min         1Q     Median         3Q        Max 
+-0.0058332 -0.0023030 -0.0004531  0.0023509  0.0074865 
+
+Coefficients:
+        Estimate Std. Error t value Pr(&gt;|t|)   
+infl.l1  0.28748    0.08694   3.307  0.00126 **
+int.l0   4.27180    1.57703   2.709  0.00778 **
+int.l1  -3.84328    1.57740  -2.436  0.01635 * 
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 0.00331 on 116 degrees of freedom
+Multiple R-squared:  0.637,	Adjusted R-squared:  0.6276 
+F-statistic: 67.85 on 3 and 116 DF,  p-value: &lt; 2.2e-16
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="fit-arima-model-on-regression-errors">
+<h3><span class="section-number">3.1.3.2. </span>Fit ARIMA model on regression errors<a class="headerlink" href="#fit-arima-model-on-regression-errors" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">arima_model</span> <span class="o">&lt;-</span> <span class="nf">arima</span><span class="p">(</span><span class="n">reg_model</span><span class="o">$</span><span class="n">residuals</span><span class="p">,</span> <span class="n">seasonal</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">order</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">),</span> <span class="n">period</span><span class="o">=</span><span class="m">12</span><span class="p">),</span> <span class="n">include.mean</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
+<span class="n">arima_model</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Call:
+arima(x = reg_model$residuals, seasonal = list(order = c(1, 0, 1), period = 12), 
+    include.mean = FALSE)
+
+Coefficients:
+        sar1     sma1
+      0.8904  -0.5390
+s.e.  0.0706   0.1463
+
+sigma^2 estimated as 6.45e-06:  log likelihood = 538.6,  aic = -1073.2
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="residual-analysis">
+<h3><span class="section-number">3.1.3.3. </span>Residual Analysis<a class="headerlink" href="#residual-analysis" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">options</span><span class="p">(</span><span class="n">repr.plot.width</span><span class="o">=</span><span class="m">12</span><span class="p">,</span> <span class="n">repr.plot.height</span><span class="o">=</span><span class="m">6</span><span class="p">)</span>
+<span class="c1">#plot(residuals(infl_model), type=&quot;l&quot;)</span>
+
+<span class="n">res_hist</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">()</span> <span class="o">+</span> <span class="nf">geom_histogram</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="nf">residuals</span><span class="p">(</span><span class="n">arima_model</span><span class="p">)),</span> <span class="n">binwidth</span> <span class="o">=</span> <span class="m">0.001</span><span class="p">)</span> <span class="o">+</span>
+            <span class="nf">xlab</span><span class="p">(</span><span class="s">&quot;Residuals&quot;</span><span class="p">)</span>
+<span class="n">res_qqnorm</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">()</span> <span class="o">+</span> <span class="nf">stat_qq</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">sample</span><span class="o">=</span><span class="nf">residuals</span><span class="p">(</span><span class="n">arima_model</span><span class="p">)))</span>
+
+<span class="n">gridExtra</span><span class="o">::</span><span class="nf">grid.arrange</span><span class="p">(</span><span class="n">res_hist</span><span class="p">,</span> <span class="n">res_qqnorm</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="m">2</span><span class="p">,</span> <span class="n">nrow</span><span class="o">=</span><span class="m">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Don&#39;t know how to automatically pick scale for object of type ts. Defaulting to continuous.
+
+Don&#39;t know how to automatically pick scale for object of type ts. Defaulting to continuous.
+</pre></div>
+</div>
+<img alt="../../_images/InflationModels_15_1.png" src="../../_images/InflationModels_15_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">options</span><span class="p">(</span><span class="n">repr.plot.width</span><span class="o">=</span><span class="m">20</span><span class="p">,</span> <span class="n">repr.plot.height</span><span class="o">=</span><span class="m">5</span><span class="p">)</span>
+<span class="nf">autoplot</span><span class="p">(</span><span class="nf">acf</span><span class="p">(</span><span class="nf">residuals</span><span class="p">(</span><span class="n">arima_model</span><span class="p">),</span> <span class="n">lag.max</span> <span class="o">=</span> <span class="m">200</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">))</span>
+<span class="nf">autoplot</span><span class="p">(</span><span class="nf">pacf</span><span class="p">(</span><span class="nf">residuals</span><span class="p">(</span><span class="n">arima_model</span><span class="p">),</span> <span class="n">lag.max</span> <span class="o">=</span> <span class="m">200</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">))</span> <span class="o">+</span> <span class="nf">ylab</span><span class="p">(</span><span class="s">&quot;PACF&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/InflationModels_16_0.png" src="../../_images/InflationModels_16_0.png" />
+<img alt="../../_images/InflationModels_16_1.png" src="../../_images/InflationModels_16_1.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="save-model">
+<h2><span class="section-number">3.1.4. </span>Save Model<a class="headerlink" href="#save-model" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">reg_errors</span> <span class="o">&lt;-</span> <span class="n">reg_model</span><span class="o">$</span><span class="n">residuals</span>
+<span class="n">n</span> <span class="o">&lt;-</span> <span class="nf">length</span><span class="p">(</span><span class="n">reg_errors</span><span class="p">)</span>
+<span class="n">reg_errors</span> <span class="o">&lt;-</span> <span class="nf">as.numeric</span><span class="p">(</span><span class="n">reg_errors</span><span class="p">[(</span><span class="n">n</span><span class="m">-11</span><span class="p">)</span><span class="o">:</span><span class="n">n</span><span class="p">])</span>
+
+<span class="n">arima_errors</span> <span class="o">&lt;-</span> <span class="n">arima_model</span><span class="o">$</span><span class="n">residuals</span>
+<span class="n">m</span> <span class="o">&lt;-</span> <span class="nf">length</span><span class="p">(</span><span class="n">arima_errors</span><span class="p">)</span>
+<span class="n">arima_errors</span> <span class="o">&lt;-</span> <span class="nf">as.numeric</span><span class="p">(</span><span class="n">arima_errors</span><span class="p">[(</span><span class="n">m</span><span class="m">-11</span><span class="p">)</span><span class="o">:</span><span class="n">m</span><span class="p">])</span>
+
+<span class="n">param</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="s">&quot;beta&quot;</span> <span class="o">=</span> <span class="n">reg_model</span><span class="o">$</span><span class="n">coefficients</span><span class="p">,</span> <span class="s">&quot;reg_errors&quot;</span> <span class="o">=</span> <span class="n">reg_errors</span><span class="p">,</span> <span class="s">&quot;Phi&quot;</span> <span class="o">=</span> <span class="n">arima_model</span><span class="o">$</span><span class="n">coef</span><span class="p">[</span><span class="s">&quot;sar1&quot;</span><span class="p">],</span> <span class="s">&quot;Theta&quot;</span> <span class="o">=</span> <span class="n">arima_model</span><span class="o">$</span><span class="n">coef</span><span class="p">[</span><span class="s">&quot;sma1&quot;</span><span class="p">],</span> <span class="s">&quot;sigma&quot;</span> <span class="o">=</span> <span class="nf">sqrt</span><span class="p">(</span><span class="n">arima_model</span><span class="o">$</span><span class="n">sigma2</span><span class="p">),</span> <span class="s">&quot;arima_errors&quot;</span> <span class="o">=</span> <span class="n">arima_errors</span><span class="p">,</span> <span class="s">&quot;end_value&quot;</span> <span class="o">=</span> <span class="n">infl_series</span><span class="p">[</span><span class="nf">length</span><span class="p">(</span><span class="n">infl_series</span><span class="p">)])</span>
+
+<span class="c1"># save(param, file = &quot;inflation_param.RData&quot;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "r"
+        },
+        kernelOptions: {
+            kernelName: "ir",
+            path: "./chapters\03"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ir'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="InflationModelsIntro.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">3. </span>Inflation Models</p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Franco Marais<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

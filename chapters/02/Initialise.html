@@ -1,0 +1,1064 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Packages &#8212; StLifeIns</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">StLifeIns</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    <no title>
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01/StochasticModels.html">
+   1. Stochastic Models
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../01/1/MortalityModels.html">
+     1.1. Mortality Models
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01/1/LeeCarter/LeeCarter.html">
+       1.1.1. LC
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01/1/PLAT/PLAT.html">
+       1.1.2. Plat
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/2/InterestModels.html">
+     1.2. Interest
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../01/3/InflationModelsIntro.html">
+     1.3. Inflation
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01/3/InflationModels.html">
+       1.3.1. RegressionWithArima
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="Basics.html">
+   2. Basics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1/Setup.html">
+     2.1. Setup
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2/Life.html">
+     2.2. Life
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/flashyfiddle/StLifeIns/master?urlpath=tree/docs/chapters/02/Initialise.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/flashyfiddle/StLifeIns"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/flashyfiddle/StLifeIns/issues/new?title=Issue%20on%20page%20%2Fchapters/02/Initialise.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/chapters/02/Initialise.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Packages
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#endowment-assurance">
+   Endowment Assurance
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#life">
+     Life
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cashflows">
+     Cashflows
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#policy">
+     Policy
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basis">
+   Basis
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mortality">
+     Mortality
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#interest-and-inflation">
+     Interest and Inflation
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#surrender-rates">
+     Surrender Rates
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reserves">
+   Reserves
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#profit">
+   Profit
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#price">
+   Price
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Packages</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Packages
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#endowment-assurance">
+   Endowment Assurance
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#life">
+     Life
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cashflows">
+     Cashflows
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#policy">
+     Policy
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basis">
+   Basis
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mortality">
+     Mortality
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#interest-and-inflation">
+     Interest and Inflation
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#surrender-rates">
+     Surrender Rates
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reserves">
+   Reserves
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#profit">
+   Profit
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#price">
+   Price
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section id="packages">
+<h1>Packages<a class="headerlink" href="#packages" title="Permalink to this headline">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span><span class="p">(</span><span class="s">&quot;../../../&quot;</span><span class="p">)</span><span class="w"></span>
+
+<span class="k">using</span><span class="w"> </span><span class="n">Pkg</span><span class="w"></span>
+
+<span class="n">Pkg</span><span class="o">.</span><span class="n">activate</span><span class="p">(</span><span class="s">&quot;.&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="c"># Pkg.update(&quot;StLifeIns&quot;)</span><span class="w"></span>
+<span class="n">Pkg</span><span class="o">.</span><span class="n">instantiate</span><span class="p">()</span><span class="w"></span>
+<span class="n">Pkg</span><span class="o">.</span><span class="n">precompile</span><span class="p">()</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Green">  Activating</span> project at `C:\Users\User-PC\PythonProjects\Tricycle\StLifeIns`
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">StLifeIns</span><span class="w"></span>
+<span class="n">setGPU</span><span class="p">()</span><span class="w"></span>
+<span class="n">setMAX_AGE</span><span class="p">(</span><span class="mi">103</span><span class="p">);</span><span class="w"> </span><span class="n">setYEAR_MON</span><span class="p">(</span><span class="mi">2019</span><span class="p">)</span><span class="w"></span>
+
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;MAX_AGE = &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">MAX_AGE</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;YEAR_MON = &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">YEAR_MON</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MAX_AGE = 103
+YEAR_MON = 2019
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">include</span><span class="p">(</span><span class="n">joinpath</span><span class="p">(</span><span class="nd">@__DIR__</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;src</span><span class="se">\\</span><span class="s">mortality_models</span><span class="se">\\</span><span class="s">ReadMortalityModels.jl&quot;</span><span class="p">));</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="o">.</span><span class="n">ReadMortalityModels</span><span class="w"></span>
+<span class="n">include</span><span class="p">(</span><span class="n">joinpath</span><span class="p">(</span><span class="nd">@__DIR__</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;src</span><span class="se">\\</span><span class="s">interest_inflation</span><span class="se">\\</span><span class="s">interest</span><span class="se">\\</span><span class="s">ReadInterestModels.jl&quot;</span><span class="p">));</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="o">.</span><span class="n">ReadInterestModels</span><span class="w"></span>
+<span class="n">include</span><span class="p">(</span><span class="n">joinpath</span><span class="p">(</span><span class="nd">@__DIR__</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;src</span><span class="se">\\</span><span class="s">interest_inflation</span><span class="se">\\</span><span class="s">inflation</span><span class="se">\\</span><span class="s">ReadInflationModels.jl&quot;</span><span class="p">));</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="o">.</span><span class="n">ReadInflationModels</span><span class="w"></span>
+<span class="n">include</span><span class="p">(</span><span class="n">joinpath</span><span class="p">(</span><span class="nd">@__DIR__</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;src</span><span class="se">\\</span><span class="s">model_combo.jl&quot;</span><span class="p">))</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>forecast_int_infl (generic function with 1 method)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">Setfield</span><span class="o">:</span><span class="w"> </span><span class="nd">@set</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">Plots</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="endowment-assurance">
+<h1>Endowment Assurance<a class="headerlink" href="#endowment-assurance" title="Permalink to this headline">#</a></h1>
+<section id="life">
+<h2>Life<a class="headerlink" href="#life" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># id, female, age=47+5/12, term = 25 years, term in force = 0 months</span><span class="w"></span>
+<span class="n">life</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TermLife</span><span class="p">(</span><span class="mi">0101010</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="p">,</span><span class="w"> </span><span class="mi">47</span><span class="o">+</span><span class="mi">5</span><span class="o">/</span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">25</span><span class="o">*</span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TermLife(101010, false, 47.416666666666664, 300, 0, 103, 300)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="cashflows">
+<h2>Cashflows<a class="headerlink" href="#cashflows" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># level monthly premiums of 100 in advance, applicable from the first month</span><span class="w"></span>
+<span class="n">premiums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">RecurringCashflow</span><span class="p">(</span><span class="s">&quot;prem&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="p">,</span><span class="w"> </span><span class="n">InForce</span><span class="p">())]</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1-element Vector{RecurringCashflow}:
+ RecurringCashflow(&quot;prem&quot;, 100.0, 0.0, 1, 12, false, InForce())
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># benefit of 50000 on death or survival to term, payable in arrears</span><span class="w"></span>
+<span class="n">benefits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">AnyTimeCashflow</span><span class="p">(</span><span class="s">&quot;deathben&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">50000</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">,</span><span class="w"> </span><span class="n">OnDeath</span><span class="p">()),</span><span class="w"></span>
+<span class="w">            </span><span class="n">PointCashflow</span><span class="p">(</span><span class="s">&quot;survben&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">50000</span><span class="p">,</span><span class="w"> </span><span class="n">life</span><span class="o">.</span><span class="n">proj_max</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">,</span><span class="w"> </span><span class="n">InForce</span><span class="p">())]</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2-element Vector{Cashflow}:
+ AnyTimeCashflow(&quot;deathben&quot;, -50000.0, 0.0, true, OnDeath())
+ PointCashflow(&quot;survben&quot;, -50000.0, 300, true, InForce())
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># level monthly expenses of 10 in arrears, applicable from the first month</span><span class="w"></span>
+<span class="c"># claim expenses of 200 on death or survival to term in arrears</span><span class="w"></span>
+<span class="c"># termination of contract expense of 100 in arrears</span><span class="w"></span>
+<span class="n">expenses</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">RecurringCashflow</span><span class="p">(</span><span class="s">&quot;regexp&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">,</span><span class="w"> </span><span class="n">InForce</span><span class="p">()),</span><span class="w"></span>
+<span class="w">            </span><span class="n">AnyTimeCashflow</span><span class="p">(</span><span class="s">&quot;deathexp&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">,</span><span class="w"> </span><span class="n">OnDeath</span><span class="p">()),</span><span class="w"></span>
+<span class="w">            </span><span class="n">PointCashflow</span><span class="p">(</span><span class="s">&quot;survexp&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="n">life</span><span class="o">.</span><span class="n">proj_max</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">,</span><span class="w"> </span><span class="n">InForce</span><span class="p">()),</span><span class="w"></span>
+<span class="w">            </span><span class="n">AnyTimeCashflow</span><span class="p">(</span><span class="s">&quot;termexp&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">,</span><span class="w"> </span><span class="n">OnTermination</span><span class="p">())]</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4-element Vector{Cashflow}:
+ RecurringCashflow(&quot;regexp&quot;, -10.0, 0.0, 1, 12, true, InForce())
+ AnyTimeCashflow(&quot;deathexp&quot;, -200.0, 0.0, true, OnDeath())
+ PointCashflow(&quot;survexp&quot;, -200.0, 300, true, InForce())
+ AnyTimeCashflow(&quot;termexp&quot;, -100.0, 0.0, true, OnTermination())
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">penalties</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Any[]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="policy">
+<h2>Policy<a class="headerlink" href="#policy" title="Permalink to this headline">#</a></h2>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">policy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">StandardPolicy</span><span class="p">(</span><span class="s">&quot;ea&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">life</span><span class="p">,</span><span class="w"> </span><span class="n">premiums</span><span class="p">,</span><span class="w"> </span><span class="n">benefits</span><span class="p">,</span><span class="w"> </span><span class="n">expenses</span><span class="p">,</span><span class="w"> </span><span class="n">penalties</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>StandardPolicy(&quot;ea&quot;, TermLife(101010, false, 47.416666666666664, 300, 0, 103, 300), Cashflow[RecurringCashflow(&quot;prem&quot;, 100.0, 0.0, 1, 12, false, InForce())], Cashflow[AnyTimeCashflow(&quot;deathben&quot;, -50000.0, 0.0, true, OnDeath()), PointCashflow(&quot;survben&quot;, -50000.0, 300, true, InForce())], Cashflow[RecurringCashflow(&quot;regexp&quot;, -10.0, 0.0, 1, 12, true, InForce()), AnyTimeCashflow(&quot;deathexp&quot;, -200.0, 0.0, true, OnDeath()), PointCashflow(&quot;survexp&quot;, -200.0, 300, true, InForce()), AnyTimeCashflow(&quot;termexp&quot;, -100.0, 0.0, true, OnTermination())], Cashflow[])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="basis">
+<h1>Basis<a class="headerlink" href="#basis" title="Permalink to this headline">#</a></h1>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">nsims</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10000</span><span class="w"> </span><span class="c"># number of simulations</span><span class="w"></span>
+<span class="n">max_proj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">life</span><span class="o">.</span><span class="n">proj_max</span><span class="w"> </span><span class="c"># since only one policy</span><span class="w"></span>
+<span class="n">max_term</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span><span class="o">*</span><span class="mi">103</span><span class="w"> </span><span class="c"># 103 is the maximum age</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="mortality">
+<h2>Mortality<a class="headerlink" href="#mortality" title="Permalink to this headline">#</a></h2>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">mortmodel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mortmodel_dict</span><span class="p">[</span><span class="s">&quot;Lee-Carter Negative Binomial&quot;</span><span class="p">]</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dict{Bool, GAPC} with 2 entries:
+  0 =&gt; LeeCarter(19:103, 1950:2018, [-7.98257, -7.98352, -7.94439, -7.93947, -7…
+  1 =&gt; LeeCarter(19:103, 1950:2018, [-7.07363, -7.04496, -7.05496, -7.06141, -7…
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># simulates mortality for every age, male and female</span><span class="w"></span>
+<span class="n">mortality</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">simulate_mortality</span><span class="p">(</span><span class="n">mortmodel</span><span class="p">,</span><span class="w"> </span><span class="n">nsims</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dict{Bool, OrderedCollections.OrderedDict{Int8, Matrix{Float64}}} with 2 entries:
+  0 =&gt; OrderedCollections.OrderedDict(19=&gt;[1.74358e-5; 1.76713e-5; … ; 1.75589e…
+  1 =&gt; OrderedCollections.OrderedDict(19=&gt;[4.2383e-5; 3.80998e-5; … ; 3.62937e-…
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="interest-and-inflation">
+<h2>Interest and Inflation<a class="headerlink" href="#interest-and-inflation" title="Permalink to this headline">#</a></h2>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">intmodel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">intmodel_dict</span><span class="p">[</span><span class="s">&quot;CIR&quot;</span><span class="p">]</span><span class="w"></span>
+<span class="n">inflmodel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inflmodel_dict</span><span class="p">[</span><span class="s">&quot;Regression with Arima Errors 1&quot;</span><span class="p">]</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RegWithArimaErrors1([&quot;infl.l1&quot;, &quot;int.l0&quot;, &quot;int.l1&quot;], [0.28748015449368014, 4.2718047549737, -3.8432848466863465], [0.006040805761017907, 0.002759492697221169, -4.76188475478156e-5, -0.0014399953073214694, -0.0004329273410322281, -0.0003525596501035531, -0.0006344929027054068, -0.0019458778070725157, -0.0034022772158820245, -0.0022996715245049695, -0.0013271050819798503, -0.0012171964476822004], 0.8904042514335486, -0.5390078507024059, 0.002539590815255443, [0.0021260066195946522, 0.0019086736294481252, -0.0009363564951983013, 0.0001093592310431279, 0.0003967639239846428, -0.00173439302524579, 0.002946608583641831, -0.0023887633310224424, -0.0029985414320851237, -3.94267878607775e-5, 0.000888811127409229, -0.0002166704631360038])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># simulates monthly effective interest and inflation from starting values</span><span class="w"></span>
+<span class="n">int</span><span class="p">,</span><span class="w"> </span><span class="n">infl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">simulate_int_infl</span><span class="p">(</span><span class="n">int_start</span><span class="p">,</span><span class="w"> </span><span class="n">intmodel</span><span class="p">,</span><span class="w"></span>
+<span class="w">                              </span><span class="n">infl_start</span><span class="p">,</span><span class="w"> </span><span class="n">inflmodel</span><span class="p">,</span><span class="w"></span>
+<span class="w">                              </span><span class="n">nsims</span><span class="p">,</span><span class="w"> </span><span class="n">max_proj</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="o">/</span><span class="mi">12</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([0.00689469328673975 0.007362943252695153 … 0.007244614390748971 0.007160592836326973; 0.008551456866751739 0.007343384199166358 … 0.0064134220818541365 0.006402966800931553; … ; 0.007254766744881902 0.006866727464624356 … 0.0065971080283415695 0.00675652130606208; 0.008189435798882538 0.007221758737896655 … 0.007169971512407836 0.006134482248820294], [0.0020888088819234992 0.0052882513494467934 … -0.0002385257497032698 0.0017929143759743168; 0.015354810767196095 0.00028337272130001586 … 0.0046222489411622564 0.002325179050678618; … ; 0.009058245417203521 -0.00030460878845472387 … 0.00284510633863731 0.0038117769547605664; 0.013433739576666725 0.0011344160349293498 … 0.004463699243011968 0.004498672099895667])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="surrender-rates">
+<h2>Surrender Rates<a class="headerlink" href="#surrender-rates" title="Permalink to this headline">#</a></h2>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># yearly probability of surrender and number of months for which applicable</span><span class="w"></span>
+<span class="n">surr_ea</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">0.05</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mf">0.04</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mf">0.03</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mf">0.02</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mf">0.01</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nb">Inf</span><span class="p">]</span><span class="w"></span>
+<span class="n">surr_ea</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">create_surrender_rates</span><span class="p">(</span><span class="n">surr_ea</span><span class="p">,</span><span class="w"> </span><span class="n">nsims</span><span class="p">,</span><span class="w"> </span><span class="n">max_term</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10000×1236 Matrix{Float64}:
+ 0.00427444  0.00427444  0.00427444  0.00427444  …  0.000837528  0.000837528
+ 0.00427444  0.00427444  0.00427444  0.00427444     0.000837528  0.000837528
+ 0.00427444  0.00427444  0.00427444  0.00427444     0.000837528  0.000837528
+ 0.00427444  0.00427444  0.00427444  0.00427444     0.000837528  0.000837528
+ 0.00427444  0.00427444  0.00427444  0.00427444     0.000837528  0.000837528
+ 0.00427444  0.00427444  0.00427444  0.00427444  …  0.000837528  0.000837528
+ 0.00427444  0.00427444  0.00427444  0.00427444     0.000837528  0.000837528
+ 0.00427444  0.00427444  0.00427444  0.00427444     0.000837528  0.000837528
+ 0.00427444  0.00427444  0.00427444  0.00427444     0.000837528  0.000837528
+ 0.00427444  0.00427444  0.00427444  0.00427444     0.000837528  0.000837528
+ 0.00427444  0.00427444  0.00427444  0.00427444  …  0.000837528  0.000837528
+ 0.00427444  0.00427444  0.00427444  0.00427444     0.000837528  0.000837528
+ 0.00427444  0.00427444  0.00427444  0.00427444     0.000837528  0.000837528
+ ⋮                                               ⋱               ⋮
+ 0.00427444  0.00427444  0.00427444  0.00427444     0.000837528  0.000837528
+ 0.00427444  0.00427444  0.00427444  0.00427444     0.000837528  0.000837528
+ 0.00427444  0.00427444  0.00427444  0.00427444  …  0.000837528  0.000837528
+ 0.00427444  0.00427444  0.00427444  0.00427444     0.000837528  0.000837528
+ 0.00427444  0.00427444  0.00427444  0.00427444     0.000837528  0.000837528
+ 0.00427444  0.00427444  0.00427444  0.00427444     0.000837528  0.000837528
+ 0.00427444  0.00427444  0.00427444  0.00427444     0.000837528  0.000837528
+ 0.00427444  0.00427444  0.00427444  0.00427444  …  0.000837528  0.000837528
+ 0.00427444  0.00427444  0.00427444  0.00427444     0.000837528  0.000837528
+ 0.00427444  0.00427444  0.00427444  0.00427444     0.000837528  0.000837528
+ 0.00427444  0.00427444  0.00427444  0.00427444     0.000837528  0.000837528
+ 0.00427444  0.00427444  0.00427444  0.00427444     0.000837528  0.000837528
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="reserves">
+<h1>Reserves<a class="headerlink" href="#reserves" title="Permalink to this headline">#</a></h1>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">resbasis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">StProductBasis</span><span class="p">(</span><span class="n">nsims</span><span class="p">,</span><span class="w"> </span><span class="n">max_proj</span><span class="p">,</span><span class="w"> </span><span class="mf">1.05</span><span class="o">*</span><span class="n">mortality</span><span class="p">,</span><span class="w"> </span><span class="n">surr_ea</span><span class="p">,</span><span class="w"> </span><span class="n">int</span><span class="p">,</span><span class="w"> </span><span class="n">infl</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>StProductBasis(10000, 300, Dict{Bool, OrderedCollections.OrderedDict{Int8, CUDA.CuArray{Float32, 2}}}(0 =&gt; OrderedCollections.OrderedDict(19 =&gt; Float32[1.8307617f-5; 1.8554812f-5; … ; 1.8436893f-5; 1.6972643f-5;;], 20 =&gt; Float32[1.7752325f-5 1.6368049f-5; 1.8006742f-5 1.8018063f-5; … ; 1.788535f-5 2.3096844f-5; 1.6382044f-5 1.6503936f-5], 21 =&gt; Float32[1.8213272f-5 1.675765f-5 1.9144347f-5; 1.8481129f-5 1.849305f-5 1.6043616f-5; … ; 1.8353312f-5 2.3859233f-5 3.030326f-5; 1.6772352f-5 1.6900405f-5 1.4245274f-5], 22 =&gt; Float32[1.7817976f-5 1.6325246f-5 1.8775978f-5 1.7875462f-5; 1.8093333f-5 1.8105593f-5 1.5595362f-5 1.8648117f-5; … ; 1.7961913f-5 2.3661327f-5 3.0416328f-5 3.4802983f-5; 1.6340291f-5 1.647136f-5 1.3764517f-5 1.2468694f-5], 23 =&gt; Float32[1.82866f-5 1.6730364f-5 … 1.8346576f-5 2.0570322f-5; 1.8573914f-5 1.8586708f-5 … 1.9153007f-5 1.7207627f-5; … ; 1.8436778f-5 2.4397914f-5 … 3.6116355f-5 3.4982826f-5; 1.6746037f-5 1.6882594f-5 … 1.2721234f-5 1.0855188f-5], 24 =&gt; Float32[1.8419969f-5 1.6827807f-5 … 2.076039f-5 1.6176555f-5; 1.8714163f-5 1.8727267f-5 … 1.731584f-5 1.6519705f-5; … ; 1.8573734f-5 2.4692385f-5 … 3.5614998f-5 2.8155016f-5; 1.684383f-5 1.6983447f-5 … 1.0841196f-5 1.0969382f-5], 25 =&gt; Float32[2.015035f-5 1.8491486f-5 … 1.781074f-5 1.5926573f-5; 2.0456071f-5 2.046968f-5 … 1.8169598f-5 1.5696864f-5; … ; 2.0310168f-5 2.6621554f-5 … 3.015745f-5 2.7333346f-5; 1.8508217f-5 1.865398f-5 … 1.2312882f-5 1.21986f-5], 26 =&gt; Float32[2.1520988f-5 1.9769577f-5 … 1.7057799f-5 2.0172836f-5; 2.1843573f-5 2.1857932f-5 … 1.681469f-5 1.6529188f-5; … ; 2.168963f-5 2.8337885f-5 … 2.9086392f-5 3.3751632f-5; 1.978725f-5 1.9941215f-5 … 1.3106744f-5 1.3317966f-5], 27 =&gt; Float32[2.2506467f-5 2.0707697f-5 … 2.1122116f-5 2.3207594f-5; 2.283747f-5 2.2852202f-5 … 1.7371594f-5 1.5641212f-5; … ; 2.2679522f-5 2.9483434f-5 … 3.5001423f-5 3.2939697f-5; 2.0725864f-5 2.0884105f-5 … 1.405336f-5 1.549191f-5], 28 =&gt; Float32[2.4976363f-5 2.3062685f-5 … 2.5720468f-5 2.781219f-5; 2.5327778f-5 2.5343414f-5 … 1.7631555f-5 2.0124311f-5; … ; 2.5160118f-5 3.2341133f-5 … 3.596051f-5 3.5788322f-5; 2.3082046f-5 2.3250668f-5 … 1.7470464f-5 1.7379525f-5]…), 1 =&gt; OrderedCollections.OrderedDict(19 =&gt; Float32[4.4502183f-5; 4.0004765f-5; … ; 3.810838f-5; 4.0741972f-5;;], 20 =&gt; Float32[4.7876038f-5 4.8264323f-5; 4.343856f-5 4.369541f-5; … ; 4.155466f-5 4.046371f-5; 4.4168795f-5 4.4212175f-5], 21 =&gt; Float32[4.8321424f-5 4.869705f-5 5.014051f-5; 4.4019373f-5 4.4268865f-5 4.112467f-5; … ; 4.2187567f-5 4.1125226f-5 3.840565f-5; 4.4728524f-5 4.4770637f-5 4.707282f-5], 22 =&gt; Float32[4.8820937f-5 4.9186172f-5 5.0588733f-5 5.1395025f-5; 4.463006f-5 4.487351f-5 4.180159f-5 4.4076365f-5; … ; 4.284101f-5 4.1802137f-5 3.9137994f-5 3.7349342f-5; 4.5321904f-5 4.5362976f-5 4.7606096f-5 4.6065612f-5], 23 =&gt; Float32[5.1444593f-5 5.176978f-5 … 5.372859f-5 5.341984f-5; 4.768548f-5 4.7905298f-5 … 4.7184843f-5 4.6017918f-5; … ; 4.606434f-5 4.5118177f-5 … 4.1020132f-5 4.2302203f-5; 4.8309685f-5 4.8346694f-5 … 4.8979036f-5 4.796862f-5], 24 =&gt; Float32[5.1212082f-5 5.152645f-5 … 5.312073f-5 5.0322225f-5; 4.7573816f-5 4.778679f-5 … 4.595725f-5 4.4593326f-5; … ; 4.6002275f-5 4.508433f-5 … 4.2349f-5 4.4115022f-5; 4.817851f-5 4.821435f-5 … 4.7848134f-5 4.6235204f-5], 25 =&gt; Float32[5.4042568f-5 5.4336135f-5 … 5.3210453f-5 5.31036f-5; 5.0629566f-5 5.083016f-5 … 4.7811296f-5 4.7707377f-5; … ; 4.914617f-5 4.8277027f-5 … 4.7357047f-5 4.7182628f-5; 5.1198836f-5 5.1232557f-5 … 4.9366394f-5 4.892464f-5], 26 =&gt; Float32[5.553454f-5 5.58292f-5 … 5.4591834f-5 5.3981443f-5; 5.2106083f-5 5.230773f-5 … 4.916641f-5 4.8591086f-5; … ; 5.0614315f-5 4.973979f-5 … 4.8638085f-5 4.9111542f-5; 5.2678297f-5 5.2712185f-5 … 5.0391453f-5 5.0468752f-5], 27 =&gt; Float32[5.6640238f-5 5.6923418f-5 … 5.514618f-5 5.2588617f-5; 5.3338816f-5 5.3533327f-5 … 4.9941034f-5 4.822445f-5; … ; 5.189846f-5 5.105294f-5 … 5.0445004f-5 5.001981f-5; 5.389067f-5 5.3923344f-5 … 5.1757783f-5 5.165121f-5], 28 =&gt; Float32[5.955728f-5 5.9836366f-5 … 5.5554436f-5 5.514196f-5; 5.629702f-5 5.6489447f-5 … 5.12211f-5 5.09729f-5; … ; 5.4870703f-5 5.4032276f-5 … 5.300663f-5 5.288167f-5; 5.6842855f-5 5.687516f-5 … 5.4625616f-5 5.375398f-5]…)), Float32[0.0042744414 0.0042744414 … 0.000837528 0.000837528; 0.0042744414 0.0042744414 … 0.000837528 0.000837528; … ; 0.0042744414 0.0042744414 … 0.000837528 0.000837528; 0.0042744414 0.0042744414 … 0.000837528 0.000837528], Float32[1.0020888 1.0073881 … 4.041501 4.048747; 1.0153548 1.0156425 … 3.194301 3.2017283; … ; 1.0090582 1.0087509 … 3.9077492 3.9226446; 1.0134337 1.0145833 … 2.4648707 2.4759595], Float32[1.0068947 1.007363 … 1.0072446 1.0071605; 1.0085515 1.0073434 … 1.0064135 1.006403; … ; 1.0072547 1.0068667 … 1.0065972 1.0067565; 1.0081894 1.0072218 … 1.00717 1.0061345], Float32[0.9931525 0.99269086 … 0.9928075 0.9928903; 0.99152106 0.9927102 … 0.9936274 0.99363774; … ; 0.9927975 0.9931801 … 0.9934461 0.9932888; 0.9918771 0.99283004 … 0.99288106 0.9939029])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">res_calc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">reserves</span><span class="p">(</span><span class="n">policy</span><span class="p">,</span><span class="w"> </span><span class="n">resbasis</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>StochasticReserveCalcs(StandardPolicy(&quot;ea&quot;, TermLife(101010, false, 47.416666666666664, 300, 0, 103, 300), Cashflow[RecurringCashflow(&quot;prem&quot;, 100.0, 0.0, 1, 12, false, InForce())], Cashflow[AnyTimeCashflow(&quot;deathben&quot;, -50000.0, 0.0, true, OnDeath()), PointCashflow(&quot;survben&quot;, -50000.0, 300, true, InForce())], Cashflow[RecurringCashflow(&quot;regexp&quot;, -10.0, 0.0, 1, 12, true, InForce()), AnyTimeCashflow(&quot;deathexp&quot;, -200.0, 0.0, true, OnDeath()), PointCashflow(&quot;survexp&quot;, -200.0, 300, true, InForce()), AnyTimeCashflow(&quot;termexp&quot;, -100.0, 0.0, true, OnTermination())], Cashflow[]), PolicyBasis(10000, 300, false, Float32[0.00013849999 0.00013849999 … 0.0014838635 0.0014838635; 0.0001403329 0.0001403329 … 0.0010599674 0.0010599674; … ; 0.0001394586 0.0001394586 … 0.00212933 0.00212933; 0.00012859282 0.00012859282 … 0.0011608853 0.0011608853], Float32[0.0042744414 0.0042744414 … 0.000837528 0.000837528; 0.0042744414 0.0042744414 … 0.000837528 0.000837528; … ; 0.0042744414 0.0042744414 … 0.000837528 0.000837528; 0.0042744414 0.0042744414 … 0.000837528 0.000837528], Float32[1.0020888 1.0073881 … 4.041501 4.048747; 1.0153548 1.0156425 … 3.194301 3.2017283; … ; 1.0090582 1.0087509 … 3.9077492 3.9226446; 1.0134337 1.0145833 … 2.4648707 2.4759595], Float32[1.0068947 1.007363 … 1.0072446 1.0071605; 1.0085515 1.0073434 … 1.0064135 1.006403; … ; 1.0072547 1.0068667 … 1.0065972 1.0067565; 1.0081894 1.0072218 … 1.00717 1.0061345], Float32[0.9931525 0.99269086 … 0.9928075 0.9928903; 0.99152106 0.9927102 … 0.9936274 0.99363774; … ; 0.9927975 0.9931801 … 0.9934461 0.9932888; 0.9918771 0.99283004 … 0.99288106 0.9939029]), Dict{Contingency, CUDA.CuArray{Float32, 2}}(InForce() =&gt; [0.99559677 0.99559677 … 0.9976813 0.9976813; 0.9955949 0.9955949 … 0.99810433 0.99810433; … ; 0.9955958 0.9955958 … 0.99703753 0.99703753; 0.9956066 0.9956066 … 0.99800366 0.99800366], OnTermination() =&gt; [0.0042650383 0.0042650383 … 0.0008365498 0.0008365498; 0.0042650565 0.0042650565 … 0.0008367206 0.0008367206; … ; 0.0042650355 0.0042650355 … 0.00083628925 0.00083628925; 0.004265087 0.004265087 … 0.0008366584 0.0008366584], OnDeath() =&gt; [0.00013819532 0.00013819532 … 0.0014821305 0.0014821305; 0.00014002479 0.00014002479 … 0.0010589455 0.0010589455; … ; 0.00013915171 0.00013915171 … 0.0021261808 0.0021261808; 0.00012831141 0.00012831141 … 0.00115968 0.00115968]), Union{CompleteCashflow, ParallelCashflow}[ParallelVectorCashflow(&quot;regexp&quot;, [-10.020887851715088 -10.073881149291992 … -40.41501045227051 -40.487470626831055; -10.153547525405884 -10.15642523765564 … -31.94300889968872 -32.01728343963623; … ; -10.090582370758057 -10.087509155273438 … -39.077491760253906 -39.2264461517334; -10.134336948394775 -10.145833492279053 … -24.648706912994385 -24.75959539413452], true, InForce()), ParallelVectorCashflow(&quot;deathexp&quot;, [-200.41775703430176 -201.47762298583984 … -808.3002090454102 -809.7494125366211; -203.07095050811768 -203.1285047531128 … -638.8601779937744 -640.3456687927246; … ; -201.81164741516113 -201.75018310546875 … -781.5498352050781 -784.528923034668; -202.6867389678955 -202.91666984558105 … -492.9741382598877 -495.19190788269043], true, OnDeath()), ParallelPointCashflow(&quot;survexp&quot;, [-809.7494125366211, -640.3456687927246, -545.3176498413086, -581.1450958251953, -619.5003032684326, -781.4850330352783, -669.9080467224121, -596.722412109375, -569.683837890625, -656.7544460296631  …  -664.5405769348145, -678.9943218231201, -665.3432846069336, -532.2487831115723, -553.9092540740967, -639.4165515899658, -777.1960735321045, -512.1096611022949, -784.528923034668, -495.19190788269043], 300, true, InForce()), ParallelVectorCashflow(&quot;termexp&quot;, [-100.20887851715088 -100.73881149291992 … -404.1501045227051 -404.87470626831055; -101.53547525405884 -101.5642523765564 … -319.4300889968872 -320.1728343963623; … ; -100.90582370758057 -100.87509155273438 … -390.77491760253906 -392.264461517334; -101.34336948394775 -101.45833492279053 … -246.48706912994385 -247.59595394134521], true, OnTermination()), VectorCashflow(&quot;prem&quot;, [100.0, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0  …  100.0, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0], false, InForce()), VectorCashflow(&quot;deathben&quot;, [-50000.0, -50000.0, -50000.0, -50000.0, -50000.0, -50000.0, -50000.0, -50000.0, -50000.0, -50000.0  …  -50000.0, -50000.0, -50000.0, -50000.0, -50000.0, -50000.0, -50000.0, -50000.0, -50000.0, -50000.0], true, OnDeath()), PointCashflow(&quot;survben&quot;, -50000.0, 300, true, InForce())], [-3096.880061120507 -3048.3067148717255 … 49883.860149880624 50346.74726907051; -3486.2102006533555 -3447.9271420333325 … 49778.777058061394 50208.0758823403; … ; -2635.460488824159 -2582.6914796497517 … 49908.904119901395 50340.69263372023; -3674.3635448714094 -3636.576150185935 … 49597.171212301684 50070.09451998361])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">res1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">res_calc</span><span class="o">.</span><span class="n">reserves</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"></span>
+<span class="n">res1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">convert</span><span class="p">(</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Float64</span><span class="p">},</span><span class="w"> </span><span class="n">res1</span><span class="p">)</span><span class="w"></span>
+
+<span class="n">histogram</span><span class="p">(</span><span class="mi">1</span><span class="o">:</span><span class="n">nsims</span><span class="p">,</span><span class="w"> </span><span class="n">res1</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Initialise_29_0.svg" src="../../_images/Initialise_29_0.svg" /></div>
+</div>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">res_calc2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">simulate_loss</span><span class="p">(</span><span class="n">policy</span><span class="p">,</span><span class="w"> </span><span class="n">resbasis</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SimulatedLossFunding(StandardPolicy(&quot;ea&quot;, TermLife(101010, false, 47.416666666666664, 300, 0, 103, 300), Cashflow[RecurringCashflow(&quot;prem&quot;, 100.0, 0.0, 1, 12, false, InForce())], Cashflow[AnyTimeCashflow(&quot;deathben&quot;, -50000.0, 0.0, true, OnDeath()), PointCashflow(&quot;survben&quot;, -50000.0, 300, true, InForce())], Cashflow[RecurringCashflow(&quot;regexp&quot;, -10.0, 0.0, 1, 12, true, InForce()), AnyTimeCashflow(&quot;deathexp&quot;, -200.0, 0.0, true, OnDeath()), PointCashflow(&quot;survexp&quot;, -200.0, 300, true, InForce()), AnyTimeCashflow(&quot;termexp&quot;, -100.0, 0.0, true, OnTermination())], Cashflow[]), PolicyBasis(10000, 300, false, Float32[0.00013849999 0.00013849999 … 0.0014838635 0.0014838635; 0.0001403329 0.0001403329 … 0.0010599674 0.0010599674; … ; 0.0001394586 0.0001394586 … 0.00212933 0.00212933; 0.00012859282 0.00012859282 … 0.0011608853 0.0011608853], Float32[0.0042744414 0.0042744414 … 0.000837528 0.000837528; 0.0042744414 0.0042744414 … 0.000837528 0.000837528; … ; 0.0042744414 0.0042744414 … 0.000837528 0.000837528; 0.0042744414 0.0042744414 … 0.000837528 0.000837528], Float32[1.0020888 1.0073881 … 4.041501 4.048747; 1.0153548 1.0156425 … 3.194301 3.2017283; … ; 1.0090582 1.0087509 … 3.9077492 3.9226446; 1.0134337 1.0145833 … 2.4648707 2.4759595], Float32[1.0068947 1.007363 … 1.0072446 1.0071605; 1.0085515 1.0073434 … 1.0064135 1.006403; … ; 1.0072547 1.0068667 … 1.0065972 1.0067565; 1.0081894 1.0072218 … 1.00717 1.0061345], Float32[0.9931525 0.99269086 … 0.9928075 0.9928903; 0.99152106 0.9927102 … 0.9936274 0.99363774; … ; 0.9927975 0.9931801 … 0.9934461 0.9932888; 0.9918771 0.99283004 … 0.99288106 0.9939029]), Dict{Contingency, CUDA.CuArray{Float32, 2}}(InForce() =&gt; [0.99559677 0.99559677 … 0.9976813 0.9976813; 0.9955949 0.9955949 … 0.99810433 0.99810433; … ; 0.9955958 0.9955958 … 0.99703753 0.99703753; 0.9956066 0.9956066 … 0.99800366 0.99800366], OnTermination() =&gt; [0.0042650383 0.0042650383 … 0.0008365498 0.0008365498; 0.0042650565 0.0042650565 … 0.0008367206 0.0008367206; … ; 0.0042650355 0.0042650355 … 0.00083628925 0.00083628925; 0.004265087 0.004265087 … 0.0008366584 0.0008366584], OnDeath() =&gt; [0.00013819532 0.00013819532 … 0.0014821305 0.0014821305; 0.00014002479 0.00014002479 … 0.0010589455 0.0010589455; … ; 0.00013915171 0.00013915171 … 0.0021261808 0.0021261808; 0.00012831141 0.00012831141 … 0.00115968 0.00115968]), Dict{Contingency, CUDA.CuArray{Bool, 2}}(InForce() =&gt; [1 1 … 1 1; 1 1 … 1 1; … ; 1 1 … 0 0; 1 1 … 1 1], OnTermination() =&gt; [0 0 … 0 0; 0 0 … 0 0; … ; 0 0 … 0 0; 0 0 … 0 0], OnDeath() =&gt; [0 0 … 0 0; 0 0 … 0 0; … ; 0 0 … 0 0; 0 0 … 0 0]), Union{CompleteCashflow, ParallelCashflow}[ParallelVectorCashflow(&quot;regexp&quot;, [-10.020887851715088 -10.073881149291992 … -40.41501045227051 -40.487470626831055; -10.153547525405884 -10.15642523765564 … -31.94300889968872 -32.01728343963623; … ; -10.090582370758057 -10.087509155273438 … -39.077491760253906 -39.2264461517334; -10.134336948394775 -10.145833492279053 … -24.648706912994385 -24.75959539413452], true, InForce()), ParallelVectorCashflow(&quot;deathexp&quot;, [-200.41775703430176 -201.47762298583984 … -808.3002090454102 -809.7494125366211; -203.07095050811768 -203.1285047531128 … -638.8601779937744 -640.3456687927246; … ; -201.81164741516113 -201.75018310546875 … -781.5498352050781 -784.528923034668; -202.6867389678955 -202.91666984558105 … -492.9741382598877 -495.19190788269043], true, OnDeath()), ParallelPointCashflow(&quot;survexp&quot;, [-809.7494125366211, -640.3456687927246, -545.3176498413086, -581.1450958251953, -619.5003032684326, -781.4850330352783, -669.9080467224121, -596.722412109375, -569.683837890625, -656.7544460296631  …  -664.5405769348145, -678.9943218231201, -665.3432846069336, -532.2487831115723, -553.9092540740967, -639.4165515899658, -777.1960735321045, -512.1096611022949, -784.528923034668, -495.19190788269043], 300, true, InForce()), ParallelVectorCashflow(&quot;termexp&quot;, [-100.20887851715088 -100.73881149291992 … -404.1501045227051 -404.87470626831055; -101.53547525405884 -101.5642523765564 … -319.4300889968872 -320.1728343963623; … ; -100.90582370758057 -100.87509155273438 … -390.77491760253906 -392.264461517334; -101.34336948394775 -101.45833492279053 … -246.48706912994385 -247.59595394134521], true, OnTermination()), VectorCashflow(&quot;prem&quot;, [100.0, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0  …  100.0, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0], false, InForce()), VectorCashflow(&quot;deathben&quot;, [-50000.0, -50000.0, -50000.0, -50000.0, -50000.0, -50000.0, -50000.0, -50000.0, -50000.0, -50000.0  …  -50000.0, -50000.0, -50000.0, -50000.0, -50000.0, -50000.0, -50000.0, -50000.0, -50000.0, -50000.0], true, OnDeath()), PointCashflow(&quot;survben&quot;, -50000.0, 300, true, InForce())], [-4122.859536617715 -4060.6168842635066 … 49966.41080905374 50388.70687759095; -4451.037194784186 -4398.398401948818 … 49861.49017060999 50249.97223806685; … ; -1037.1409074729286 -954.0302246922555 … -0.0 -0.0; -4485.431796857792 -4431.4803787117025 … 49679.656813341964 50111.92739915591])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">res2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">res_calc2</span><span class="o">.</span><span class="n">funding_levels</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"></span>
+<span class="n">res2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">convert</span><span class="p">(</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Float64</span><span class="p">},</span><span class="w"> </span><span class="n">res2</span><span class="p">)</span><span class="w"></span>
+
+<span class="n">histogram</span><span class="p">(</span><span class="mi">1</span><span class="o">:</span><span class="n">nsims</span><span class="p">,</span><span class="w"> </span><span class="n">res2</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Initialise_31_0.svg" src="../../_images/Initialise_31_0.svg" /></div>
+</div>
+</section>
+<section id="profit">
+<h1>Profit<a class="headerlink" href="#profit" title="Permalink to this headline">#</a></h1>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">profbasis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">StProductBasis</span><span class="p">(</span><span class="n">nsims</span><span class="p">,</span><span class="w"> </span><span class="n">max_proj</span><span class="p">,</span><span class="w"> </span><span class="n">mortality</span><span class="p">,</span><span class="w"> </span><span class="kt">Float32</span><span class="p">(</span><span class="mf">1.02</span><span class="p">)</span><span class="o">*</span><span class="n">surr_ea</span><span class="p">,</span><span class="w"> </span><span class="n">int</span><span class="p">,</span><span class="w"> </span><span class="n">infl</span><span class="p">)</span><span class="w"></span>
+<span class="n">rdr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.1</span><span class="w"> </span><span class="c"># 10% risk discount rate</span><span class="w"></span>
+<span class="n">policy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nd">@set</span><span class="w"> </span><span class="n">policy</span><span class="o">.</span><span class="n">expenses</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.9</span><span class="o">*</span><span class="n">policy</span><span class="o">.</span><span class="n">expenses</span><span class="w"></span>
+
+<span class="c"># crudely using the reserves under the first simulation</span><span class="w"></span>
+<span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">res_calc</span><span class="o">.</span><span class="n">reserves</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">:</span><span class="p">]</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>300-element CUDA.CuArray{Float64, 1, CUDA.Mem.DeviceBuffer}:
+ -3096.880061120507
+ -3048.3067148717255
+ -3000.624202500392
+ -2952.1186487220048
+ -2899.38930882737
+ -2847.2841357518505
+ -2794.67482912399
+ -2741.756584211095
+ -2687.635455974591
+ -2636.032224732565
+ -2583.6455003346978
+ -2530.3166460314674
+ -2478.6318233303273
+     ⋮
+ 45792.913980281104
+ 46184.02451849535
+ 46543.492409137594
+ 46941.56726683164
+ 47321.78839293846
+ 47696.83772422835
+ 48105.9834800077
+ 48523.415600152985
+ 48969.161137572766
+ 49420.12097953763
+ 49883.860149880624
+ 50346.74726907051
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># stochastic-basis approach</span><span class="w"></span>
+<span class="n">prof</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">profit</span><span class="p">(</span><span class="n">policy</span><span class="p">,</span><span class="w"> </span><span class="n">profbasis</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">,</span><span class="w"> </span><span class="n">rdr</span><span class="p">)</span><span class="w"></span>
+<span class="n">prof</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">convert</span><span class="p">(</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Float64</span><span class="p">},</span><span class="w"> </span><span class="n">prof</span><span class="p">)</span><span class="w"></span>
+
+<span class="n">histogram</span><span class="p">(</span><span class="mi">1</span><span class="o">:</span><span class="n">nsims</span><span class="p">,</span><span class="w"> </span><span class="n">prof</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Initialise_34_0.svg" src="../../_images/Initialise_34_0.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># simulate-lives approach</span><span class="w"></span>
+<span class="n">prof2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">simulate_profit</span><span class="p">(</span><span class="n">policy</span><span class="p">,</span><span class="w"> </span><span class="n">profbasis</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">,</span><span class="w"> </span><span class="n">rdr</span><span class="p">)</span><span class="w"></span>
+<span class="n">prof2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">convert</span><span class="p">(</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Float64</span><span class="p">},</span><span class="w"> </span><span class="n">prof2</span><span class="p">)</span><span class="w"></span>
+
+<span class="n">histogram</span><span class="p">(</span><span class="mi">1</span><span class="o">:</span><span class="n">nsims</span><span class="p">,</span><span class="w"> </span><span class="n">prof2</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Initialise_35_0.svg" src="../../_images/Initialise_35_0.svg" /></div>
+</div>
+</section>
+<section id="price">
+<h1>Price<a class="headerlink" href="#price" title="Permalink to this headline">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># level monthly premiums of 1 in advance, applicable from the first month</span><span class="w"></span>
+<span class="n">premiums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">RecurringCashflow</span><span class="p">(</span><span class="s">&quot;prem&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="p">,</span><span class="w"> </span><span class="n">InForce</span><span class="p">())]</span><span class="w"></span>
+<span class="n">policy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nd">@set</span><span class="w"> </span><span class="n">policy</span><span class="o">.</span><span class="n">premiums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">premiums</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>StandardPolicy(&quot;ea&quot;, TermLife(101010, false, 47.416666666666664, 300, 0, 103, 300), Cashflow[RecurringCashflow(&quot;prem&quot;, 1.0, 0.0, 1, 12, false, InForce())], Cashflow[AnyTimeCashflow(&quot;deathben&quot;, -50000.0, 0.0, true, OnDeath()), PointCashflow(&quot;survben&quot;, -50000.0, 300, true, InForce())], Cashflow[RecurringCashflow(&quot;regexp&quot;, -9.0, 0.0, 1, 12, true, InForce()), AnyTimeCashflow(&quot;deathexp&quot;, -180.0, 0.0, true, OnDeath()), PointCashflow(&quot;survexp&quot;, -180.0, 300, true, InForce()), AnyTimeCashflow(&quot;termexp&quot;, -90.0, 0.0, true, OnTermination())], Cashflow[])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># crudely using the reserving basis and a 10% profit margin</span><span class="w"></span>
+<span class="n">profit_margin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.1</span><span class="w"></span>
+<span class="n">amount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">price</span><span class="p">(</span><span class="n">policy</span><span class="p">,</span><span class="w"> </span><span class="n">resbasis</span><span class="p">,</span><span class="w"> </span><span class="n">profit_margin</span><span class="p">)</span><span class="w"></span>
+
+<span class="n">amount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">convert</span><span class="p">(</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Float64</span><span class="p">},</span><span class="w"> </span><span class="n">amount</span><span class="p">)</span><span class="w"></span>
+<span class="n">histogram</span><span class="p">(</span><span class="mi">1</span><span class="o">:</span><span class="n">nsims</span><span class="p">,</span><span class="w"> </span><span class="n">amount</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Initialise_38_0.svg" src="../../_images/Initialise_38_0.svg" /></div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "julia-1.7"
+        },
+        kernelOptions: {
+            kernelName: "julia-1.7",
+            path: "./chapters\02"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'julia-1.7'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Franco Marais<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
