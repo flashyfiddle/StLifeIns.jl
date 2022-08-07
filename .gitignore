@@ -3,5 +3,5 @@
 
 # Except for the themes directories:
 
-!_build/
+!_build
 !.gitignore
