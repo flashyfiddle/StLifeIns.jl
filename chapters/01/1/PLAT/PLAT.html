@@ -91,6 +91,11 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../../../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../../_static/logo.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">StLifeIns</h1>
@@ -105,7 +110,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../../intro.html">
-                    <no title>
+                    StLifeIns
                 </a>
             </li>
         </ul>
@@ -189,6 +194,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="../../../02/3/Contingencies.html">
      Contingency
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../02/4/Cashflows.html">
+     Cashflows
     </a>
    </li>
   </ul>
@@ -661,62 +671,6 @@ title="Print to PDF"
 </section>
 <section id="save-model">
 <h2>Save Model<a class="headerlink" href="#save-model" title="Permalink to this headline">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">collect_arima_info</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">manual_diff_order</span><span class="o">=</span><span class="m">0</span><span class="p">){</span>
-  <span class="n">order</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="n">model</span><span class="o">$</span><span class="n">call</span><span class="o">$</span><span class="n">order</span><span class="p">[[</span><span class="m">2</span><span class="p">]],</span> <span class="n">model</span><span class="o">$</span><span class="n">call</span><span class="o">$</span><span class="n">order</span><span class="p">[[</span><span class="m">3</span><span class="p">]],</span> <span class="n">model</span><span class="o">$</span><span class="n">call</span><span class="o">$</span><span class="n">order</span><span class="p">[[</span><span class="m">4</span><span class="p">]])</span>
-  <span class="n">order</span><span class="p">[</span><span class="m">2</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="n">order</span><span class="p">[</span><span class="m">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">manual_diff_order</span>
-  <span class="n">collected</span> <span class="o">&lt;-</span> <span class="nf">list</span><span class="p">(</span><span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">e</span><span class="o">=</span><span class="nf">append</span><span class="p">(</span><span class="nf">rep</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="n">manual_diff_order</span><span class="p">),</span> <span class="nf">as.vector</span><span class="p">(</span><span class="n">model</span><span class="o">$</span><span class="n">residuals</span><span class="p">)))</span>
-  <span class="nf">if </span><span class="p">(</span><span class="n">order</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="m">1</span><span class="p">){</span>
-    <span class="n">collected</span><span class="p">[[</span><span class="s">&quot;phi&quot;</span><span class="p">]]</span> <span class="o">&lt;-</span> <span class="nf">as.vector</span><span class="p">(</span><span class="n">model</span><span class="o">$</span><span class="n">coef</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="n">order</span><span class="p">[</span><span class="m">1</span><span class="p">]])</span>
-  <span class="p">}</span> <span class="n">else</span><span class="p">{</span>
-    <span class="n">collected</span><span class="p">[[</span><span class="s">&quot;phi&quot;</span><span class="p">]]</span> <span class="o">&lt;-</span> <span class="m">0</span>
-  <span class="p">}</span>
-  
-  <span class="nf">if </span><span class="p">(</span><span class="n">order</span><span class="p">[</span><span class="m">3</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="m">1</span><span class="p">){</span>
-    <span class="n">collected</span><span class="p">[[</span><span class="s">&quot;theta&quot;</span><span class="p">]]</span> <span class="o">&lt;-</span> <span class="nf">as.vector</span><span class="p">(</span><span class="n">model</span><span class="o">$</span><span class="n">coef</span><span class="p">[(</span><span class="n">order</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="m">+1</span><span class="p">)</span><span class="o">:</span><span class="p">(</span><span class="n">order</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="o">+</span><span class="n">order</span><span class="p">[</span><span class="m">3</span><span class="p">])])</span>
-  <span class="p">}</span> <span class="n">else</span><span class="p">{</span>
-    <span class="n">collected</span><span class="p">[[</span><span class="s">&quot;theta&quot;</span><span class="p">]]</span> <span class="o">&lt;-</span> <span class="m">0</span>
-  <span class="p">}</span>
-  
-  <span class="n">collected</span><span class="p">[[</span><span class="s">&quot;mu&quot;</span><span class="p">]]</span> <span class="o">&lt;-</span> <span class="nf">ifelse</span><span class="p">(</span><span class="nf">any</span><span class="p">(</span><span class="s">&quot;intercept&quot;</span> <span class="o">%in%</span> <span class="nf">names</span><span class="p">(</span><span class="n">model</span><span class="o">$</span><span class="n">coef</span><span class="p">)),</span> <span class="n">model</span><span class="o">$</span><span class="n">coef</span><span class="p">[[</span><span class="s">&quot;intercept&quot;</span><span class="p">]],</span> <span class="m">0</span><span class="p">)</span>
-  <span class="n">collected</span><span class="p">[[</span><span class="s">&quot;sigma&quot;</span><span class="p">]]</span> <span class="o">&lt;-</span> <span class="n">model</span><span class="o">$</span><span class="n">sigma</span>
-  
-  <span class="c1"># intercept and mean are not the same (https://www.stat.pitt.edu/stoffer/tsa2/Rissues.htm)</span>
-  <span class="c1"># only for ar1 </span>
-  <span class="c1"># if (collected[[&quot;mu&quot;]]!=0 &amp; order[1]==1){</span>
-  <span class="c1">#   collected[[&quot;mu&quot;]] &lt;- collected[[&quot;mu&quot;]]*(1-collected[[&quot;phi&quot;]][1])</span>
-  <span class="c1"># }</span>
-  
-  <span class="nf">return</span><span class="p">(</span><span class="n">collected</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">PLATM_list</span><span class="p">[[</span><span class="s">&quot;kt&quot;</span><span class="p">]]</span> <span class="o">&lt;-</span> <span class="nf">list</span><span class="p">(</span><span class="nf">collect_arima_info</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">PLATM_list</span><span class="p">[[</span><span class="s">&quot;kt&quot;</span><span class="p">]][</span><span class="m">1</span><span class="p">,</span> <span class="p">],</span> <span class="n">model</span><span class="o">=</span><span class="n">kt1M</span><span class="p">,</span> <span class="n">manual_diff_order</span> <span class="o">=</span> <span class="m">1</span><span class="p">),</span>
-                      <span class="nf">collect_arima_info</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">PLATM_list</span><span class="p">[[</span><span class="s">&quot;kt&quot;</span><span class="p">]][</span><span class="m">2</span><span class="p">,</span> <span class="p">],</span> <span class="n">model</span><span class="o">=</span><span class="n">kt2M</span><span class="p">),</span>
-                      <span class="nf">collect_arima_info</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">PLATM_list</span><span class="p">[[</span><span class="s">&quot;kt&quot;</span><span class="p">]][</span><span class="m">3</span><span class="p">,</span> <span class="p">],</span> <span class="n">model</span><span class="o">=</span><span class="n">kt3M</span><span class="p">))</span>
-
-<span class="n">PLATM_list</span><span class="p">[[</span><span class="s">&quot;gc&quot;</span><span class="p">]]</span> <span class="o">&lt;-</span> <span class="nf">collect_arima_info</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">PLATM_list</span><span class="p">[[</span><span class="s">&quot;gc&quot;</span><span class="p">]],</span> <span class="n">model</span><span class="o">=</span><span class="n">gcM</span><span class="p">)</span>
-
-<span class="n">PLATF</span><span class="p">[[</span><span class="s">&quot;kt&quot;</span><span class="p">]]</span> <span class="o">&lt;-</span> <span class="nf">list</span><span class="p">(</span><span class="nf">collect_arima_info</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">PLATF</span><span class="p">[[</span><span class="s">&quot;kt&quot;</span><span class="p">]][</span><span class="m">1</span><span class="p">,</span> <span class="p">],</span> <span class="n">model</span><span class="o">=</span><span class="n">kt1F</span><span class="p">,</span> <span class="n">manual_diff_order</span> <span class="o">=</span> <span class="m">1</span><span class="p">),</span>
-                      <span class="nf">collect_arima_info</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">PLATF</span><span class="p">[[</span><span class="s">&quot;kt&quot;</span><span class="p">]][</span><span class="m">2</span><span class="p">,</span> <span class="p">],</span> <span class="n">model</span><span class="o">=</span><span class="n">kt2F</span><span class="p">),</span>
-                      <span class="nf">collect_arima_info</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">PLATF</span><span class="p">[[</span><span class="s">&quot;kt&quot;</span><span class="p">]][</span><span class="m">3</span><span class="p">,</span> <span class="p">],</span> <span class="n">model</span><span class="o">=</span><span class="n">kt3F</span><span class="p">))</span>
-
-<span class="n">PLATF</span><span class="p">[[</span><span class="s">&quot;gc&quot;</span><span class="p">]]</span> <span class="o">&lt;-</span> <span class="nf">collect_arima_info</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">PLATF</span><span class="p">[[</span><span class="s">&quot;gc&quot;</span><span class="p">]],</span> <span class="n">model</span><span class="o">=</span><span class="n">gcM</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">save</span><span class="p">(</span><span class="n">PLATM</span><span class="p">,</span> <span class="n">PLATF</span><span class="p">,</span> <span class="n">file</span> <span class="o">=</span> <span class="s">&quot;PLAT.RData&quot;</span><span class="p">,</span> <span class="n">compress</span> <span class="o">=</span> <span class="s">&quot;gzip&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
 </section>
 </section>
 

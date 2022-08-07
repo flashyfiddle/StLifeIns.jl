@@ -93,6 +93,11 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../../../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../../_static/logo.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">StLifeIns</h1>
@@ -107,7 +112,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../../intro.html">
-                    <no title>
+                    StLifeIns
                 </a>
             </li>
         </ul>
@@ -191,6 +196,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="../../../02/3/Contingencies.html">
      Contingency
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../02/4/Cashflows.html">
+     Cashflows
     </a>
    </li>
   </ul>
@@ -440,11 +450,6 @@ title="Print to PDF"
    </li>
   </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#save-model">
-   Save Model
-  </a>
- </li>
 </ul>
 
     </nav>
@@ -502,11 +507,6 @@ title="Print to PDF"
     </ul>
    </li>
   </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#save-model">
-   Save Model
-  </a>
  </li>
 </ul>
 
@@ -588,7 +588,7 @@ title="Print to PDF"
 </section>
 <section id="negative-binomial">
 <h3>Negative Binomial<a class="headerlink" href="#negative-binomial" title="Permalink to this headline">#</a></h3>
-<p>LCnegbinom_algorithm.R contains the code to fit the negative binomial version of the Lee-Carter model. The code is an implementation of the algorithm described in <em>Uncertainty in Mortality Forecasting: An Extension to the Classical Lee-Carter Approach</em> in Li2009.</p>
+<p>LCnegbinom_algorithm.R contains the code to fit the negative binomial version of the Lee-Carter model. The code is an implementation of the algorithm described in <span id="id1">Li <em>et al.</em> [<a class="reference internal" href="#id4" title="Johnny Siu-Hang Li, Mary R. Hardy, and Ken Seng Tan. Uncertainty in Mortality Forecasting: An Extension to the Classical Lee-Carter Approach. ASTIN Bulletin, 39(1):137–164, 2009. doi:10.2143/ast.39.1.2038060.">LHT09</a>]</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># functions to fit negative binomial version of Lee-Carter model</span>
@@ -623,8 +623,9 @@ title="Print to PDF"
 </div>
 </div>
 <p>We use the Poisson maximum likelihood parameters as the initial parameters for the negative binomial algorithm for faster convergence.</p>
-<p>Note that the dispersion parameters are estimated using the method of moments
-$<span class="math notranslate nohighlight">\(E(\lambda_x)=Var\left(\frac{D_{xt}}{\hat{D}_{xt}}\right)\)</span>$</p>
+<p>Note that the dispersion parameters are estimated using the method of moments</p>
+<div class="math notranslate nohighlight">
+\[E(\lambda_x)=Var\left(\frac{D_{xt}}{\hat{D}_{xt}}\right)\]</div>
 <p>We found that the dispersion parameters, especially at the youngest and oldest ages, take some time to converge, while the base Lee-Carter parameters converge reasonably quickly. Hence, we run the model for 2 iterations so that the base Lee-Carter parameters can converge reasonably at most ages and the dispersion parameters can be reestimated according to the new parameters. We then start iteration again using the new initial parameters.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -700,11 +701,6 @@ $<span class="math notranslate nohighlight">\(E(\lambda_x)=Var\left(\frac{D_{xt}
 </div>
 </div>
 </div>
-</section>
-</section>
-</section>
-<section id="save-model">
-<h2>Save Model<a class="headerlink" href="#save-model" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">collect_arima_info</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">manual_diff_order</span><span class="o">=</span><span class="m">0</span><span class="p">){</span>
@@ -731,23 +727,15 @@ $<span class="math notranslate nohighlight">\(E(\lambda_x)=Var\left(\frac{D_{xt}
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">LCpoisMale</span><span class="p">[[</span><span class="s">&quot;kt&quot;</span><span class="p">]]</span> <span class="o">&lt;-</span> <span class="nf">collect_arima_info</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">LCpoisMale</span><span class="o">$</span><span class="n">kt</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="n">LCpoisMale_arima</span><span class="p">,</span> <span class="n">manual_diff_order</span><span class="o">=</span><span class="m">1</span><span class="p">)</span>
-<span class="n">LCpoisFemale</span><span class="p">[[</span><span class="s">&quot;kt&quot;</span><span class="p">]]</span> <span class="o">&lt;-</span> <span class="nf">collect_arima_info</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">LCpoisFemale</span><span class="o">$</span><span class="n">kt</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="n">LCpoisFemale_arima</span><span class="p">,</span> <span class="n">manual_diff_order</span><span class="o">=</span><span class="m">1</span><span class="p">)</span>
-<span class="n">LCnbMale</span><span class="p">[[</span><span class="s">&quot;kt&quot;</span><span class="p">]]</span> <span class="o">&lt;-</span> <span class="nf">collect_arima_info</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">LCnbMale</span><span class="o">$</span><span class="n">kt</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="n">LCnbMale_arima</span><span class="p">,</span> <span class="n">manual_diff_order</span><span class="o">=</span><span class="m">1</span><span class="p">)</span>
-<span class="n">LCnbFemale</span><span class="p">[[</span><span class="s">&quot;kt&quot;</span><span class="p">]]</span> <span class="o">&lt;-</span> <span class="nf">collect_arima_info</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">LCnbFemale</span><span class="o">$</span><span class="n">kt</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="n">LCnbFemale_arima</span><span class="p">,</span> <span class="n">manual_diff_order</span><span class="o">=</span><span class="m">1</span><span class="p">)</span>
-</pre></div>
+<div class="docutils container" id="id2">
+<dl class="citation">
+<dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id1">LHT09</a></span></dt>
+<dd><p>Johnny Siu-Hang Li, Mary R. Hardy, and Ken Seng Tan. Uncertainty in Mortality Forecasting: An Extension to the Classical Lee-Carter Approach. <em>ASTIN Bulletin</em>, 39(1):137–164, 2009. <a class="reference external" href="https://doi.org/10.2143/ast.39.1.2038060">doi:10.2143/ast.39.1.2038060</a>.</p>
+</dd>
+</dl>
 </div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">save</span><span class="p">(</span><span class="n">LCpoisMale</span><span class="p">,</span> <span class="n">LCpoisFemale</span><span class="p">,</span> <span class="n">LCnbMale</span><span class="p">,</span> <span class="n">LCnbFemale</span><span class="p">,</span> <span class="n">file</span> <span class="o">=</span> <span class="s">&quot;LeeCarter.RData&quot;</span><span class="p">,</span> <span class="n">compress</span> <span class="o">=</span> <span class="s">&quot;gzip&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
+</section>
+</section>
 </section>
 </section>
 

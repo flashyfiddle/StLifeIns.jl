@@ -91,6 +91,11 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/logo.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">StLifeIns</h1>
@@ -105,7 +110,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../intro.html">
-                    <no title>
+                    StLifeIns
                 </a>
             </li>
         </ul>
@@ -189,6 +194,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="../3/Contingencies.html">
      Contingency
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../4/Cashflows.html">
+     Cashflows
     </a>
    </li>
   </ul>
@@ -422,12 +432,12 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
+    <a class="reference internal nav-link" href="#id3">
      Definition and Usage
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
+    <a class="reference internal nav-link" href="#id4">
      Fields
     </a>
    </li>
@@ -475,12 +485,12 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
+    <a class="reference internal nav-link" href="#id3">
      Definition and Usage
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
+    <a class="reference internal nav-link" href="#id4">
      Fields
     </a>
    </li>
@@ -497,7 +507,7 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="life">
-<h1>Life<a class="headerlink" href="#life" title="Permalink to this headline">#</a></h1>
+<span id="id1"></span><h1>Life<a class="headerlink" href="#life" title="Permalink to this headline">#</a></h1>
 <p>There are currently 2 possible <strong>Life</strong> objects available</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#whole-life"><span class="std std-ref">WholeLife</span></a></p></li>
@@ -544,15 +554,15 @@ is evaluated much the same as a <a class="reference internal" href="#term-life">
 </section>
 </section>
 <section id="term-life">
-<span id="id1"></span><h2>Term Life<a class="headerlink" href="#term-life" title="Permalink to this headline">#</a></h2>
-<section id="id2">
-<h3>Definition and Usage<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
+<span id="id2"></span><h2>Term Life<a class="headerlink" href="#term-life" title="Permalink to this headline">#</a></h2>
+<section id="id3">
+<h3>Definition and Usage<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
 <p>A <em>TermLife</em> is a life that ends on death or after some prespecified term, whichever is first.</p>
 <p>The use of this <em>Life</em> would be appropriate for products such as term assurances
 and endowment assurances.</p>
 </section>
-<section id="id3">
-<h3>Fields<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
+<section id="id4">
+<h3>Fields<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
 <p>The additional <em>term</em> field can be noted for the <em>TermLife</em>, defining the the condition on which the life will “end” excluding death.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>

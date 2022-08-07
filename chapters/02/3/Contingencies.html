@@ -53,6 +53,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Cashflows" href="../4/Cashflows.html" />
     <link rel="prev" title="Life" href="../2/Life.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -90,6 +91,11 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/logo.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">StLifeIns</h1>
@@ -104,7 +110,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../intro.html">
-                    <no title>
+                    StLifeIns
                 </a>
             </li>
         </ul>
@@ -188,6 +194,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      Contingency
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../4/Cashflows.html">
+     Cashflows
     </a>
    </li>
   </ul>
@@ -399,6 +410,11 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#definite">
+   Definite
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#inforce">
    InForce
   </a>
@@ -433,6 +449,11 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#definite">
+   Definite
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#inforce">
    InForce
   </a>
@@ -459,14 +480,31 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="contingencies">
 <span id="contingency"></span><h1>Contingencies<a class="headerlink" href="#contingencies" title="Permalink to this headline">#</a></h1>
-<p>There are currently 3 different contingencies available:</p>
+<p>There are currently 4 different contingencies available:</p>
 <ol class="simple">
-<li><p>InForce()</p></li>
-<li><p>OnDeath()</p></li>
-<li><p>OnTermination()</p></li>
+<li><p><a class="reference internal" href="#definite"><span class="std std-ref">Definite()</span></a></p></li>
+<li><p><a class="reference internal" href="#inforce"><span class="std std-ref">InForce()</span></a></p></li>
+<li><p><a class="reference internal" href="#ondeath"><span class="std std-ref">OnDeath()</span></a></p></li>
+<li><p><a class="reference internal" href="#ontermination"><span class="std std-ref">OnTermination()</span></a></p></li>
 </ol>
+<section id="definite">
+<span id="id1"></span><h2>Definite<a class="headerlink" href="#definite" title="Permalink to this headline">#</a></h2>
+<p>A cashflow with this contingency will always pay out regardless of what happens to an underlying life.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">Definite</span><span class="p">()</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Definite()
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 <section id="inforce">
-<h2>InForce<a class="headerlink" href="#inforce" title="Permalink to this headline">#</a></h2>
+<span id="id2"></span><h2>InForce<a class="headerlink" href="#inforce" title="Permalink to this headline">#</a></h2>
 <p>If a life is still in force (not dead or terminated), a cashflow with this contingency will pay out.</p>
 <p>This contingency is suitable for premiums, regular expenses and survival benefits.</p>
 <div class="cell docutils container">
@@ -483,7 +521,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="ondeath">
-<h2>OnDeath<a class="headerlink" href="#ondeath" title="Permalink to this headline">#</a></h2>
+<span id="id3"></span><h2>OnDeath<a class="headerlink" href="#ondeath" title="Permalink to this headline">#</a></h2>
 <p>If a life dies, a cashflow with this contingency will pay out. The probability of death is affected by the mortality rates specified in the basis.</p>
 <p>This contingency is suitable for death benefits and death claim expenses.</p>
 <div class="cell docutils container">
@@ -500,7 +538,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="ontermination">
-<h2>OnTermination<a class="headerlink" href="#ontermination" title="Permalink to this headline">#</a></h2>
+<span id="id4"></span><h2>OnTermination<a class="headerlink" href="#ontermination" title="Permalink to this headline">#</a></h2>
 <p>If a life surrenders its policy, a cashflow with this contingency will pay out. The probability of surrendering is affected by the surrender rates specified in the basis.</p>
 <p>This contingency is suitable for termination expenses. In cases where a customer needs to pay a cancelation fee on surrender, this contingency can also be used.</p>
 <div class="cell docutils container">
@@ -551,6 +589,13 @@ title="Print to PDF"
             <p class="prev-next-subtitle">previous</p>
             <p class="prev-next-title">Life</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="../4/Cashflows.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Cashflows</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             </footer>

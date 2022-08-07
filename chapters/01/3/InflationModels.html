@@ -91,6 +91,11 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/logo.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">StLifeIns</h1>
@@ -105,7 +110,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../intro.html">
-                    <no title>
+                    StLifeIns
                 </a>
             </li>
         </ul>
@@ -189,6 +194,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="../../02/3/Contingencies.html">
      Contingency
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02/4/Cashflows.html">
+     Cashflows
     </a>
    </li>
   </ul>
@@ -431,11 +441,6 @@ title="Print to PDF"
    </li>
   </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#save-model">
-   Save Model
-  </a>
- </li>
 </ul>
 
     </nav>
@@ -487,11 +492,6 @@ title="Print to PDF"
    </li>
   </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#save-model">
-   Save Model
-  </a>
- </li>
 </ul>
 
                         </nav>
@@ -508,36 +508,12 @@ title="Print to PDF"
 <h2>Packages<a class="headerlink" href="#packages" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># install.packages(&#39;ggplot2&#39;)</span>
-<span class="c1"># install.packages(&#39;scales&#39;)</span>
-<span class="c1"># install.packages(&#39;ggfortify&#39;)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">TSA</span><span class="p">)</span>
 <span class="nf">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>
 <span class="nf">library</span><span class="p">(</span><span class="n">ggfortify</span><span class="p">)</span>
 <span class="nf">library</span><span class="p">(</span><span class="n">scales</span><span class="p">)</span>
 
 <span class="nf">theme_set</span><span class="p">(</span><span class="nf">theme_bw</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attaching package: &#39;TSA&#39;
-
-
-The following objects are masked from &#39;package:stats&#39;:
-
-    acf, arima
-
-
-The following object is masked from &#39;package:utils&#39;:
-
-    tar
 </pre></div>
 </div>
 </div>
@@ -589,7 +565,7 @@ The following object is masked from &#39;package:utils&#39;:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">options</span><span class="p">(</span><span class="n">repr.plot.width</span><span class="o">=</span><span class="m">20</span><span class="p">,</span> <span class="n">repr.plot.height</span><span class="o">=</span><span class="m">5</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">options</span><span class="p">(</span><span class="n">repr.plot.width</span><span class="o">=</span><span class="m">20</span><span class="p">,</span> <span class="n">repr.plot.height</span><span class="o">=</span><span class="m">7.5</span><span class="p">)</span>
 
 <span class="p">(</span><span class="n">infl_plot</span> <span class="o">&lt;-</span> <span class="nf">autoplot</span><span class="p">(</span><span class="n">infl_series</span><span class="p">)</span><span class="o">+</span>
   <span class="nf">ggtitle</span><span class="p">(</span><span class="s">&quot;Monthly effective inflation rates (January 2010 to December 2019)&quot;</span><span class="p">)</span> <span class="o">+</span>
@@ -600,7 +576,7 @@ The following object is masked from &#39;package:utils&#39;:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/InflationModels_7_0.png" src="../../../_images/InflationModels_7_0.png" />
+<img alt="../../../_images/InflationModels_6_0.png" src="../../../_images/InflationModels_6_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -716,43 +692,23 @@ sigma^2 estimated as 6.45e-06:  log likelihood = 538.6,  aic = -1073.2
 Don&#39;t know how to automatically pick scale for object of type ts. Defaulting to continuous.
 </pre></div>
 </div>
-<img alt="../../../_images/InflationModels_15_1.png" src="../../../_images/InflationModels_15_1.png" />
+<img alt="../../../_images/InflationModels_14_1.png" src="../../../_images/InflationModels_14_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">options</span><span class="p">(</span><span class="n">repr.plot.width</span><span class="o">=</span><span class="m">20</span><span class="p">,</span> <span class="n">repr.plot.height</span><span class="o">=</span><span class="m">5</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">options</span><span class="p">(</span><span class="n">repr.plot.width</span><span class="o">=</span><span class="m">20</span><span class="p">,</span> <span class="n">repr.plot.height</span><span class="o">=</span><span class="m">7.5</span><span class="p">)</span>
 <span class="nf">autoplot</span><span class="p">(</span><span class="nf">acf</span><span class="p">(</span><span class="nf">residuals</span><span class="p">(</span><span class="n">arima_model</span><span class="p">),</span> <span class="n">lag.max</span> <span class="o">=</span> <span class="m">200</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">))</span>
 <span class="nf">autoplot</span><span class="p">(</span><span class="nf">pacf</span><span class="p">(</span><span class="nf">residuals</span><span class="p">(</span><span class="n">arima_model</span><span class="p">),</span> <span class="n">lag.max</span> <span class="o">=</span> <span class="m">200</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">))</span> <span class="o">+</span> <span class="nf">ylab</span><span class="p">(</span><span class="s">&quot;PACF&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/InflationModels_16_0.png" src="../../../_images/InflationModels_16_0.png" />
-<img alt="../../../_images/InflationModels_16_1.png" src="../../../_images/InflationModels_16_1.png" />
+<img alt="../../../_images/InflationModels_15_0.png" src="../../../_images/InflationModels_15_0.png" />
+<img alt="../../../_images/InflationModels_15_1.png" src="../../../_images/InflationModels_15_1.png" />
 </div>
 </div>
 </section>
-</section>
-<section id="save-model">
-<h2>Save Model<a class="headerlink" href="#save-model" title="Permalink to this headline">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">reg_errors</span> <span class="o">&lt;-</span> <span class="n">reg_model</span><span class="o">$</span><span class="n">residuals</span>
-<span class="n">n</span> <span class="o">&lt;-</span> <span class="nf">length</span><span class="p">(</span><span class="n">reg_errors</span><span class="p">)</span>
-<span class="n">reg_errors</span> <span class="o">&lt;-</span> <span class="nf">as.numeric</span><span class="p">(</span><span class="n">reg_errors</span><span class="p">[(</span><span class="n">n</span><span class="m">-11</span><span class="p">)</span><span class="o">:</span><span class="n">n</span><span class="p">])</span>
-
-<span class="n">arima_errors</span> <span class="o">&lt;-</span> <span class="n">arima_model</span><span class="o">$</span><span class="n">residuals</span>
-<span class="n">m</span> <span class="o">&lt;-</span> <span class="nf">length</span><span class="p">(</span><span class="n">arima_errors</span><span class="p">)</span>
-<span class="n">arima_errors</span> <span class="o">&lt;-</span> <span class="nf">as.numeric</span><span class="p">(</span><span class="n">arima_errors</span><span class="p">[(</span><span class="n">m</span><span class="m">-11</span><span class="p">)</span><span class="o">:</span><span class="n">m</span><span class="p">])</span>
-
-<span class="n">param</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="s">&quot;beta&quot;</span> <span class="o">=</span> <span class="n">reg_model</span><span class="o">$</span><span class="n">coefficients</span><span class="p">,</span> <span class="s">&quot;reg_errors&quot;</span> <span class="o">=</span> <span class="n">reg_errors</span><span class="p">,</span> <span class="s">&quot;Phi&quot;</span> <span class="o">=</span> <span class="n">arima_model</span><span class="o">$</span><span class="n">coef</span><span class="p">[</span><span class="s">&quot;sar1&quot;</span><span class="p">],</span> <span class="s">&quot;Theta&quot;</span> <span class="o">=</span> <span class="n">arima_model</span><span class="o">$</span><span class="n">coef</span><span class="p">[</span><span class="s">&quot;sma1&quot;</span><span class="p">],</span> <span class="s">&quot;sigma&quot;</span> <span class="o">=</span> <span class="nf">sqrt</span><span class="p">(</span><span class="n">arima_model</span><span class="o">$</span><span class="n">sigma2</span><span class="p">),</span> <span class="s">&quot;arima_errors&quot;</span> <span class="o">=</span> <span class="n">arima_errors</span><span class="p">,</span> <span class="s">&quot;end_value&quot;</span> <span class="o">=</span> <span class="n">infl_series</span><span class="p">[</span><span class="nf">length</span><span class="p">(</span><span class="n">infl_series</span><span class="p">)])</span>
-
-<span class="c1"># save(param, file = &quot;inflation_param.RData&quot;)</span>
-</pre></div>
-</div>
-</div>
-</div>
 </section>
 </section>
 
