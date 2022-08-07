@@ -1,0 +1,32 @@
+format: jb-article
+root: chapters/intro
+title: Introduction
+sections:
+- file: chapters/01/StochasticModels
+  title: Stochastic Models
+  sections:
+    - file: chapters/01/1/MortalityModels
+      title: Mortality Models
+      sections:
+      - file: chapters/01/1/LeeCarter/LeeCarter
+        title: LC
+      - file: chapters/01/1/PLAT/PLAT
+        title: Plat
+    - file: chapters/01/2/InterestModels
+      title: Interest
+    - file: chapters/01/3/InflationModelsIntro
+      title: Inflation
+      sections:
+      - file: chapters/01/3/InflationModels
+        title: RegressionWithArima
+- file: chapters/02/Basics
+  title: Documentation
+  sections:
+    - file: chapters/02/1/Setup
+      title: Setup
+    - file: chapters/02/2/Life
+      title: Life
+    - file: chapters/02/3/Contingencies
+      title: Contingency
+    - file: chapters/02/4/Cashflows
+      title: Cashflows
