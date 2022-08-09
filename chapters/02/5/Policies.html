@@ -54,6 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../../_static/logo.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="prev" title="Cashflows" href="../4/Cashflows.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -121,7 +122,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../01/StochasticModels.html">
    Stochastic Models
@@ -178,16 +179,16 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="../Basics.html">
    Documentation
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
   <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="../1/Setup.html">
      Setup
@@ -206,6 +207,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="../4/Cashflows.html">
      Cashflows
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Policies
     </a>
    </li>
   </ul>
@@ -540,6 +546,10 @@ title="Print to PDF"
 <li><p>expenses::<a class="reference internal" href="../4/Cashflows.html#cashflows"><span class="std std-ref">Cashflows</span></a>: a vector of expenses cashflows (must have all negative amount).</p></li>
 <li><p>penalties::<a class="reference internal" href="../4/Cashflows.html#cashflows"><span class="std std-ref">Cashflows</span></a>: a vector of penalties cashflows (must have all positive amount).</p></li>
 </ul>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>One of the great advantages of StLifeIns, is that cashflows need only be specified as they were defined from the start of the contract (although they can altered later). To perform valuations of the policy at different points in time, only the <em>term_if</em> (term in force) of the underlying <a class="reference internal" href="../2/Life.html#life"><span class="std std-ref">Life</span></a> needs to be updated.</p>
+</div>
 </section>
 <section id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">#</a></h2>
@@ -707,6 +717,13 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../4/Cashflows.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Cashflows</p>
+        </div>
+    </a>
 </div>
             </footer>
         </div>
