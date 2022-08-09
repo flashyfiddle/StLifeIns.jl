@@ -14,7 +14,7 @@ function empty_mortality_forecast(mortmodel::Dict{Bool, GAPC}, skip_extra=true::
         low_age = first(mortmodel[true].x)
         high_age = last(mortmodel[true].x)
         uxd = OrderedDict{Int8, Matrix{Float64}}()
-        t = 1
+        t = 2
         for x in low_age:(high_age-1)
             uxd[x] = Matrix{Float64}(undef, 0, t)
             t += 1
@@ -25,7 +25,7 @@ function empty_mortality_forecast(mortmodel::Dict{Bool, GAPC}, skip_extra=true::
         empty = Dict{Bool, OrderedDict{Int8, Matrix{Float64}}}()
         for gender in [0, 1]
             model = mortmodel[gender]
-            extra = ceil(Int8, YEAR_MON - last(model.t))-1
+            extra = floor(Int8, round(YEAR_MON - last(mortmodel.t), digits=7))
             low_age = first(model.x)
             high_age = last(mortmodel.x)
             uxd = OrderedDict{Int8, Matrix{Float64}}()
