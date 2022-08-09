@@ -45,12 +45,12 @@ spent at each age in each year for a [`SingleLife`](@ref).
 See also [`lookup_mortality`](@ref).
 """
 function mortality_lens(life::SingleLife)::MortalityLengths
-    time_ahead = YEAR_MON - floor(YEAR_MON)
+    time_ahead = YEAR_MON - floor(round(YEAR_MON, digits=7))
     first_year = 1
     last_year = ceil(Int8, round(time_ahead + life.proj_max/12, digits=7))
     year_age_len = OrderedDict(i=>OrderedDict{Int8, Int8}() for i in first_year:last_year)
 
-    current_age = floor(Int8, life.age)
+    current_age = floor(Int8, round(life.age, digits=7))
     time_current_age = round(Int8, 12(current_age+1 - life.age))
     time_current_year = round(Int8, min(12*(first_year - time_ahead), life.proj_max))
 

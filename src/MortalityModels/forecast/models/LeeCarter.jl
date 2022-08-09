@@ -1,5 +1,5 @@
 function forecast_mortality(mortmodel::LeeCarter, skip_extra=false::Bool)::MortalityForecasts
-    extra = ceil(Int8, YEAR_MON - last(mortmodel.t))-1
+    extra = ceil(Int8, round(YEAR_MON - last(mortmodel.t), digits=7))-1
     low_age, high_age = first(mortmodel.x), last(mortmodel.x)
     n = high_age-low_age+1+extra
     κt = forecast_arima(mortmodel.κt, n)
@@ -16,7 +16,7 @@ end
 
 
 function simulate_mortality(mortmodel::LeeCarter, nsims::Int64, skip_extra=false::Bool)::MortalityForecasts
-    extra = ceil(Int8, YEAR_MON - last(mortmodel.t))-1
+    extra = ceil(Int8, round(YEAR_MON - last(mortmodel.t), digits=7))-1
     low_age, high_age = first(mortmodel.x), last(mortmodel.x)
     n = high_age-low_age+1+extra
     κt = simulate_arima(mortmodel.κt, n, nsims)
