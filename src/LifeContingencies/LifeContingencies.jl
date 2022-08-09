@@ -11,12 +11,12 @@ export Contingency, Definite, Indefinite, Decrement
 export InForce, OnDeath, OnTermination
 export create_surrender_rates, lookup_surrender
 
-include("contingencies\\contingencies.jl")
-include("surrender_rates.jl")
+include(joinpath(@__DIR__, "contingencies\\contingencies.jl"))
+include(joinpath(@__DIR__, "surrender_rates.jl"))
 
 export BigProbabilityDict, BigRealisedProbDict, dependent_probabilities,
 simulate_lives
-include("probabilities.jl")
-include("simulate_lives.jl")
+include(joinpath(@__DIR__, "probabilities.jl"))
+include(joinpath(@__DIR__, "simulate_lives.jl"))
 
 end
