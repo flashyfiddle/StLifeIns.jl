@@ -1,5 +1,5 @@
 function forecast_mortality(mortmodel::LeeCarter, skip_extra=false::Bool)::MortalityForecasts
-    extra = ceil(Int8, round(YEAR_MON - last(mortmodel.t), digits=7))-1
+    extra = floor(Int8, round(YEAR_MON - last(mortmodel.t), digits=7))
     low_age, high_age = first(mortmodel.x), last(mortmodel.x)
     n = high_age-low_age+1+extra
     κt = forecast_arima(mortmodel.κt, n)
@@ -7,7 +7,7 @@ function forecast_mortality(mortmodel::LeeCarter, skip_extra=false::Bool)::Morta
     uxd = OrderedDict{Int8, Matrix{Float64}}()
     for x in low_age:(high_age-1)
         j = x-low_age+1
-        t = ifelse(skip_extra, (extra+1):(x-low_age+1+extra), 1:(x-low_age+1+extra))
+        t = ifelse(skip_extra, extra:(x-low_age+1+extra), 1:(x-low_age+1+extra))
         @views uxd[x] = exp.(mortmodel.αx[j] .+ mortmodel.βx[j]*κt[:, t])/12
     end
 
@@ -16,7 +16,7 @@ end
 
 
 function simulate_mortality(mortmodel::LeeCarter, nsims::Int64, skip_extra=false::Bool)::MortalityForecasts
-    extra = ceil(Int8, round(YEAR_MON - last(mortmodel.t), digits=7))-1
+    extra = floor(Int8, round(YEAR_MON - last(mortmodel.t), digits=7))
     low_age, high_age = first(mortmodel.x), last(mortmodel.x)
     n = high_age-low_age+1+extra
     κt = simulate_arima(mortmodel.κt, n, nsims)
@@ -24,7 +24,7 @@ function simulate_mortality(mortmodel::LeeCarter, nsims::Int64, skip_extra=false
     uxd = OrderedDict{Int8, Matrix{Float64}}()
     for x in low_age:(high_age-1)
         j = x-low_age+1
-        t = ifelse(skip_extra, (extra+1):(x-low_age+1+extra), 1:(x-low_age+1+extra))
+        t = ifelse(skip_extra, extra:(x-low_age+1+extra), 1:(x-low_age+1+extra))
         @views uxd[x] = exp.(mortmodel.αx[j] .+ mortmodel.βx[j]*κt[:, t])/12
     end
 
