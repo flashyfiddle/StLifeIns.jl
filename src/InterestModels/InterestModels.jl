@@ -3,13 +3,13 @@ module InterestModels
 using Distributions: Normal, NoncentralChisq
 
 export InterestModel, CIR, Vasicek
-include("models\\interest_model.jl")
-include("models\\CIR.jl")
-include("models\\Vasicek.jl")
+include("models/interest_model.jl")
+include("models/CIR.jl")
+include("models/Vasicek.jl")
 
 export simulate_interest, forecast_interest
-include("forecast\\CIR.jl")
-include("forecast\\Vasicek.jl")
+include("forecast/CIR.jl")
+include("forecast/Vasicek.jl")
 
 # using JLD2
 # intmodeldict_dir = joinpath(@__DIR__, "example_models\\intmodel_dict.jld2")
