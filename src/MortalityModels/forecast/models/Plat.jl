@@ -14,7 +14,7 @@ function forecast_mortality(mortmodel::Plat, skip_extra=false::Bool)::MortalityF
     for x in low_age:(high_age-1)
         j = x-low_age+1
         t = ifelse(skip_extra, extra:(x-low_age+1+extra), 1:(x-low_age+1+extra))
-        k = (m+low_age-x):m
+        k = (m+low_age-x-extra):m
         @views uxd[x] = exp.(mortmodel.αx[j] .+ κt1[:, t] .+ βx2[j]*κt2[:, t] .+ βx3[j]*κt3[:, t] .+ γc[:, k])/12
     end
 
@@ -38,7 +38,7 @@ function simulate_mortality(mortmodel::Plat, nsims::Int64, skip_extra=false::Boo
     for x in low_age:(high_age-1)
         j = x-low_age+1
         t = ifelse(skip_extra, extra:(x-low_age+1+extra), 1:(x-low_age+1+extra))
-        k = (m+low_age-x):m
+        k = ifelse(skip_extra, (m+low_age-x-1):m, (m+low_age-x-extra):m)
         @views uxd[x] = exp.(mortmodel.αx[j] .+ κt1[:, t] .+ βx2[j]*κt2[:, t] .+ βx3[j]*κt3[:, t] .+ γc[:, k])/12
     end
 
