@@ -47,7 +47,7 @@ See also [`lookup_mortality`](@ref).
 function mortality_lens(life::SingleLife)::MortalityLengths
     time_ahead = YEAR_MON - floor(YEAR_MON)
     first_year = 1
-    last_year = ceil(Int8, time_ahead + life.proj_max/12)
+    last_year = ceil(Int8, round(time_ahead + life.proj_max/12, digits=7))
     year_age_len = OrderedDict(i=>OrderedDict{Int8, Int8}() for i in first_year:last_year)
 
     current_age = floor(Int8, life.age)
