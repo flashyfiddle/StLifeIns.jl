@@ -49,7 +49,7 @@ function get_definite_totals(cfs::CompleteCashflows, prob::Union{BigRealisedProb
     end
 
     for cf in cfs
-        cf isa ZeroCashflow && break
+        cf isa ZeroCashflow && continue
         if cf.arrears
             amounts = definite_arrears(cf, prob)
         else

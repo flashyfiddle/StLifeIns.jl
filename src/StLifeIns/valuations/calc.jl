@@ -87,7 +87,7 @@ function get_totals(cfs::CompleteCashflows, prob::Union{BigProbabilityDict, BigP
     end
 
     for cf in cfs
-        cf isa ZeroCashflow && break
+        cf isa ZeroCashflow && continue
         if cf.arrears
             amounts = apply_probability(cf, prob)
         else
