@@ -25,8 +25,4 @@ include("forecast/models/Plat.jl")
 
 include("lookup_mortality.jl")
 
-# using JLD2
-# global mortmodel_dict = load(joinpath(@__DIR__, "example_models/mortmodel_dict.jld2"))["mortmodel_dict"]
-# export mortmodel_dict
-
 end
