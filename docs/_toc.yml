@@ -30,3 +30,5 @@ sections:
       title: Contingency
     - file: chapters/02/4/Cashflows
       title: Cashflows
+    - file: chapters/02/5/Policies
+      title: Policies
