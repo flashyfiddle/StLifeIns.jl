@@ -54,7 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../_static/logo.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Documentation" href="02/Basics.html" />
+    <link rel="next" title="Stochastic Models" href="01/StochasticModels.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -114,10 +114,18 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1 current active">
+                <a class="reference internal" href="#">
+                    StLifeIns
+                </a>
+            </li>
+        </ul>
         <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="02/Basics.html">
-   Documentation
+  <a class="reference internal" href="01/StochasticModels.html">
+   Stochastic Models
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -125,25 +133,49 @@ const thebe_selector_output = ".output, .cell_output"
    </i>
   </label>
   <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="02/1/Setup.html">
-     Setup
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="01/1/MortalityModels.html">
+     Mortality Models
     </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="01/1/LeeCarter/LeeCarter.html">
+       LC
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="01/1/PLAT/PLAT.html">
+       Plat
+      </a>
+     </li>
+    </ul>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="02/2/Life.html">
-     Life
+    <a class="reference internal" href="01/2/InterestModels.html">
+     Interest
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="02/3/Contingencies.html">
-     Contingency
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="01/3/InflationModelsIntro.html">
+     Inflation
     </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="02/4/Cashflows.html">
-     Cashflows
-    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="01/3/InflationModels.html">
+       RegressionWithArima
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
@@ -220,7 +252,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/flashyfiddle/StLifeIns.jl"
+        <a href="https://github.com/flashyfiddle/StLifeIns"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -237,7 +269,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/flashyfiddle/StLifeIns.jl/issues/new?title=Issue%20on%20page%20%2Fchapters/intro.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/flashyfiddle/StLifeIns/issues/new?title=Issue%20on%20page%20%2Fchapters/intro.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -330,7 +362,7 @@ title="Print to PDF"
 <h1>StLifeIns<a class="headerlink" href="#stlifeins" title="Permalink to this headline">#</a></h1>
 <p>StLifeIns is <a class="reference external" href="https://julialang.org/">Julia</a> package that can be used for stochastic life insurance valuations.</p>
 <p>StLifeIns is built to be simply understood and accessible. There is no need to understand actuarial notation nor is there a need to set up formulae involved in any calculations. Once the relevant policy information has been read into the appropriate coding structures, all that is left is determining the bases that need to be used.</p>
-<p>The diagram below gives a quick structure flow for a reserving valuation. Through the construction of Policies, each made up of a <a class="reference internal" href="02/2/Life.html#life"><span class="std std-ref">Life</span></a> and several applicable <a class="reference internal" href="02/4/Cashflows.html#cashflows"><span class="std std-ref">Cashflows</span></a>, and the specification of a suitable stochastic basis, many possible reserves can be calculated under various probabilistic circumstances.</p>
+<p>The diagram below gives a quick structure flow for a reserving valuation. Through the construction of Policies, each made up of a <a class="reference internal" href="2.Policy/2.Life/Life.html#life"><span class="std std-ref">Life</span></a> and several applicable <a class="reference internal" href="2.Policy/4.Cashflow/Cashflow.html#cashflows"><span class="std std-ref">Cashflows</span></a>, and the specification of a suitable stochastic basis, many possible reserves can be calculated under various probabilistic circumstances.</p>
 <figure class="align-default">
 <a class="reference internal image-reference" href="../_images/StLifeInsStructure.jpeg"><img alt="../_images/StLifeInsStructure.jpeg" src="../_images/StLifeInsStructure.jpeg" style="width: 721.5px; height: 690.0px;" /></a>
 </figure>
@@ -342,7 +374,7 @@ title="Print to PDF"
     {
         requestKernel: true,
         binderOptions: {
-            repo: "flashyfiddle/StLifeIns.jl",
+            repo: "flashyfiddle/StLifeIns",
             ref: "main",
         },
         codeMirrorConfig: {
@@ -365,10 +397,10 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='right-next' id="next-link" href="02/Basics.html" title="next page">
+    <a class='right-next' id="next-link" href="01/StochasticModels.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Documentation</p>
+        <p class="prev-next-title">Stochastic Models</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Mortality Models &#8212; StLifeIns</title>
+    <title>Contingencies &#8212; StLifeIns</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -54,8 +54,6 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../../_static/logo.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Lee Carter" href="LeeCarter/LeeCarter.html" />
-    <link rel="prev" title="Stochastic Models" href="../StochasticModels.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -123,46 +121,46 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="../StochasticModels.html">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../01/StochasticModels.html">
    Stochastic Models
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
-   <li class="toctree-l2 current active has-children">
-    <a class="current reference internal" href="#">
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../01/1/MortalityModels.html">
      Mortality Models
     </a>
-    <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
     <label for="toctree-checkbox-2">
      <i class="fas fa-chevron-down">
      </i>
     </label>
     <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="LeeCarter/LeeCarter.html">
+      <a class="reference internal" href="../../01/1/LeeCarter/LeeCarter.html">
        LC
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="PLAT/PLAT.html">
+      <a class="reference internal" href="../../01/1/PLAT/PLAT.html">
        Plat
       </a>
      </li>
     </ul>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../2/InterestModels.html">
+    <a class="reference internal" href="../../01/2/InterestModels.html">
      Interest
     </a>
    </li>
    <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../3/InflationModelsIntro.html">
+    <a class="reference internal" href="../../01/3/InflationModelsIntro.html">
      Inflation
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
@@ -172,7 +170,7 @@ const thebe_selector_output = ".output, .cell_output"
     </label>
     <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="../3/InflationModels.html">
+      <a class="reference internal" href="../../01/3/InflationModels.html">
        RegressionWithArima
       </a>
      </li>
@@ -231,6 +229,53 @@ title="Toggle navigation"
         
     </div>
     <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/flashyfiddle/StLifeIns/main?urlpath=tree/docs/chapters/2.Policy/3.Contingency/Contingency.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
 <button onclick="toggleFullScreen()"
   class="headerbtn"
   data-toggle="tooltip"
@@ -270,7 +315,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/flashyfiddle/StLifeIns/issues/new?title=Issue%20on%20page%20%2Fchapters/01/1/MortalityModels.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/flashyfiddle/StLifeIns/issues/new?title=Issue%20on%20page%20%2Fchapters/2.Policy/3.Contingency/Contingency.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -298,7 +343,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../../../_sources/chapters/01/1/MortalityModels.md"
+        <a href="../../../_sources/chapters/2.Policy/3.Contingency/Contingency.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -309,7 +354,7 @@ title="Download source file"
 <span class="headerbtn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="headerbtn__text-container">.md</span>
+<span class="headerbtn__text-container">.ipynb</span>
 </a>
 
       </li>
@@ -335,23 +380,90 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#definite">
+   Definite
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inforce">
+   InForce
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ondeath">
+   OnDeath
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ontermination">
+   OnTermination
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Mortality Models</h1>
+                <h1>Contingencies</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#definite">
+   Definite
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inforce">
+   InForce
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ondeath">
+   OnDeath
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ontermination">
+   OnTermination
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -359,11 +471,82 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="mortality-models">
-<h1>Mortality Models<a class="headerlink" href="#mortality-models" title="Permalink to this headline">#</a></h1>
-<p>It is essential that we have stochastic mortality models.</p>
-<div class="toctree-wrapper compound">
+  <section class="tex2jax_ignore mathjax_ignore" id="contingencies">
+<span id="contingency"></span><h1>Contingencies<a class="headerlink" href="#contingencies" title="Permalink to this headline">#</a></h1>
+<p>There are currently 4 different contingencies available:</p>
+<ol class="simple">
+<li><p><a class="reference internal" href="#definite"><span class="std std-ref">Definite()</span></a></p></li>
+<li><p><a class="reference internal" href="#inforce"><span class="std std-ref">InForce()</span></a></p></li>
+<li><p><a class="reference internal" href="#ondeath"><span class="std std-ref">OnDeath()</span></a></p></li>
+<li><p><a class="reference internal" href="#ontermination"><span class="std std-ref">OnTermination()</span></a></p></li>
+</ol>
+<section id="definite">
+<span id="id1"></span><h2>Definite<a class="headerlink" href="#definite" title="Permalink to this headline">#</a></h2>
+<p>A cashflow with this contingency will always pay out regardless of what happens to an underlying life.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">Definite</span><span class="p">()</span><span class="w"></span>
+</pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Definite()
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="inforce">
+<span id="id2"></span><h2>InForce<a class="headerlink" href="#inforce" title="Permalink to this headline">#</a></h2>
+<p>If a life is still in force (not dead or terminated), a cashflow with this contingency will pay out.</p>
+<p>This contingency is suitable for premiums, regular expenses and survival benefits.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">InForce</span><span class="p">()</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>InForce()
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="ondeath">
+<span id="id3"></span><h2>OnDeath<a class="headerlink" href="#ondeath" title="Permalink to this headline">#</a></h2>
+<p>If a life dies, a cashflow with this contingency will pay out. The probability of death is affected by the mortality rates specified in the basis.</p>
+<p>This contingency is suitable for death benefits and death claim expenses.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">OnDeath</span><span class="p">()</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>OnDeath()
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="ontermination">
+<span id="id4"></span><h2>OnTermination<a class="headerlink" href="#ontermination" title="Permalink to this headline">#</a></h2>
+<p>If a life surrenders its policy, a cashflow with this contingency will pay out. The probability of surrendering is affected by the surrender rates specified in the basis.</p>
+<p>This contingency is suitable for termination expenses. In cases where a customer needs to pay a cancelation fee on surrender, this contingency can also be used.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">OnTermination</span><span class="p">()</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>OnTermination()
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -375,16 +558,16 @@ title="Print to PDF"
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "julia-1.7"
         },
         kernelOptions: {
-            kernelName: "python3",
-            path: "./chapters\01\1"
+            kernelName: "julia-1.7",
+            path: "./chapters\2.Policy\3.Contingency"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'julia-1.7'</script>
 
               </div>
               
@@ -393,20 +576,6 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../StochasticModels.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Stochastic Models</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="LeeCarter/LeeCarter.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Lee Carter</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
 </div>
             </footer>
         </div>
