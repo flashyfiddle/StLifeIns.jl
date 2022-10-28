@@ -26,9 +26,14 @@ sections:
       title: Setup
     - file: chapters/02/2/Life
       title: Life
-    - file: chapters/02/3/Contingencies
+    - file: chapters/02/3/Contingency
       title: Contingency
-    - file: chapters/02/4/Cashflows
+    - file: chapters/02/4/Cashflow
       title: Cashflows
-    - file: chapters/02/5/Policies
+    - file: chapters/02/5/Policy
       title: Policies
+- file: chapters/03/Basics
+  title: Putting Everything Together
+  sections:
+    - file: chapters/03/Initialise
+      title: Initialise

@@ -28,7 +28,7 @@ repository:
 # Add GitHub buttons to your book
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
 html:
-  favicon                   : "logo.png"  # A path to a favicon image
+  favicon                   : "favicon.jpeg"  # A path to a favicon image
   navbar_number_sections    : True  # Add a number to each section in your left navbar
   google_analytics_id       : G-3VDEKZFT73  # A GA id that can be used to track book views.
   use_issues_button: true
@@ -37,4 +37,5 @@ html:
     hypothesis: true
     
 launch_buttons:
-  thebe                  : true
+  thebe: true
+  binderhub_url: "https://mybinder.org"
