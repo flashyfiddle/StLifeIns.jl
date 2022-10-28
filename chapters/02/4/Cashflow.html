@@ -1,0 +1,877 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Cashflows &#8212; StLifeIns</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../../_static/favicon.jpeg"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Policies" href="../5/Policy.html" />
+    <link rel="prev" title="Contingencies" href="../3/Contingency.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-3VDEKZFT73"></script>
+<script>
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){ dataLayer.push(arguments); }
+                    gtag('js', new Date());
+                    gtag('config', 'G-3VDEKZFT73');
+                </script>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">StLifeIns</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    StLifeIns
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../01/StochasticModels.html">
+   Stochastic Models
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../01/1/MortalityModels.html">
+     Mortality Models
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../01/1/LeeCarter/LeeCarter.html">
+       LC
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../01/1/PLAT/PLAT.html">
+       Plat
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../01/2/InterestModels.html">
+     Interest
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../01/3/InflationModelsIntro.html">
+     Inflation
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../01/3/InflationModels.html">
+       RegressionWithArima
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../Basics.html">
+   Documentation
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1/Setup.html">
+     Setup
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../2/Life.html">
+     Life
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../3/Contingency.html">
+     Contingency
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Cashflows
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../5/Policy.html">
+     Policies
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../03/Basics.html">
+   Putting Everything Together
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../03/Initialise.html">
+     Packages
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/flashyfiddle/StLifeIns/main?urlpath=tree/docs/chapters/02/4/Cashflow.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/flashyfiddle/StLifeIns"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/flashyfiddle/StLifeIns/issues/new?title=Issue%20on%20page%20%2Fchapters/02/4/Cashflow.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/chapters/02/4/Cashflow.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simplecashflows">
+   SimpleCashflows
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#recurringcashflow">
+     RecurringCashflow
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#anytimecashflow">
+     AnyTimeCashflow
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#completecashflows">
+   CompleteCashflows
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pointcashflow">
+     PointCashflow
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#zerocashflow">
+     ZeroCashflow
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#vectorcashflow">
+     VectorCashflow
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#parallelcashflows">
+   ParallelCashflows
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parallelpointcashflow">
+     ParallelPointCashflow
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parallelvectorcashflow">
+     ParallelVectorCashflow
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Cashflows</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simplecashflows">
+   SimpleCashflows
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#recurringcashflow">
+     RecurringCashflow
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#anytimecashflow">
+     AnyTimeCashflow
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#completecashflows">
+   CompleteCashflows
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pointcashflow">
+     PointCashflow
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#zerocashflow">
+     ZeroCashflow
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#vectorcashflow">
+     VectorCashflow
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#parallelcashflows">
+   ParallelCashflows
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parallelpointcashflow">
+     ParallelPointCashflow
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parallelvectorcashflow">
+     ParallelVectorCashflow
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="cashflows">
+<span id="id1"></span><h1>Cashflows<a class="headerlink" href="#cashflows" title="Permalink to this headline">#</a></h1>
+<p>Cashflows are effectively defined by a cashflow structure (amount and timing) paired with a chosen <a class="reference internal" href="../3/Contingency.html#contingency"><span class="std std-ref">Contingency</span></a>.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>When specifying cashflow amounts, it’s important to specify whether the cashflow is positive or negative, e.g. Premiums are positive, where as Benefits and Expenses are negative.</p>
+</div>
+<section id="simplecashflows">
+<span id="simple-cf"></span><h2>SimpleCashflows<a class="headerlink" href="#simplecashflows" title="Permalink to this headline">#</a></h2>
+<p>SimpleCashflows are structures with the primary goal of simplifying the interface for the user. They are used for many policy products and provide predictable and intuitive outputs.</p>
+<p>In the background of the code, SimpleCashflows are converted into more mathematically accessible cashflows in the form of <a class="reference internal" href="#complete-cf"><span class="std std-ref">CompleteCashflows</span></a>.</p>
+<p>The scope of SimpleCashflows is limited at this point in time, however, it would be fairly simple to define additional SimpleCashflows if and when needed.</p>
+<section id="recurringcashflow">
+<span id="recurring-cf"></span><h3>RecurringCashflow<a class="headerlink" href="#recurringcashflow" title="Permalink to this headline">#</a></h3>
+<p>A RecurringCashflow is a cashflow that happens at predictable, equally-spaced intervals, e.g. every month, and where the payment value stays the same or grows with a prespecified fixed growth rate.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">cf_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Premium&quot;</span><span class="w"></span>
+<span class="n">frequency</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="c"># monthly</span><span class="w"></span>
+<span class="n">monthly_payment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="w"></span>
+<span class="n">esc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="c"># (yearly effective growth rate)</span><span class="w"></span>
+<span class="n">first_payment_month</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="n">arrears</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="w"> </span><span class="c"># in advance (start of month)</span><span class="w"></span>
+<span class="n">contingency</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">InForce</span><span class="p">()</span><span class="w"></span>
+
+<span class="n">RecurringCashflow</span><span class="p">(</span><span class="n">cf_name</span><span class="p">,</span><span class="w"> </span><span class="n">monthly_payment</span><span class="p">,</span><span class="w"> </span><span class="n">esc</span><span class="p">,</span><span class="w"> </span><span class="n">first_payment_month</span><span class="p">,</span><span class="w"> </span><span class="n">frequency</span><span class="p">,</span><span class="w"> </span><span class="n">arrears</span><span class="p">,</span><span class="w"> </span><span class="n">contingency</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RecurringCashflow(&quot;Premium&quot;, 100.0, 0.0, 1, 12, false, InForce())
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>A RecurringCashflow should only be used with the <a class="reference internal" href="../3/Contingency.html#inforce"><span class="std std-ref">InForce</span></a> contingency.</p>
+</div>
+</section>
+<section id="anytimecashflow">
+<h3>AnyTimeCashflow<a class="headerlink" href="#anytimecashflow" title="Permalink to this headline">#</a></h3>
+<p>An AnyTimeCashflow is meant for cashflows where the timing of payment is unknown, i.e. it can happen at any time.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">cf_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Death Benefit&quot;</span><span class="w"></span>
+<span class="n">benefit_amount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1000000</span><span class="w"></span>
+<span class="n">esc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.05</span><span class="w"> </span><span class="c"># grows by 5% every year</span><span class="w"></span>
+<span class="n">arrears</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="w"></span>
+<span class="n">contingency</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OnDeath</span><span class="p">()</span><span class="w"></span>
+
+<span class="n">AnyTimeCashflow</span><span class="p">(</span><span class="n">cf_name</span><span class="p">,</span><span class="w"> </span><span class="n">benefit_amount</span><span class="p">,</span><span class="w"> </span><span class="n">esc</span><span class="p">,</span><span class="w"> </span><span class="n">arrears</span><span class="p">,</span><span class="w"> </span><span class="n">contingency</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AnyTimeCashflow(&quot;Death Benefit&quot;, -1.0e6, 0.05, true, OnDeath())
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>An AnyTimeCashflow should only be used with the <a class="reference internal" href="../3/Contingency.html#inforce"><span class="std std-ref">OnDeath</span></a> or <a class="reference internal" href="../3/Contingency.html#ontermination"><span class="std std-ref">OnTermination</span></a> contingencies.</p>
+</div>
+</section>
+</section>
+<section id="completecashflows">
+<span id="complete-cf"></span><h2>CompleteCashflows<a class="headerlink" href="#completecashflows" title="Permalink to this headline">#</a></h2>
+<p>CompleteCashflows are more immediately mathematically tractable than <a class="reference internal" href="#simple-cf"><span class="std std-ref">SimpleCashflows</span></a>. This does not, however, mean that they are inherently more complex (as will be seen from the <a class="reference internal" href="#zero-cf"><span class="std std-ref">ZeroCashflow</span></a> and <a class="reference internal" href="#point-cf"><span class="std std-ref">PointCashflow</span></a>).</p>
+<section id="pointcashflow">
+<span id="point-cf"></span><h3>PointCashflow<a class="headerlink" href="#pointcashflow" title="Permalink to this headline">#</a></h3>
+<p>A PointCashflow is a cashflow of which the amount and timing are known, but is still contingent on some <a class="reference internal" href="../3/Contingency.html#contingency"><span class="std std-ref">Contingency</span></a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">cf_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Survival Benefit&quot;</span><span class="w"></span>
+<span class="n">amount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1000000</span><span class="w"></span>
+<span class="n">time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">120</span><span class="w"></span>
+<span class="n">arrears</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="w"></span>
+<span class="n">contingency</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">InForce</span><span class="p">()</span><span class="w"></span>
+
+<span class="n">PointCashflow</span><span class="p">(</span><span class="n">cf_name</span><span class="p">,</span><span class="w"> </span><span class="n">amount</span><span class="p">,</span><span class="w"> </span><span class="n">time</span><span class="p">,</span><span class="w"> </span><span class="n">arrears</span><span class="p">,</span><span class="w"> </span><span class="n">contingency</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PointCashflow(&quot;Survival Benefit&quot;, -1.0e6, 120, true, InForce())
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="zerocashflow">
+<span id="zero-cf"></span><h3>ZeroCashflow<a class="headerlink" href="#zerocashflow" title="Permalink to this headline">#</a></h3>
+<p>A cashflow with no payment and therefore also no contingency. It is unlikely that such a cashflow would be specified explicitly by the user, but it can be especially useful in the background code.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">cf_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Term Assurance Benefit Not Paid&quot;</span><span class="w"></span>
+<span class="n">ZeroCashflow</span><span class="p">(</span><span class="n">cf_name</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ZeroCashflow(&quot;Term Assurance Benefit Not Paid&quot;)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="vectorcashflow">
+<span id="vector-cf"></span><h3>VectorCashflow<a class="headerlink" href="#vectorcashflow" title="Permalink to this headline">#</a></h3>
+<p>A particularly flexible cashflow that takes a vector of monthly payments, where the position in the vector defines the timing of the payment.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">cf_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Inconsitent Premiums for 6 months&quot;</span><span class="w"></span>
+<span class="n">payment_amounts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">150</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">]</span><span class="w"></span>
+<span class="n">arrears</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="w"> </span><span class="c"># in advance</span><span class="w"></span>
+<span class="n">contingency</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">InForce</span><span class="p">()</span><span class="w"></span>
+
+<span class="n">VectorCashflow</span><span class="p">(</span><span class="n">cf_name</span><span class="p">,</span><span class="w"> </span><span class="n">payment_amounts</span><span class="p">,</span><span class="w"> </span><span class="n">arrears</span><span class="p">,</span><span class="w"> </span><span class="n">contingency</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>VectorCashflow(&quot;Inconsitent Premiums for 6 months&quot;, [100.0, 0.0, 200.0, 0.0, 150.0, 20.0], false, InForce())
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Where a cashflow can more easily be defined, it is recommended to define a <a class="reference internal" href="#simple-cf"><span class="std std-ref">SimpleCashflow</span></a> and an accompanying <span class="xref myst">complete function</span>.</p>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>By combining a vector with strategically placed zeroes and a suitable <a class="reference internal" href="../3/Contingency.html#contingency"><span class="std std-ref">Contingency</span></a>, very complex cashflows can be created.</p>
+</div>
+<p>(parallel_cf))=</p>
+</section>
+</section>
+<section id="parallelcashflows">
+<h2>ParallelCashflows<a class="headerlink" href="#parallelcashflows" title="Permalink to this headline">#</a></h2>
+<p>Up to this point, while the cashflow objects have been uncertain in the sense that they were linked to a contingency, there has been no uncertainty in the actual payment amount.</p>
+<p>ParallelCashflows exist for the cases where the cashflow amount itself is uncertain. An additional dimension is added to store cashflow amounts under every simulation.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ParallelCashflows were primarily added to allow expense cashflows to vary with inflation, however, they are more flexible than this and can be used in other advanced circumstances.</p>
+</div>
+<section id="parallelpointcashflow">
+<h3>ParallelPointCashflow<a class="headerlink" href="#parallelpointcashflow" title="Permalink to this headline">#</a></h3>
+<p>A ParallelPointCashflow is used when only a single payment at a known time will occur, but the payment amount is variable under different simulations. It is effectively a <a class="reference internal" href="#point-cf"><span class="std std-ref">PointCashflow</span></a> with unknown payment amount.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">cf_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Survival Claim Expense with Inflation&quot;</span><span class="w"></span>
+<span class="n">amount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="w"></span>
+<span class="n">time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">120</span><span class="w"> </span><span class="c"># 10 years from contract start</span><span class="w"></span>
+<span class="n">arrears</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="w"></span>
+<span class="n">contingency</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">InForce</span><span class="p">()</span><span class="w"></span>
+
+<span class="n">nsims</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="n">inflation_distribution</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Normal</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span><span class="w"> </span><span class="mf">0.02</span><span class="p">)</span><span class="w"></span>
+<span class="n">inflation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">(</span><span class="n">inflation_distribution</span><span class="p">,</span><span class="w"> </span><span class="n">nsims</span><span class="p">,</span><span class="w"> </span><span class="n">time</span><span class="p">)</span><span class="w"></span>
+<span class="n">inflation_fact</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">.+</span><span class="w"> </span><span class="n">inflation</span><span class="p">)</span><span class="o">.^</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">12</span><span class="p">)</span><span class="w"></span>
+<span class="n">cum_infl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cumprod</span><span class="p">(</span><span class="n">inflation_fact</span><span class="p">,</span><span class="w"> </span><span class="n">dims</span><span class="o">=</span><span class="mi">2</span><span class="p">)[</span><span class="o">:</span><span class="p">,</span><span class="w"> </span><span class="n">time</span><span class="p">]</span><span class="w"></span>
+<span class="n">amount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">amount</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cum_infl</span><span class="w"></span>
+
+<span class="n">ParallelPointCashflow</span><span class="p">(</span><span class="n">cf_name</span><span class="p">,</span><span class="w"> </span><span class="n">amount</span><span class="p">,</span><span class="w"> </span><span class="n">time</span><span class="p">,</span><span class="w"> </span><span class="n">arrears</span><span class="p">,</span><span class="w"> </span><span class="n">contingency</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ParallelPointCashflow(&quot;Survival Claim Expense with Inflation&quot;, [158.94533707693844, 161.93836313165642], 120, true, InForce())
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="parallelvectorcashflow">
+<h3>ParallelVectorCashflow<a class="headerlink" href="#parallelvectorcashflow" title="Permalink to this headline">#</a></h3>
+<p>A ParallelVectorCashflow is used when several payments may be made at potentially unknown times and of unknown amount. A ParallelVectorCashflow is effectively a <a class="reference internal" href="#vector-cf"><span class="std std-ref">VectorCashflow</span></a> with unknown payment values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">cf_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Regular Expenses with Inflation&quot;</span><span class="w"></span>
+<span class="n">amount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="w"></span>
+<span class="n">time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="c"># 3 months from contract start</span><span class="w"></span>
+<span class="n">arrears</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="w"></span>
+<span class="n">contingency</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">InForce</span><span class="p">()</span><span class="w"></span>
+
+<span class="n">nsims</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="n">inflation_distribution</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Normal</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span><span class="w"> </span><span class="mf">0.02</span><span class="p">)</span><span class="w"></span>
+<span class="n">inflation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">(</span><span class="n">inflation_distribution</span><span class="p">,</span><span class="w"> </span><span class="n">nsims</span><span class="p">,</span><span class="w"> </span><span class="n">time</span><span class="p">)</span><span class="w"></span>
+<span class="n">inflation_fact</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">.+</span><span class="w"> </span><span class="n">inflation</span><span class="p">)</span><span class="o">.^</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">12</span><span class="p">)</span><span class="w"></span>
+<span class="n">cum_infl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cumprod</span><span class="p">(</span><span class="n">inflation_fact</span><span class="p">,</span><span class="w"> </span><span class="n">dims</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="n">amount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">amount</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cum_infl</span><span class="w"></span>
+
+<span class="n">ParallelVectorCashflow</span><span class="p">(</span><span class="n">cf_name</span><span class="p">,</span><span class="w"> </span><span class="n">amount</span><span class="p">,</span><span class="w"> </span><span class="n">arrears</span><span class="p">,</span><span class="w"> </span><span class="n">contingency</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ParallelVectorCashflow(&quot;Regular Expenses with Inflation&quot;, [100.46579098087989 101.08879384989325 101.33123448700545; 100.23416499024376 100.64486523545635 101.26421720958159], true, InForce())
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "flashyfiddle/StLifeIns",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "julia-1.7"
+        },
+        kernelOptions: {
+            kernelName: "julia-1.7",
+            path: "./chapters\02\4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'julia-1.7'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../3/Contingency.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Contingencies</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../5/Policy.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Policies</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Franco Marais<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

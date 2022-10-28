@@ -51,7 +51,7 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <link rel="shortcut icon" href="../_static/logo.png"/>
+    <link rel="shortcut icon" href="../_static/favicon.jpeg"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Stochastic Models" href="01/StochasticModels.html" />
@@ -176,6 +176,60 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
     </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="02/Basics.html">
+   Documentation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02/1/Setup.html">
+     Setup
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02/2/Life.html">
+     Life
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02/3/Contingency.html">
+     Contingency
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02/4/Cashflow.html">
+     Cashflows
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02/5/Policy.html">
+     Policies
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="03/Basics.html">
+   Putting Everything Together
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03/Initialise.html">
+     Packages
+    </a>
    </li>
   </ul>
  </li>
@@ -362,7 +416,7 @@ title="Print to PDF"
 <h1>StLifeIns<a class="headerlink" href="#stlifeins" title="Permalink to this headline">#</a></h1>
 <p>StLifeIns is <a class="reference external" href="https://julialang.org/">Julia</a> package that can be used for stochastic life insurance valuations.</p>
 <p>StLifeIns is built to be simply understood and accessible. There is no need to understand actuarial notation nor is there a need to set up formulae involved in any calculations. Once the relevant policy information has been read into the appropriate coding structures, all that is left is determining the bases that need to be used.</p>
-<p>The diagram below gives a quick structure flow for a reserving valuation. Through the construction of Policies, each made up of a <a class="reference internal" href="2.Policy/2.Life/Life.html#life"><span class="std std-ref">Life</span></a> and several applicable <a class="reference internal" href="2.Policy/4.Cashflow/Cashflow.html#cashflows"><span class="std std-ref">Cashflows</span></a>, and the specification of a suitable stochastic basis, many possible reserves can be calculated under various probabilistic circumstances.</p>
+<p>The diagram below gives a quick structure flow for a reserving valuation. Through the construction of Policies, each made up of a <a class="reference internal" href="02/2/Life.html#life"><span class="std std-ref">Life</span></a> and several applicable <a class="reference internal" href="02/4/Cashflow.html#cashflows"><span class="std std-ref">Cashflows</span></a>, and the specification of a suitable stochastic basis, many possible reserves can be calculated under various probabilistic circumstances.</p>
 <figure class="align-default">
 <a class="reference internal image-reference" href="../_images/StLifeInsStructure.jpeg"><img alt="../_images/StLifeInsStructure.jpeg" src="../_images/StLifeInsStructure.jpeg" style="width: 721.5px; height: 690.0px;" /></a>
 </figure>
